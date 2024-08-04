@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3e23073c-aec9-4f55-af79-b5c3f5041c9b" class="page sans"><header><h1 class="page-title">Module 2</h1><p class="page-description"></p></header><div class="page-body"><h1 id="044dd865-4baf-40c1-acb7-c17eb11f65d2" class="">The relationship between frameworks and controls</h1><p id="55bd916b-1395-481b-a0e7-12745063337c" class="">Previously, you learned how organizations use security frameworks and controls to protect against threats, risks, and vulnerabilities. This included discussions about the National Institute of Standards and Technology’s (NIST’s) Risk Management Framework (RMF) and Cybersecurity Framework (CSF), as well as the confidentiality, integrity, and availability (CIA) triad. In this reading, you will further explore security frameworks and controls and how they are used together to help mitigate organizational risk.</p><h2 id="547bf019-6238-477f-9919-8fcf4cd348f3" class="">Frameworks and controls</h2><p id="f6751e37-118f-4abb-ba7c-8839fd5e69af" class=""><strong>Security frameworks</strong> are guidelines used for building plans to help mitigate risk and threats to data and privacy. Frameworks support organizations’ ability to adhere to compliance laws and regulations. For example, the healthcare industry uses frameworks to comply with the United States’ Health Insurance Portability and Accountability Act (HIPAA), which requires that medical professionals keep patient information safe.</p><p id="9d40d476-d335-4980-918b-1ff0635bc1d7" class=""><strong>Security controls</strong> are safeguards designed to reduce <em>specific </em>security risks. Security controls are the measures organizations use to lower risk and threats to data and privacy. For example, a control that can be used alongside frameworks to ensure a hospital remains compliant with HIPAA is requiring that patients use multi-factor authentication (MFA) to access their medical records. Using a measure like MFA to validate someone’s identity is one way to help mitigate potential risks and threats to private data.</p><h2 id="40e888e1-fb75-4ccf-bd3c-70481dd3ee1b" class="">Specific frameworks and controls</h2><p id="fda82bee-af48-4b82-9c9c-97d185c1069e" class="">There are many different frameworks and controls that organizations can use to remain compliant with regulations and achieve their security goals. Frameworks covered in this reading are the Cyber Threat Framework (CTF) and the International Organization for Standardization/International Electrotechnical Commission (ISO/IEC) 27001. Several common security controls, used alongside these types of frameworks, are also explained.</p><h3 id="29def743-f11c-4c38-882b-792a0b073a20" class=""><strong>Cyber Threat Framework (CTF)</strong></h3><p id="6f472eda-144d-41c3-a0c2-5b38f1168012" class="">According to the Office of the Director of National Intelligence, the CTF was developed by the U.S. government to provide “a common language for describing and communicating information about cyber threat activity.” By providing a common language to communicate information about threat activity, the CTF helps cybersecurity professionals analyze and share information more efficiently. This allows organizations to improve their response to the constantly evolving cybersecurity landscape and threat actors&#x27; many tactics and techniques.</p><h3 id="13b35cb9-9162-43c6-bfc3-97451b5669b8" class=""><strong>International Organization for Standardization/International Electrotechnical Commission (ISO/IEC) 27001</strong></h3><p id="f8895b58-9a40-420f-85db-501c6a6da509" class="">An internationally recognized and used framework is ISO/IEC 27001. The ISO 27000 family of standards enables organizations of all sectors and sizes to manage the security of assets, such as financial information, intellectual property, employee data, and information entrusted to third parties. This framework outlines requirements for an information security management system, best practices, and controls that support an organization’s ability to manage risks. Although the ISO/IEC 27001 framework does not require the use of specific controls, it does provide a collection of controls that organizations can use to improve their security posture.</p><h3 id="1201c06e-50f6-48f4-8d34-b738e323b9e3" class=""><strong>Controls</strong></h3><p id="99b1241c-d34c-4dcd-ab52-631f425eeef9" class="">Controls are used alongside frameworks to reduce the possibility and impact of a security threat, risk, or vulnerability. Controls can be physical, technical, and administrative and are typically used to prevent, detect, or correct security issues.</p><p id="679a0dc1-afe2-4d7d-ae67-223b0530ed69" class="">Examples of physical controls:</p><ul id="d841ff41-c088-4fb0-8523-440aff993e30" class="bulleted-list"><li style="list-style-type:disc">Gates, fences, and locks</li></ul><ul id="63b5be16-9242-4800-a0db-69309c344f57" class="bulleted-list"><li style="list-style-type:disc">Security guards</li></ul><ul id="b4cae92f-9d6a-443a-8165-d4450c4e4c9b" class="bulleted-list"><li style="list-style-type:disc">Closed-circuit television (CCTV), surveillance cameras, and motion detectors</li></ul><ul id="f89394d6-81ad-4eed-a1e8-2221714307b8" class="bulleted-list"><li style="list-style-type:disc">Access cards or badges to enter office spaces</li></ul><p id="df1231f6-c9d4-4227-afe5-baec71549973" class="">Examples of technical controls:</p><ul id="f0e6a1ee-66ba-4e21-9672-156ba9bea3f2" class="bulleted-list"><li style="list-style-type:disc">Firewalls</li></ul><ul id="257879d2-cfc1-44c0-bb66-2d193e932be3" class="bulleted-list"><li style="list-style-type:disc">MFA</li></ul><ul id="58216cf0-393b-4006-a3d6-9d2aacccbea4" class="bulleted-list"><li style="list-style-type:disc">Antivirus software</li></ul><p id="cfb582d6-d8d9-4280-b4a7-34ff7a153f2c" class="">Examples of administrative controls:</p><ul id="7810aef3-6849-4212-b683-9a2371ac9a27" class="bulleted-list"><li style="list-style-type:disc">Separation of duties</li></ul><ul id="b8e54004-c9b6-42b7-a3be-5d6ba19513d0" class="bulleted-list"><li style="list-style-type:disc">Authorization</li></ul><ul id="2814b429-e7bc-4389-99ff-4dfc8cc7760a" class="bulleted-list"><li style="list-style-type:disc">Asset classification</li></ul><p id="850919af-6f08-4d92-a851-b447b6bad58a" class="">To learn more about controls, particularly those used to protect health-related assets from a variety of threat types, review the U.S. Department of Health and Human Services’ <a href="https://www.hhs.gov/sites/default/files/physical-access-control.pdf">Physical Access Control presentation</a></p><p id="d55a74e5-a86e-416e-97e8-3dc61e34088a" class="">.</p><h2 id="18d75c68-78cc-44d7-82a8-c491fc1b208a" class="">Key takeaways</h2><p id="bf8571ce-99ce-4c86-9d08-5dc177a72245" class="">Cybersecurity frameworks and controls are used together to establish an organization’s security posture. They also support an organization’s ability to meet security goals and comply with laws and regulations. Although these frameworks and controls are typically voluntary, organizations are strongly encouraged to implement and use them to help ensure the safety of critical assets.</p><p id="11557213-b86e-4870-89d9-aaac750b6e49" class="">
+</p><p id="c8afa145-744d-42f2-8007-1d2753c68f28" class="">
+</p><h1 id="2876fd5f-7e74-4e34-9121-33fefbcaf3ca" class="">Use the CIA triad to protect organizations</h1><p id="0a1bac97-ed3d-4b1a-8a67-fc054fb995db" class="">Previously, you were introduced to the confidentiality, integrity, and availability (CIA) triad and how it helps organizations consider and mitigate risk. In this reading, you will learn how cybersecurity analysts use the CIA triad in the workplace.</p><h2 id="5f4221f8-f5de-4aff-a22f-b30f4ae16457" class="">The CIA triad for analysts</h2><p id="9af91375-8aed-4371-a026-90d92eb10ca9" class="">The <strong>CIA triad</strong> is a model that helps inform how organizations consider risk when setting up systems and security policies. It is made up of three elements that cybersecurity analysts and organizations work toward upholding: confidentiality, integrity, and availability. Maintaining an acceptable level of risk and ensuring systems and policies are designed with these elements in mind helps establish a successful <strong>security posture</strong>, which refers to an organization’s ability to manage its defense of critical assets and data and react to change.</p><h3 id="d294516d-53d7-4a7e-ad98-48068772fc89" class=""><strong>Confidentiality</strong></h3><p id="e83c98d4-ebd1-47c5-9a57-a0010c375bae" class=""><strong>Confidentiality</strong> is the idea that only authorized users can access specific assets or data. In an organization, confidentiality can be enhanced through the implementation of design principles, such as the principle of least privilege. The principle of least privilege limits users&#x27; access to only the information they need to complete work-related tasks. Limiting access is one way of maintaining the confidentiality and security of private data.</p><h3 id="13359f68-500d-4563-a959-20ca2a46e1c2" class=""><strong>Integrity</strong></h3><p id="a71e3a04-a931-42f1-815e-f23116826555" class=""><strong>Integrity</strong> is the idea that the data is verifiably correct, authentic, and reliable. Having protocols in place to verify the authenticity of data is essential. One way to verify data integrity is through <a href="https://www.nist.gov/cryptography#:~:text=Cryptography%20uses%20mathematical%20techniques%20to,that%20drives%20research%20and%20innovation.">cryptography</a></p><p id="e5ca37db-be20-4d72-9b1a-fc64815d0cad" class="">, which is used to transform data so unauthorized parties cannot read or tamper with it (NIST, 2022). Another example of how an organization might implement integrity is by enabling encryption, which is the process of converting data from a readable format to an encoded format. Encryption can be used to prevent access and ensure data, such as messages on an organization&#x27;s internal chat platform, cannot be tampered with.</p><h3 id="e24b2615-734c-4a6a-809d-9576c93a2758" class=""><strong>Availability</strong></h3><p id="29609a80-4d51-4531-b329-9d5d7d3ca332" class=""><strong>Availability</strong> is the idea that data is accessible to those who are authorized to use it. When a system adheres to both availability and confidentiality principles, data can be used when needed. In the workplace, this could mean that the organization allows remote employees to access its internal network to perform their jobs. It’s worth noting that access to data on the internal network is still limited, depending on what type of access employees need to do their jobs. If, for example, an employee works in the organization’s accounting department, they might need access to corporate accounts but not data related to ongoing development projects.</p><h2 id="1c22b7a7-7f95-4c45-bea9-6a3291353cbc" class="">Key takeaways</h2><p id="9df642f3-0c87-4515-92ec-770a7d76f572" class="">The CIA triad is essential for establishing an organization’s security posture. Knowing what it is and how it’s applied can help you better understand how security teams work to protect organizations and the people they serve.</p><p id="7ce7ea77-b42c-4102-86ef-1dbfcfdd3686" class="">
+</p><h1 id="fd2e3928-1a6e-41f7-b42b-1441cd6627b6" class="">More about OWASP security principles</h1><p id="f5c4074b-6a95-4ed1-ad9b-efce41949473" class="">Previously, you learned that cybersecurity analysts help keep data safe and reduce risk for an organization by using a variety of security frameworks, controls, and security principles. In this reading, you will learn about more Open Web Application Security Project, recently renamed Open Worldwide Application Security Project® (OWASP), security principles and how entry-level analysts use them.</p><h2 id="85b4a2fe-600d-4ce4-89a3-6514570cdb46" class="">Security principles</h2><p id="a6563eae-2307-4d15-b96f-1b8d72438f64" class="">In the workplace, security principles are embedded in your daily tasks. Whether you are analyzing logs, monitoring a security information and event management (SIEM) dashboard, or using a <a href="https://csrc.nist.gov/glossary/term/vulnerability_scanner">vulnerability scanner</a></p><p id="84d82d94-b76f-42d2-bcfe-2c32ad5a3b5c" class="">, you will use these principles in some way.</p><p id="e8baae5b-3064-466a-bfbb-2ad8920b1a27" class="">Previously, you were introduced to several OWASP security principles. These included:</p><ul id="0d6ea68d-9c03-41b8-93ce-ee99efbd2c6a" class="bulleted-list"><li style="list-style-type:disc"><strong>Minimize attack surface area</strong>: Attack surface refers to all the potential vulnerabilities a threat actor could exploit.</li></ul><ul id="b7aa9e6d-61d2-454e-ab70-39dbdd31a774" class="bulleted-list"><li style="list-style-type:disc"><strong>Principle of least privilege</strong>: Users have the least amount of access required to perform their everyday tasks.</li></ul><ul id="f6107dc1-8b6e-4486-aa8b-428956d2052e" class="bulleted-list"><li style="list-style-type:disc"><strong>Defense in depth</strong>: Organizations should have varying security controls that mitigate risks and threats.</li></ul><ul id="15ca11b1-e4ca-4dc0-9520-7ce0810b2093" class="bulleted-list"><li style="list-style-type:disc"><strong>Separation of duties</strong>: Critical actions should rely on multiple people, each of whom follow the principle of least privilege.</li></ul><ul id="d8cc6913-dd1e-4fc4-ac75-6c54bddd5537" class="bulleted-list"><li style="list-style-type:disc"><strong>Keep security simple</strong>: Avoid unnecessarily complicated solutions. Complexity makes security difficult.</li></ul><ul id="26bd691c-53b7-41f7-97b2-f232b8f38dff" class="bulleted-list"><li style="list-style-type:disc"><strong>Fix security issues correctly</strong>: When security incidents occur, identify the root cause, contain the impact, identify vulnerabilities, and conduct tests to ensure that remediation is successful.</li></ul><h2 id="f662b55e-5969-40f8-b305-3f5ff75640e0" class="">Additional OWASP security principles</h2><p id="7e5bff3e-bd9a-4793-aeb3-d816a9042384" class="">Next, you’ll learn about four additional OWASP security principles that cybersecurity analysts and their teams use to keep organizational operations and people safe.</p><h3 id="b63e7c92-f4c2-419e-921a-c2418d0c3b07" class=""><strong>Establish secure defaults</strong></h3><p id="554474b7-44d8-472f-9bb8-8173e5b0e40e" class="">This principle means that the optimal security state of an application is also its default state for users; it should take extra work to make the application insecure.</p><h3 id="7ba99a28-b985-489d-a661-c7487e37aa73" class=""><strong>Fail securely</strong></h3><p id="45dd6805-fb2e-44a9-90b4-e57fc37e04e7" class="">Fail securely means that when a control fails or stops, it should do so by defaulting to its most secure option. For example, when a firewall fails it should simply close all connections and block all new ones, rather than start accepting everything.</p><h3 id="8b4ab956-2604-4378-bdd9-3eeef8c02419" class=""><strong>Don’t trust services</strong></h3><p id="31c06875-759c-407e-a607-341b9ee95523" class="">Many organizations work with third-party partners. These outside partners often have different security policies than the organization does. And the organization shouldn’t explicitly trust that their partners’ systems are secure. For example, if a third-party vendor tracks reward points for airline customers, the airline should ensure that the balance is accurate before sharing that information with their customers.</p><h3 id="98a32330-04b4-48eb-95b6-3e2c377911fc" class=""><strong>Avoid security by obscurity</strong></h3><p id="fb0d5905-550c-4fa9-b3ee-b2df5a404e25" class="">The security of key systems should not rely on keeping details hidden. Consider the following example from OWASP (2016):</p><p id="360d86d0-8b6b-4448-a48f-2f42b38414b2" class="">The security of an application should not rely on keeping the source code secret. Its security should rely upon many other factors, including reasonable password policies, defense in depth, business transaction limits, solid network architecture, and fraud and audit controls.</p><h2 id="e90c1fec-4ad8-4601-83b1-8b36f7ab1132" class="">Key takeaways</h2><p id="057ff5fa-1d94-4c4d-893d-14adf1a8163e" class="">Cybersecurity professionals are constantly applying security principles to safeguard organizations and the people they serve. As an entry-level security analyst, you can use these security principles to promote safe development practices that reduce risks to companies and users alike.</p><figure id="eee66a95-1439-464d-998f-8073068d5699"><div class="source"><a href="Module%202%203e23073caec94f55af79b5c3f5041c9b/Audit-Scope-and-Goals.docx">Audit-Scope-and-Goals.docx</a></div></figure><h1 id="5fd543d5-cf99-4c55-a6aa-a99d9189707d" class="">More about security audits</h1><p id="5bba86eb-c35a-47ac-9a7d-e4d022cf0a66" class="">Previously, you were introduced to how to plan and complete an internal security audit. In this reading, you will learn more about security audits, including the goals and objectives of audits.</p><h2 id="e5b5b9aa-f748-470a-99e8-fa2bd44300ae" class="">Security audits</h2><p id="915d9b2f-979e-40cd-8a34-e76cb2abea26" class="">A <strong>security audit</strong> is a review of an organization&#x27;s security controls, policies, and procedures against a set of expectations. Audits are independent reviews that evaluate whether an organization is meeting internal and external criteria. Internal criteria include outlined policies, procedures, and best practices. External criteria include regulatory compliance, laws, and federal regulations.</p><p id="65f1aed4-38e2-4022-919c-232b385ae3f7" class="">Additionally, a security audit can be used to assess an organization&#x27;s established security controls. As a reminder, <strong>security controls</strong> are safeguards designed to reduce specific security risks.</p><p id="bc19d517-d963-4b4e-9746-cb9cf89a996f" class="">Audits help ensure that security checks are made (i.e., daily monitoring of security information and event management dashboards), to identify threats, risks, and vulnerabilities. This helps maintain an organization’s security posture. And, if there are security issues, a remediation process must be in place.</p><h2 id="c9bd31ab-1e13-4d22-9e4f-ffc238c225a6" class="">Goals and objectives of an audit</h2><p id="9112e843-fa48-449f-9b14-d409baf56441" class="">The goal of an audit is to ensure an organization&#x27;s information technology (IT) practices are meeting industry and organizational standards. The objective is to identify and address areas of remediation and growth. Audits provide direction and clarity by identifying what the current failures are and developing a plan to correct them.</p><p id="19ee67fe-6011-4e93-b511-bdba1db89c83" class="">Security audits must be performed to safeguard data and avoid penalties and fines from governmental agencies. The frequency of audits is dependent on local laws and federal compliance regulations.</p><h2 id="9ff684d3-fac7-4bdb-b4a5-5889c4f7ce67" class="">Factors that affect audits</h2><p id="33dd6038-a2b4-4c24-87e1-f062b3804169" class="">Factors that determine the types of audits an organization implements include:</p><ul id="98365e1c-966a-42a8-8b05-f53a11e9afd8" class="bulleted-list"><li style="list-style-type:disc">Industry type</li></ul><ul id="0a262563-01ff-4f24-b759-32a4536c12bd" class="bulleted-list"><li style="list-style-type:disc">Organization size</li></ul><ul id="93c63938-ab6c-4f7a-9728-648edcd9504e" class="bulleted-list"><li style="list-style-type:disc">Ties to the applicable government regulations</li></ul><ul id="f1fa56ce-e818-488a-83c3-59d8797559ba" class="bulleted-list"><li style="list-style-type:disc">A business’s geographical location</li></ul><ul id="8ef36abf-a52a-45d7-ae0d-9d9c740d752d" class="bulleted-list"><li style="list-style-type:disc">A business decision to adhere to a specific regulatory compliance</li></ul><p id="2f99f98f-b864-412d-9ea9-f8a353a25e9f" class="">To review common compliance regulations that different organizations need to adhere to, refer to <a href="https://www.coursera.org/learn/foundations-of-cybersecurity/supplement/xu4pr/controls-frameworks-and-compliance">the reading about controls, frameworks, and compliance</a></p><p id="1c8a62d7-ff64-487a-80cb-713708290e6f" class="">.</p><h2 id="28dca02b-e367-44ea-a1ab-b6e156b2eb75" class="">The role of frameworks and controls in audits</h2><p id="3714d736-d49b-471c-99f1-d1046e71b022" class="">Along with compliance, it’s important to mention the role of frameworks and controls in security audits. Frameworks such as the National Institute of Standards and Technology Cybersecurity Framework (NIST CSF) and the international standard for information security (ISO 27000) series are designed to help organizations prepare for regulatory compliance security audits. By adhering to these and other relevant frameworks, organizations can save time when conducting external and internal audits. Additionally, frameworks, when used alongside controls, can support organizations’ ability to align with regulatory compliance requirements and standards.</p><p id="7241edbb-24d1-4700-893e-02836b7b7c78" class="">There are three main categories of controls to review during an audit, which are administrative and/or managerial, technical, and physical controls. To learn more about specific controls related to each category, click the following link and select “Use Template.”</p><p id="f157be08-9cf7-45bc-9255-8c9fa8d783ba" class="">Link to template: <a href="https://docs.google.com/document/d/1Ut_H5A9FHwuQEy6_qG6Lfy3zwF6GSJnj3DZTMaNRWEE/template/preview?resourcekey=0-i4dR5qZFqQyfzr8uk3OOmA">Control categories</a></p><p id="0c72644f-9b4f-412e-8aa9-35e2a623b4ce" class="">OR</p><p id="3715d1f7-a1dc-4b24-be06-b510ca5fa487" class="">If you don’t have a Google account, you can download the template directly from the following attachment</p><h2 id="13d5d959-65f2-4615-8338-43ad60dc28b9" class="">Audit checklist</h2><p id="5e5ac2d0-6460-4780-8fb3-2f185deae343" class="">It’s necessary to create an audit checklist before conducting an audit. A checklist is generally made up of the following areas of focus:</p><p id="a36e45f7-8356-44f1-b3a2-a8a1a7164f3c" class=""><strong>Identify the scope of the audit</strong></p><ul id="31081552-834b-461c-b8a1-1e6a4f6c4b54" class="bulleted-list"><li style="list-style-type:disc">The audit should:<ul id="8607f4c0-08c5-40d8-b557-c90119f407f0" class="bulleted-list"><li style="list-style-type:circle">List assets that will be assessed (e.g., firewalls are configured correctly, PII is secure, physical assets are locked, etc.)</li></ul><ul id="873e6b6d-e983-4368-b7cb-eaaa2ffbc77e" class="bulleted-list"><li style="list-style-type:circle">Note how the audit will help the organization achieve its desired goals</li></ul><ul id="348e4c0a-0712-4a71-ab38-01fc7debbedf" class="bulleted-list"><li style="list-style-type:circle">Indicate how often an audit should be performed</li></ul><ul id="0313a0fa-0682-4ae8-9b42-06b03ccbce35" class="bulleted-list"><li style="list-style-type:circle">Include an evaluation of organizational policies, protocols, and procedures to make sure they are working as intended and being implemented by employees</li></ul></li></ul><p id="4ac0703f-d7da-46ad-9733-4a9b6d188625" class=""><strong>Complete a risk assessment</strong></p><ul id="5a9bac17-2ca5-418e-96c6-7e1c90e00ae4" class="bulleted-list"><li style="list-style-type:disc">A risk assessment is used to evaluate identified organizational risks related to budget, controls, internal processes, and external standards (i.e., regulations).</li></ul><p id="7781b55c-544e-4584-9ac5-7703e10a162b" class=""><strong>Conduct the audit</strong></p><ul id="a2b80c44-a539-4b6a-8fbf-ae14333ae89e" class="bulleted-list"><li style="list-style-type:disc">When conducting an internal audit, you will assess the security of the identified assets listed in the audit scope.</li></ul><p id="4469beed-8180-4c67-9970-36c78164e069" class=""><strong>Create a mitigation plan</strong></p><ul id="5cdd1340-d3ef-415d-b779-211f8b89c4fc" class="bulleted-list"><li style="list-style-type:disc">A mitigation plan is a strategy established to lower the level of risk and potential costs, penalties, or other issues that can negatively affect the organization’s security posture.</li></ul><p id="22860aca-0d57-46ad-a328-82228d629488" class=""><strong>Communicate results to stakeholders</strong></p><ul id="8f8abf4e-9676-4481-9d25-8cc05f74472c" class="bulleted-list"><li style="list-style-type:disc">The end result of this process is providing a detailed report of findings, suggested improvements needed to lower the organization&#x27;s level of risk, and compliance regulations and standards the organization needs to adhere to.</li></ul><h2 id="fee239c3-8449-4bd6-b3ef-4b0ba8855dd7" class="">Key takeaways</h2><p id="bba20216-c770-4813-a792-75b8dfcc1d1a" class="">In this reading you learned more about security audits, including what they are; why they’re conducted; and the role of frameworks, controls, and compliance in audits.</p><p id="991353ee-c1de-4b07-8bc5-0749b55754da" class="">Although there is much more to learn about security audits, this introduction is meant to support your ability to complete an audit of your own for a self-reflection portfolio activity later in this course.</p><h2 id="4d39c031-3e76-4b6b-9e90-7140facd33d8" class="">Resources for more information</h2><p id="db3d5f2a-1f3d-4ce1-af16-7c7e835dfd52" class="">Resources that you can explore to further develop your understanding of audits in the cybersecurity space are:</p><ul id="ca5184c0-b8a9-4615-9499-90ec2dd5f88e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.nist.gov/cyberframework/assessment-auditing-resources">Assessment and Auditing Resources</a></li></ul><ul id="0fcf40c6-dc92-4034-bd4a-7abc676bf94a" class="bulleted-list"><li style="list-style-type:disc"></li></ul><ul id="5d72745e-c95c-4a22-8135-e40bff1ce81b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.ready.gov/it-disaster-recovery-plan">IT Disaster Recovery Plan</a></li></ul><p id="2e559b69-73d5-4213-945f-1f41928c5730" class="">
+</p><h1 id="1481c030-dcf9-4989-9c90-7cab0233ce70" class="">Portfolio Activity Exemplar: Conduct a security audit</h1><p id="f18cbeac-998f-45b3-8148-669271bb96be" class="">Here is the completed exemplar along with an explanation of how each element of the exemplar fulfills the expectations for the activity.</p><figure id="5cdb66f8-90fa-40b5-98d8-63bc5a515550" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vrOx5jVYRV24D1bwJJV2iw_fb2771f7f4084e9ca4b266774688def1_wCVJ05QCygst9rfYVHj6Byqg3_Ti1XtGmvQR-XWZg3D9Vo8NIvWmPAScfYjnlqN9XTk6B3OLMKyI7ONRStx3fjDE967a-xzIgIEcyAHliQ7ARvKIYlCDnXoH2rhFe26yv_E91q-2T0G04hbqKn9Th8xrZ_8c-b4QCiiU8lJ226GnsMtl-wvv4r6HyV7h06Q?expiry=1718668800000&amp;hmac=z-fGWnJMkgySx5EWRK8t6BgNXqrgpJ0PjHgQ28ekDhs"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vrOx5jVYRV24D1bwJJV2iw_fb2771f7f4084e9ca4b266774688def1_wCVJ05QCygst9rfYVHj6Byqg3_Ti1XtGmvQR-XWZg3D9Vo8NIvWmPAScfYjnlqN9XTk6B3OLMKyI7ONRStx3fjDE967a-xzIgIEcyAHliQ7ARvKIYlCDnXoH2rhFe26yv_E91q-2T0G04hbqKn9Th8xrZ_8c-b4QCiiU8lJ226GnsMtl-wvv4r6HyV7h06Q?expiry=1718668800000&amp;hmac=z-fGWnJMkgySx5EWRK8t6BgNXqrgpJ0PjHgQ28ekDhs"/></a></figure><h2 id="85cc3e02-9c2b-483f-9664-b8f087146d1c" class="">Completed Exemplar</h2><p id="40e54768-fe51-4106-8081-72b3e8f0dd53" class="">To review the exemplar for this course item, click the following link and select <em>Use Template</em>.</p><figure id="c8e2e6cf-3906-44e5-a49a-ffd598629e05" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/UU7R6kLiQ8uBDfjs_1ZlFg_4956d338e22b439fb60d5d2c02bb07f1_nlQIc3jyTXlQI6IZBrVo0MF5ZiyWaNUylXCW_tyYMui3fquJysRc9_XMOb0L_H47uS54QpH1SGyaW4BTBTdLtged5wjrw67QdPYGc8DVGKQ9JLsVQ2-j3TJMshnVNkCpVko7hNmQiZqPhOLPVzUbbdUYjWxYQWXCXRQXa8g7mULeWly_HKPCFvlfufGm5Ko?expiry=1718668800000&amp;hmac=ObbIxJaxOc_EH7KOphMiBC91GJ4nUdM2Y2YmqfDME5E"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/UU7R6kLiQ8uBDfjs_1ZlFg_4956d338e22b439fb60d5d2c02bb07f1_nlQIc3jyTXlQI6IZBrVo0MF5ZiyWaNUylXCW_tyYMui3fquJysRc9_XMOb0L_H47uS54QpH1SGyaW4BTBTdLtged5wjrw67QdPYGc8DVGKQ9JLsVQ2-j3TJMshnVNkCpVko7hNmQiZqPhOLPVzUbbdUYjWxYQWXCXRQXa8g7mULeWly_HKPCFvlfufGm5Ko?expiry=1718668800000&amp;hmac=ObbIxJaxOc_EH7KOphMiBC91GJ4nUdM2Y2YmqfDME5E"/></a></figure><p id="6bfbad90-d438-4ccb-8905-706b88de3ea1" class="">Link to exemplar:</p><ul id="03ec78e6-d30f-479e-beaa-a1e9cc5bb89c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://docs.google.com/document/d/1QQOXccTxs9g9OGlm56O52nelOuOYZz1NE6LAN_sV5nU/template/preview">Controls and compliance checklist exemplar</a></li></ul><ul id="0681dee4-24a8-4bd3-97b5-0b78279034c0" class="bulleted-list"><li style="list-style-type:disc"></li></ul><p id="12b3c735-8368-4f42-abf0-77699c35c5ed" class="">OR</p><p id="0d52fe54-3c76-4822-af30-165cdef3b858" class="">If you don’t have a Google account, you can download the exemplars directly from the following attachments.</p><figure id="ece207a0-892d-424e-a6d6-ffc06096fa48" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/HN6n7wdWQ76EFc3U6_CY7g_2626a47faa4646eba129ad9796d3aaf1_uYMv02rpawjMBwIk_5FDBA_RvaIWhApNDfkGlN57OhRSWsKHQ1AHpW1ZKqVwgj8d2Q8E8OC3lPriBzmMNIP8GJap71338V8WeHXygbhE1u-6N2QYxhpkYKtHhtFoHM57YMsHTIrxOtgNJawOd1kqIIJgfS2JUSDBWHt_GzmXxJhkhqD_cvs9lvQVZmeUKmc?expiry=1718668800000&amp;hmac=Qcw2KaX_SRA1KJ_WSQE5s9Km_oAFZYpka-LuhoSBBaE"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/HN6n7wdWQ76EFc3U6_CY7g_2626a47faa4646eba129ad9796d3aaf1_uYMv02rpawjMBwIk_5FDBA_RvaIWhApNDfkGlN57OhRSWsKHQ1AHpW1ZKqVwgj8d2Q8E8OC3lPriBzmMNIP8GJap71338V8WeHXygbhE1u-6N2QYxhpkYKtHhtFoHM57YMsHTIrxOtgNJawOd1kqIIJgfS2JUSDBWHt_GzmXxJhkhqD_cvs9lvQVZmeUKmc?expiry=1718668800000&amp;hmac=Qcw2KaX_SRA1KJ_WSQE5s9Km_oAFZYpka-LuhoSBBaE"/></a></figure><h2 id="8147e74b-776c-4d62-ad00-4d2190ca380a" class="">Assessment of Exemplar</h2><figure id="39c77f12-4d23-42e9-8e7b-d831d1a5148c" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/70FEiijLRqOHTNV9RYvvbA_4a54e396ec494a38b573dfe9c34cbdf1_lL2yqkkaq7c7_swaj5-RRhP2cTFTzzINOlRtCOyHTNsZdWuFuOFLdtIvMZ8fqOxpKvRYvhWHKrt6hwd_zILNiFXipd5O62XpQclB2_591GGL0xNKLW2iQDFwka-bXid9x46E2pA-gxzylemFPSDAUMfPYp29pBrIk3_lau44z4pjHRPrtSj0OahKskDSANw?expiry=1718668800000&amp;hmac=Dn22FEYsR6U5gpmoDY8_YJfaotiSieb5xjH6B5ZzOd0"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/70FEiijLRqOHTNV9RYvvbA_4a54e396ec494a38b573dfe9c34cbdf1_lL2yqkkaq7c7_swaj5-RRhP2cTFTzzINOlRtCOyHTNsZdWuFuOFLdtIvMZ8fqOxpKvRYvhWHKrt6hwd_zILNiFXipd5O62XpQclB2_591GGL0xNKLW2iQDFwka-bXid9x46E2pA-gxzylemFPSDAUMfPYp29pBrIk3_lau44z4pjHRPrtSj0OahKskDSANw?expiry=1718668800000&amp;hmac=Dn22FEYsR6U5gpmoDY8_YJfaotiSieb5xjH6B5ZzOd0"/></a></figure><p id="885f13fc-aa6c-4288-9bec-d891d52a8345" class="">Compare the exemplar to your completed activity. Review your work using each of the criteria in the exemplar. What did you do well? Where can you improve? Use your answers to revise your project as needed and guide you as you continue to progress through the certificate program.</p><p id="6f2a4b20-220a-4f77-84df-2f0ac531c930" class=""><em><strong>Note:</strong></em><em> The exemplar represents one possible way to complete the activity. Yours will likely differ in certain ways. What’s important is that your activity demonstrates your ability to select controls that Botium Toys does or does not need to implement and compliance best practices that the company needs to adhere to in order to mitigate risks and avoid fines.</em></p><figure id="85a3779d-6ab9-4f40-847a-4acd85dbc341" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/Dwr8U8clQVaEa8N35L1ydQ_cbb62cce56de4422aacd3a042642c5f1_TPXSz4gSyJ8mu2HGHfRLocQMIXm6f6CvmWKmazqBY3AeQ6BdoifBwIswqw1glP95hh1LUopOv1UOgRbH4GZ12BeTHGPczkP66uP5n2yp5_lgQVRZl4ZBOK3CS1l1tU1E4_oVTA-pz0uErasZtz_moyWthJC682A39LnU4Z_TBR8aBd240PhdGaXRPE3OaXY?expiry=1718668800000&amp;hmac=fpk0DYOaSLVn_6cwGOkOEvki1C7VCeRRFv8xwatNaV4"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/Dwr8U8clQVaEa8N35L1ydQ_cbb62cce56de4422aacd3a042642c5f1_TPXSz4gSyJ8mu2HGHfRLocQMIXm6f6CvmWKmazqBY3AeQ6BdoifBwIswqw1glP95hh1LUopOv1UOgRbH4GZ12BeTHGPczkP66uP5n2yp5_lgQVRZl4ZBOK3CS1l1tU1E4_oVTA-pz0uErasZtz_moyWthJC682A39LnU4Z_TBR8aBd240PhdGaXRPE3OaXY?expiry=1718668800000&amp;hmac=fpk0DYOaSLVn_6cwGOkOEvki1C7VCeRRFv8xwatNaV4"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

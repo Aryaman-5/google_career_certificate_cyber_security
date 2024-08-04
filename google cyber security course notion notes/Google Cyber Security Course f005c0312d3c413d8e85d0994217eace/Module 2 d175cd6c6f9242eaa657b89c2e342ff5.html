@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d175cd6c-6f92-42ea-a657-b89c2e342ff5" class="page sans"><header><h1 class="page-title">Module 2</h1><p class="page-description"></p></header><div class="page-body"><p id="e2770ca2-4ac2-417f-acfa-a74885b7947a" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/PUGBB/network-protocols?trk_ref=coach_copy">Network protocols</a>  Jun 22, 2024</p><h2 id="95576b9e-04a2-4872-8e39-1d2ffd72b02c" class="">Network Protocols: The Rules of the Network Game</h2><p id="3cbd716d-d203-4474-a0bc-9a0dc135b694" class="">This lecture dives into the fascinating world of network protocols, the essential rules that govern data transmission across networks.</p><p id="fe54acd9-4dca-4344-b19d-cd94f2f31b72" class=""><strong>Key Takeaways:</strong></p><ul id="6db2e49e-9cc6-4ccf-84cc-2130665c520c" class="bulleted-list"><li style="list-style-type:disc"><strong>Network protocols</strong> are sets of rules that ensure data reaches its intended destination in the correct order and format.</li></ul><ul id="7261be04-76ce-4258-8b44-903b34e727ff" class="bulleted-list"><li style="list-style-type:disc"><strong>TCP (Transmission Control Protocol):</strong> Establishes a connection between devices, verifies communication, and streams data reliably.</li></ul><ul id="82f84a03-28f9-4323-b713-bfc884f8b744" class="bulleted-list"><li style="list-style-type:disc"><strong>ARP (Address Resolution Protocol):</strong> Determines the MAC address of the next device on the data path.</li></ul><ul id="f5d8cb5e-3aed-408f-be6b-1daae32baebe" class="bulleted-list"><li style="list-style-type:disc"><strong>HTTPS (Hypertext Transfer Protocol Secure):</strong> Provides secure communication between client and server, encrypting data for protection.</li></ul><ul id="f7ee5856-7f3c-4237-b879-c6aff7ed0f29" class="bulleted-list"><li style="list-style-type:disc"><strong>DNS (Domain Name System):</strong> Translates domain names into IP addresses, enabling us to access websites easily.</li></ul><p id="dc31261b-4e66-4b94-811f-1c7cbdedb1a0" class=""><mark class="highlight-purple"><strong>Scenario:</strong></mark></p><p id="5705d9da-38a6-4beb-8447-0e60393a118b" class=""><mark class="highlight-purple">Imagine accessing your favorite recipe website, &quot;Yummy Recipes For Me.&quot; Here&#x27;s how different protocols work together:</mark></p><ol type="1" id="910d14d1-1f50-48c2-a694-ef0bfa4fb1f7" class="numbered-list" start="1"><li><mark class="highlight-purple"><strong>TCP:</strong></mark><mark class="highlight-purple"> You initiate a connection with the website&#x27;s server using TCP, ensuring a reliable and secure communication channel.</mark></li></ol><ol type="1" id="ccf2b507-f7b7-4bdf-8bc8-86ed44c01889" class="numbered-list" start="2"><li><mark class="highlight-purple"><strong>ARP:</strong></mark><mark class="highlight-purple"> Your device uses ARP to determine the MAC address of the next router on the path to the server.</mark></li></ol><ol type="1" id="9e23e8a6-6a67-4964-b68b-a7a1b384d813" class="numbered-list" start="3"><li><mark class="highlight-purple"><strong>HTTPS:</strong></mark><mark class="highlight-purple"> You securely request the webpage from the server using HTTPS, which encrypts the data to protect it from interception.</mark></li></ol><ol type="1" id="b29df752-0754-4514-844f-8c73e2b69fe9" class="numbered-list" start="4"><li><mark class="highlight-purple"><strong>DNS:</strong></mark><mark class="highlight-purple"> Your device uses DNS to translate the website&#x27;s domain name (&quot;Yummy Recipes For Me&quot;) into its IP address, allowing your device to locate the server.</mark></li></ol><p id="2d55dc90-2ef8-4b6f-a8cd-fdfae6ea5984" class=""><strong>Security and Protocols:</strong></p><p id="3a2ce875-fd79-417e-a914-4c61983b2135" class="">Protocols play a crucial role in network security. HTTPS, for example, encrypts data using SSL/TLS, safeguarding it from malicious actors. Understanding network protocols is essential for security analysts to identify vulnerabilities and implement effective security measures.</p><p id="4a1135aa-a486-4602-b519-52999cd80e2f" class=""><strong>Further Exploration:</strong></p><p id="088b1bbf-500e-4469-ba2e-9b6632d09cd0" class="">This lecture provides a foundational understanding of network protocols. As you progress in your security analyst career, you&#x27;ll delve deeper into various protocols and their applications in network security.</p><p id="ceb283d6-ae41-4788-9576-c210caaf1c3d" class=""><strong>Remember:</strong></p><ul id="df1ce31c-5412-4382-ad35-2ba1883223ea" class="bulleted-list"><li style="list-style-type:disc">Network protocols are the backbone of data communication.</li></ul><ul id="5b7e8341-9f2e-459e-8aaf-843f5a8a7d4a" class="bulleted-list"><li style="list-style-type:disc">Understanding these protocols is crucial for network security.</li></ul><ul id="00434f3a-752b-4747-a622-980e7dd14c24" class="bulleted-list"><li style="list-style-type:disc">This lecture is just the beginning of your journey into the world of network protocols.</li></ul><p id="89c34801-edf9-4d99-8abc-c9e870545d7c" class=""><strong>Additional Resources:</strong></p><ul id="8559b94e-f3e7-4a5d-85d9-84efe9e74f0d" class="bulleted-list"><li style="list-style-type:disc">Coursera offers a variety of courses on network security and protocols. You can explore these courses to deepen your understanding.</li></ul><ul id="e49b221f-4344-4a7e-bdef-0e3053e6728f" class="bulleted-list"><li style="list-style-type:disc">Online resources and tutorials can provide further insights into specific protocols and their functionalities.</li></ul><p id="32d1ce2a-8864-45b6-bf11-5d76091b82d4" class=""><strong>Stay curious and keep learning!</strong></p><h1 id="6c2c6b9b-35ed-4a81-9ab5-0f521e3dbfcf" class="">Common network protocols</h1><p id="0272679c-b8f3-4805-bf46-b2e014f020fc" class="">In this section of the course, you learned about network protocols and how they organize communication over a network. This reading will discuss network protocols in more depth and review some basic protocols that you have learned previously. You will also learn new protocols and discuss some of the ways protocols are involved in network security.</p><h2 id="3f2bd476-f93a-4160-ad31-8804a7c1cc1c" class="">Overview of network protocols</h2><p id="dade9bb0-87b0-48bf-b0be-b54d57c50a0e" class="">A <strong>network protocol </strong>is a set of rules used by two or more devices on a network to describe the order of delivery and the structure of data. Network protocols serve as instructions that come with the information in the data packet. These instructions tell the receiving device what to do with the data. Protocols are like a common language that allows devices all across the world to communicate with and understand each other.</p><p id="205c9d07-0d92-489d-be3c-bd277a18f4dd" class="">Even though network protocols perform an essential function in network communication, security analysts should still understand their associated security implications. Some protocols have vulnerabilities that malicious actors exploit. For example, a nefarious actor could use the Domain Name System (DNS) protocol, which resolves web addresses to IP addresses, to divert traffic from a legitimate website to a malicious website containing malware. You’ll learn more about this topic in upcoming course materials.</p><h2 id="e8529558-ddf9-4faa-bdb5-e54f8ee2ec72" class="">Three categories of network protocols</h2><p id="03e473bf-9c67-4cf1-a0fd-c3cf92f1d56f" class="">Network protocols can be divided into three main categories: communication protocols, management protocols, and security protocols. There are dozens of different network protocols, but you don’t need to memorize all of them for an entry-level security analyst role. However, it’s important for you to know the ones listed in this reading.</p><h3 id="dff2f9d1-8b89-4048-9fee-9cadcab67c2d" class=""><strong>Communication protocols</strong></h3><p id="5feb293f-dbd7-4b41-a4c0-254b867c67d1" class="">Communication protocols govern the exchange of information in network transmission. They dictate how the data is transmitted between devices and the timing of the communication. They also include methods to recover data lost in transit. Here are a few of them.</p><ul id="07918c8d-c6ae-4b79-b592-efcb4afe4488" class="bulleted-list"><li style="list-style-type:disc"><strong>Transmission Control Protocol (TCP) </strong>is an internet communication protocol that allows two devices to form a connection and stream data. TCP uses a three-way handshake process. First, the device sends a synchronize (SYN) request to a server. Then the server responds with a SYN/ACK packet to acknowledge receipt of the device&#x27;s request. Once the server receives the final ACK packet from the device, a TCP connection is established. In the TCP/IP model, TCP occurs at the<mark class="highlight-orange"> transport layer.</mark></li></ul><ul id="0cc26a7c-1708-4f83-b183-6deda596456e" class="bulleted-list"><li style="list-style-type:disc"><strong>User Datagram Protocol (UDP)</strong> is a connectionless protocol that does not establish a connection between devices before a transmission. This makes it less reliable than TCP. But it also means that it works well for transmissions that need to get to their destination quickly. For example, one use of UDP is for sending DNS requests to local DNS servers. In the TCP/IP model, UDP occurs at the transport layer.</li></ul><ul id="490012e6-14a9-4af7-bc5b-8f422c1e6549" class="bulleted-list"><li style="list-style-type:disc"><strong>Hypertext Transfer Protocol (HTTP)</strong> is an application layer protocol that provides a method of communication between clients and website servers. <mark class="highlight-orange">HTTP uses port 80</mark>. HTTP is considered insecure, so it is being replaced on most websites by a secure version, called HTTPS that uses encryption from SSL/TLS for communication. However, there are still many websites that use the insecure HTTP protocol. In the TCP/IP model, HTTP occurs at the <mark class="highlight-brown">application layer</mark><mark class="highlight-yellow">.</mark></li></ul><ul id="0399bcf1-ca2d-4643-8d03-76935c194827" class="bulleted-list"><li style="list-style-type:disc"><strong>Domain Name System (DNS) </strong>is a protocol that translates internet domain names into IP addresses. When a client computer wishes to access a website domain using their internet browser, a query is sent to a dedicated DNS server. The DNS server then looks up the IP address that corresponds to the website domain. DNS normally uses UDP on port 53. However, if the DNS reply to a request is large, it will switch to using the TCP protocol. In the TCP/IP model, DNS occurs at the application layer.</li></ul><h3 id="f5177a6e-7e1d-4c31-99e8-6d4317f064dd" class=""><strong>Management Protocols</strong></h3><p id="204864fe-f529-4fae-b99c-c54e0e0340a5" class="">The next category of network protocols is management protocols. Management protocols are used for monitoring and managing activity on a network. They include protocols for error reporting and optimizing performance on the network.</p><ul id="c2bfbb1d-c49c-4da0-b98c-9805add4fb45" class="bulleted-list"><li style="list-style-type:disc"><strong>Simple Network Management Protocol (SNMP)</strong> is a network protocol used for monitoring and managing devices on a network. SNMP can reset a password on a network device or change its baseline configuration. It can also send requests to network devices for a report on how much of the network’s bandwidth is being used up. <mark class="highlight-orange">In the TCP/IP model, SNMP occurs at the application layer.</mark></li></ul><ul id="1edaa09d-4777-491a-bc4a-ec8c4703a746" class="bulleted-list"><li style="list-style-type:disc"><strong>Internet Control Message Protocol (ICMP)</strong> is an internet protocol used by devices to tell each other about data transmission errors across the network. ICMP is used by a receiving device to send a report to the sending device about the data transmission. ICMP is commonly used as a quick way to troubleshoot network connectivity and latency by issuing the “ping” command on a Linux operating system. In the TCP/IP model, <mark class="highlight-brown">ICMP occurs at the internet layer.</mark></li></ul><h3 id="c32ac8df-14c9-4d8e-bfa5-875ebd730752" class=""><strong>Security Protocols</strong></h3><p id="459751b4-4fc9-45b6-bc8f-6260d4a874b1" class="">Security protocols are network protocols that ensure that data is sent and received securely across a network. Security protocols use encryption algorithms to protect data in transit. Below are some common security protocols.</p><ul id="b82625c6-8c65-486d-afaf-e4922ae08b9c" class="bulleted-list"><li style="list-style-type:disc"><strong>Hypertext Transfer Protocol Secure (HTTPS)</strong> is a network protocol that provides a secure method of communication between clients and website servers. HTTPS is a secure version of HTTP that uses secure sockets layer/transport layer security (SSL/TLS) encryption on all transmissions so that malicious actors cannot read the information contained. <mark class="highlight-brown">HTTPS uses port 443. In the TCP/IP model, HTTPS occurs at the application layer.</mark></li></ul><ul id="a1eb7b86-1951-4bb5-89c0-e200b654084b" class="bulleted-list"><li style="list-style-type:disc"><strong>Secure File Transfer Protocol (SFTP) </strong>is a secure protocol used to transfer files from one device to another over a network. SFTP uses secure shell (SSH), <mark class="highlight-brown">typically through TCP port 22</mark>. SSH uses Advanced Encryption Standard (AES) and other types of encryption to ensure that unintended recipients cannot intercept the transmissions. In the TCP/IP model, <mark class="highlight-brown">SFTP occurs at the application layer.</mark> SFTP is used often with cloud storage. Every time a user uploads or downloads a file from cloud storage, the file is transferred using the SFTP protocol.</li></ul><p id="162b9358-a462-4386-a7aa-143748835c7f" class=""><strong>Note: </strong>The encryption protocols mentioned do not conceal the source or destination IP address of network traffic. This means a malicious actor can still learn some basic information about the network traffic if they intercept it.</p><h2 id="4b6c7bf4-cc15-43f7-af06-1838251f08c5" class="">Key takeaways</h2><p id="6f7ae546-fed4-4bef-b681-34c74ce9995e" class="">The protocols you learned about in this reading are basic networking protocols that entry-level cybersecurity analysts should know. Understanding how protocols function on a network is essential. Cybersecurity analysts can leverage their knowledge of protocols to successfully mitigate vulnerabilities on a network and potentially prevent future attacks.</p><h1 id="fe5a8784-9fc3-4ecd-a018-42aa99d4942a" class="">Additional network protocols</h1><p id="7adb1abb-e77a-4271-b1aa-16ec0abc63f6" class="">In previous readings and videos, you learned how network protocols organize the sending and receiving of data across a network. You also learned that protocols can be divided into three categories: communication protocols, management protocols, and security protocols.</p><p id="813a6581-e9f9-4c98-bc7a-d5e9a9a8cc3a" class="">This reading will introduce you to a few additional concepts and protocols that will come up regularly in your work as a security analyst. Some protocols are assigned port numbers by the Internet Assigned Numbers Authority (IANA). These port numbers are included in the description of each protocol, if assigned.</p><h2 id="b0add002-faff-4683-8fda-21c37038618d" class="">Network Address Translation</h2><p id="2846466a-aae2-4ce2-8919-092ef4079b63" class="">The devices on your local home or office network each have a private IP address that they use to communicate directly with each other. However, in order for the devices with private IP addresses to communicate with the public internet, they need to have a single public IP address that represents all devices on the LAN to the public. For outgoing messages, the router can replace a private source IP address with its public IP address and perform the reverse operation for responses. This process is known as Network Address Translation (NAT) and it generally requires a router or firewall to be specifically configured to perform NAT. NAT is a part of layer 2 (internet layer) and layer 3 (transport layer) of the TCP/IP model.</p><table id="9bc4d13e-33c6-4909-aed2-31c91eaebb41" class="simple-table"><tbody><tr id="5d6fc89b-063d-475a-bbb4-29c6924e1f62"><td id="q}pw" class="" style="width:434px"><strong>Private IP Addresses</strong></td><td id=";TiL" class="" style="width:435.6750030517578px"><strong>Public IP Addresses</strong></td></tr><tr id="64252ff8-51b1-46e8-b147-d0f6d79da3ff"><td id="q}pw" class="" style="width:434px">• Assigned by the router<br/>• Unique only within private network<br/>• No cost to use<br/>• Address ranges:<br/>    ◦ 10.0.0.0-10.255.255.255<br/>    ◦ 172.16.0.0-172.31.255.255<br/>    ◦ 192.168.0.0-192.168.255.255<br/></td><td id=";TiL" class="" style="width:435.6750030517578px">• Assigned by ISP and IANA<br/>• Unique address in global internet<br/>• Costs to lease a public IP address<br/>• Assignable address ranges:<br/>    ◦ 1.0.0.0-9.255.255.255<br/>    ◦ 11.0.0.0-126.255.255.255<br/>    ◦ 128.0.0.0-172.15.255.255<br/>    ◦ 172.32.0.0-192.167.255.255<br/>    ◦ 192.169.0.0-233.255.255.255<br/></td></tr></tbody></table><h2 id="15095637-7e3e-4688-a487-c7dd150d45fe" class="">Dynamic Host Configuration Protocol</h2><p id="545d5f32-3cef-437e-9267-88894fe18d0d" class="">Dynamic Host Configuration Protocol (DHCP) is in the management family of network protocols. DHCP is an application layer protocol used on a network to configure devices. It works with the router to assign a unique IP address to each device and provide the addresses of the appropriate DNS server and default gateway for each device. DHCP servers operate on UDP port 67 while DHCP clients operate on UDP port 68.</p><h2 id="d336ab1d-3187-40ae-9607-8ddecbe7f663" class="">Address Resolution Protocol</h2><p id="982e785c-3c70-496f-9662-1015a232aeee" class="">By now, you are familiar with IP and MAC addresses. You’ve learned that each device on a network has a public IP address, a private IP address, and a MAC address that identify it on the network. A device’s IP address may change over time, but its MAC address is permanent because it is unique to a device&#x27;s network interface card. The MAC address is used to communicate with devices within the same network, but sometimes, the MAC address is unknown. This is why the Address Resolution Protocol (ARP) is needed. ARP is mainly a network access layer protocol in the TCP/IP model used to translate the IP addresses that are found in data packets into the MAC address of the hardware device.</p><p id="24ca3fe8-d35d-41e1-b82d-bbf38793d931" class="">Each device on the network performs ARP and keeps track of matching IP and MAC addresses in an ARP cache. ARP does not have a specific port number since it is a layer 2 protocol and port numbers are associated with the layer 7 application layer.</p><h2 id="649f71ed-0860-4266-a00c-015296b09ecd" class="">Telnet<strong></strong></h2><p id="213c6aa3-638c-4e21-a257-3cdaae23d784" class="">Telnet is an application layer protocol that is used to connect with a remote system. Telnet sends all information in clear text. It uses command line prompts to control another device similar to secure shell (SSH), but Telnet is not as secure as SSH. Telnet can be used to connect to local or remote devices and uses TCP port 23.</p><h2 id="8ac882d4-d3cb-4b52-8fb9-4176e3e55951" class="">Secure shell</h2><p id="d7939a7f-12d5-4247-a2c6-9336abce203c" class="">Secure shell protocol (SSH) is used to create a secure connection with a remote system. This application layer protocol provides an alternative for secure authentication and encrypted communication. SSH operates over the TCP port 22 and is a replacement for less secure protocols, such as Telnet.</p><h2 id="c6667248-8e67-48ad-b44c-b636387ad8d2" class="">Post office protocol</h2><p id="e138ed61-ef81-4651-b75d-718e07534f74" class="">Post office protocol (POP) is an application layer (layer 4 of the TCP/IP model) protocol used to manage and retrieve email from a mail server. POP3 is the most commonly used version of POP. Many organizations have a dedicated mail server on the network that handles incoming and outgoing mail for users on the network. User devices will send requests to the remote mail server and download email messages locally. If you have ever refreshed your email application and had new emails populate in your inbox, you are experiencing POP and internet message access protocol (IMAP) in action. Unencrypted, plaintext authentication uses TCP/UDP port 110 and encrypted emails use Secure Sockets Layer/Transport Layer Security (SSL/TLS) over TCP/UDP port 995.  When using POP, mail has to finish downloading on a local device before it can be read. After downloading, the mail may or may not be deleted from the mail server, so it does not guarantee that a user can sync the same email across multiple devices.</p><h2 id="0b310065-3598-4340-a7d8-cb4d5e04ab35" class="">Internet Message Access Protocol (IMAP)</h2><p id="143a69d7-e636-4a7e-a6cd-113236e51f62" class="">IMAP is used for incoming email. It downloads the headers of emails and the message content. The content also remains on the email server, which allows users to access their email from multiple devices. IMAP uses TCP port 143 for unencrypted email and TCP port 993 over the TLS protocol. Using IMAP allows users to partially read email before it is finished downloading. Since the mail is kept on the mail server, it allows a user to sync emails across multiple devices.</p><h2 id="b9e35040-e848-481b-a1ba-7bbd81b3c4bd" class="">Simple Mail Transfer Protocol</h2><p id="e8330444-03cb-445f-9747-5db205e23a56" class="">Simple Mail Transfer Protocol (SMTP) is used to transmit and route email from the sender to the recipient’s address. SMTP works with Message Transfer Agent (MTA) software, which searches DNS servers to resolve email addresses to IP addresses, to ensure emails reach their intended destination. SMTP uses TCP/UDP port 25 for unencrypted emails and TCP/UDP port 587 using TLS for encrypted emails. The TCP port 25 is often used by high-volume spam. SMTP helps to filter out spam by regulating how many emails a source can send at a time.</p><h2 id="f794f375-8ece-46da-8615-bb2976d016a1" class="">Protocols and port numbers</h2><p id="9a1bb9d9-956d-4a69-81ca-6bde833415b0" class="">Remember that port numbers are used by network devices to determine what should be done with the information contained in each data packet once they reach their destination. Firewalls can filter out unwanted traffic based on port numbers. For example, an organization may configure a firewall to only allow access to TCP port 995 (POP3) by IP addresses belonging to the organization.</p><p id="cc8ff475-fbdf-4194-b1d7-cc2618041d68" class="">As a security analyst, you will need to know about many of the protocols and port numbers mentioned in this course. They may be used to determine your technical knowledge in interviews, so it’s a good idea to memorize them. You will also learn about new protocols on the job in a security position.</p><h2 id="4a3f776e-4ef7-49a0-a3e7-040bcf7cea21" class="">Key takeaways</h2><p id="4c8ba0ae-e37c-4d38-a582-d31f30b59d81" class="">As a cybersecurity analyst, you will encounter various common protocols in your everyday work. The protocols covered in this reading include NAT, DHCP, ARP, Telnet, SSH, POP3, IMAP, and SMTP. It is equally important to understand where each protocol is structured in the TCP/IP model and which ports they occupy.</p><table id="4b386883-f45f-45e6-b08b-b62c8aba160f" class="simple-table"><tbody><tr id="3ecc1b85-d763-49de-80bb-4505e281ffc2"><td id="~Jkd" class="" style="width:370px"><strong>Protocol</strong></td><td id="N}bb" class="" style="width:416px"><strong>Port</strong></td></tr><tr id="37da5507-cfb8-4e23-9ba2-d826e22fcea7"><td id="~Jkd" class="" style="width:370px">DHCP</td><td id="N}bb" class="" style="width:416px">UDP port 67 (servers)<br/>UDP port 68 (clients)<br/></td></tr><tr id="4c796a11-009b-4246-97a1-6369621586fb"><td id="~Jkd" class="" style="width:370px">ARP</td><td id="N}bb" class="" style="width:416px">none</td></tr><tr id="7766d400-0cb0-4e2e-8bc1-f5d503717f18"><td id="~Jkd" class="" style="width:370px">Telnet</td><td id="N}bb" class="" style="width:416px">TCP port 23</td></tr><tr id="3dd04893-c0de-4f86-976d-0a199841bd19"><td id="~Jkd" class="" style="width:370px">SSH</td><td id="N}bb" class="" style="width:416px">TCP port 22</td></tr><tr id="9151f427-73ad-4ac5-a649-ab03581ceff8"><td id="~Jkd" class="" style="width:370px">POP3</td><td id="N}bb" class="" style="width:416px">TCP/UDP port 110 (unencrypted)<br/>TCP/UDP port 995 (encrypted, SSL/TLS)<br/></td></tr><tr id="3c5fb951-4a9e-49ac-b56c-d110e4551e38"><td id="~Jkd" class="" style="width:370px">IMAP</td><td id="N}bb" class="" style="width:416px">TCP port 143 (unencrypted)<br/>TCP port 993 (encrypted, SSL/TLS)<br/></td></tr><tr id="d2058579-3d3a-463a-89e4-598b5cfd3727"><td id="~Jkd" class="" style="width:370px">SMTP</td><td id="N}bb" class="" style="width:416px">TCP/UDP Port 25 (unencrypted)</td></tr><tr id="504214ca-96bb-4825-9f11-06981f1c4ee0"><td id="~Jkd" class="" style="width:370px">SMTPS</td><td id="N}bb" class="" style="width:416px">TCP/UDP port 587 (encrypted, TLS)</td></tr></tbody></table><p id="8c7b3f1e-dff8-443c-b76e-f15a13800d22" class="">I did not understand the use of ARP</p><p id="9de7dbbb-6d12-4aec-aec3-4198c64a87c8" class="">
+</p><p id="f89ae3f0-26dc-4900-a074-0854b8f30bb0" class="">
+</p><p id="33d59989-f6cf-4faa-b4a5-336f15b76e98" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/bK86y/wireless-protocols?trk_ref=coach_copy">Wireless protocols</a>  Jun 22, 2024</p><h2 id="1eb2a0fb-9158-4418-ba56-3b1aaf1a5970" class="">Network Security: IEEE 802.11 and Wi-Fi</h2><h3 id="1816aa19-b898-40e1-9ad8-0a73a696f586" class="">Key Takeaways:</h3><ul id="85d1b9e3-d277-4a2a-8fb6-fd1f9996a051" class="bulleted-list"><li style="list-style-type:disc"><strong>IEEE 802.11</strong>: A set of standards defining communication protocols for wireless LANs (Wi-Fi).</li></ul><ul id="a1e171fb-f99b-4390-b08f-1e1f7310e2cf" class="bulleted-list"><li style="list-style-type:disc"><strong>Wi-Fi</strong>: A popular wireless networking technology based on IEEE 802.11 standards.</li></ul><ul id="21b04dce-6758-45ab-9e39-50b41432612a" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Evolution</strong>: Wi-Fi protocols have evolved over time to become more secure and reliable.</li></ul><ul id="2a0f0c2f-ca1d-4fad-b6cb-3f0ebf2b7454" class="bulleted-list"><li style="list-style-type:disc"><strong>WPA</strong>: Wi-Fi Protected Access, a security protocol introduced in 2004 for secure internet connections.</li></ul><ul id="b4ce9509-6b43-4ad2-9473-5ae2a6a0a681" class="bulleted-list"><li style="list-style-type:disc"><strong>WPA2 &amp; WPA3</strong>: Newer versions of WPA with enhanced security features like advanced encryption.</li></ul><ul id="b795a968-e31e-452a-9f1a-47b042015fce" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Analyst Responsibilities</strong>: Ensuring secure wireless connections within an organization.</li></ul><h3 id="43eb7db2-d234-416b-9cf4-97b4df28b18f" class="">Detailed Notes:</h3><ul id="7486b9fb-ef34-4fb8-b80d-aa5c79f37938" class="bulleted-list"><li style="list-style-type:disc"><strong>IEEE 802.11</strong>:<ul id="6ce24eff-d455-4503-a94d-969a5aea3733" class="bulleted-list"><li style="list-style-type:circle">Developed by the Institute of Electrical and Electronics Engineers (IEEE).</li></ul><ul id="613a5797-2099-401e-a4c2-3514ebd647ac" class="bulleted-list"><li style="list-style-type:circle">Defines communication protocols for wireless LANs.</li></ul><ul id="674814bb-eb7c-44aa-a348-268fc3aa70c0" class="bulleted-list"><li style="list-style-type:circle">Commonly known as Wi-Fi.</li></ul></li></ul><ul id="71e7aa17-1b9a-4656-8d3f-876c1da15de1" class="bulleted-list"><li style="list-style-type:disc"><strong>Wi-Fi</strong>:<ul id="6535711c-f672-49a8-9ad5-d85d26784441" class="bulleted-list"><li style="list-style-type:circle">Uses radio waves to transmit data wirelessly.</li></ul><ul id="8346d62b-0e14-4029-a567-f6140af5f2c8" class="bulleted-list"><li style="list-style-type:circle">Popular technology for home, office, and public networks.</li></ul><ul id="606f4431-ae08-4a47-8fbc-99689d71f133" class="bulleted-list"><li style="list-style-type:circle">Offers convenience and mobility.</li></ul></li></ul><ul id="f22114db-8567-452b-8f2a-3c963a4821ad" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Evolution</strong>:<ul id="afa9165c-2c04-4d56-8604-d33603577c42" class="bulleted-list"><li style="list-style-type:circle">Early Wi-Fi protocols lacked robust security measures.</li></ul><ul id="1e602075-c46f-4808-b9fb-c0992c24e6f4" class="bulleted-list"><li style="list-style-type:circle">WPA introduced in 2004 to address security concerns.</li></ul><ul id="a4106538-f9d7-4c5b-9f80-038d8092b570" class="bulleted-list"><li style="list-style-type:circle">WPA2 and WPA3 further enhanced security with stronger encryption.</li></ul></li></ul><ul id="08b58ef4-5f44-4a2e-9891-cadb4b025559" class="bulleted-list"><li style="list-style-type:disc"><strong>WPA</strong>:<ul id="18b0f209-72d5-49cd-94dc-da7050ce89e1" class="bulleted-list"><li style="list-style-type:circle">Stands for Wi-Fi Protected Access.</li></ul><ul id="a5834508-cf2e-4231-996b-3db27f4ec923" class="bulleted-list"><li style="list-style-type:circle">Introduced in 2004 to improve security for wireless connections.</li></ul><ul id="a75f23cb-c4f8-429d-af27-34bafc581992" class="bulleted-list"><li style="list-style-type:circle">Uses Temporal Key Integrity Protocol (TKIP) for encryption.</li></ul></li></ul><ul id="846ccce7-4c4f-42e4-b339-2176f2326946" class="bulleted-list"><li style="list-style-type:disc"><strong>WPA2 &amp; WPA3</strong>:<ul id="7bf5ece2-6f9a-42cf-a43b-24719ce3cc66" class="bulleted-list"><li style="list-style-type:circle">WPA2 introduced in 2004 and became the most widely used security protocol.</li></ul><ul id="1b79be64-8f2a-4a89-a9dd-11dd2d84e32e" class="bulleted-list"><li style="list-style-type:circle">WPA3 introduced in 2018 with even stronger security features.</li></ul><ul id="051f005b-32c0-4689-9752-2a305f5cf275" class="bulleted-list"><li style="list-style-type:circle">Both use Advanced Encryption Standard (AES) for encryption.</li></ul></li></ul><ul id="96512a9c-1c29-4e39-94b3-2b8f9231157a" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Analyst Responsibilities</strong>:<ul id="e9729790-d6c4-4e91-b908-265f1d50e78c" class="bulleted-list"><li style="list-style-type:circle">Implementing and maintaining secure wireless networks.</li></ul><ul id="833d5cd6-65bb-4f8b-a541-3502d962e4e8" class="bulleted-list"><li style="list-style-type:circle">Configuring access points and devices for secure connections.</li></ul><ul id="8d482e2a-c3a5-4534-8490-7a6c68ee2d5d" class="bulleted-list"><li style="list-style-type:circle">Monitoring network activity for suspicious behavior.</li></ul><ul id="e5c64be8-cdf5-42eb-abf1-18a17cb5b4e0" class="bulleted-list"><li style="list-style-type:circle">Staying updated on the latest security threats and vulnerabilities.</li></ul></li></ul><h3 id="b4a0994c-5697-4b87-a465-53f79b8ec592" class="">Additional Resources:</h3><ul id="28baca4c-3f5a-43d8-a94e-0e82fec78652" class="bulleted-list"><li style="list-style-type:disc"><strong>Coursera Course Materials</strong>:<ul id="2e790c33-578e-44db-bae6-8dcb6a315926" class="bulleted-list"><li style="list-style-type:circle">Network architecture</li></ul><ul id="188d3bcb-370d-4ec3-9f92-0e1793f49d15" class="bulleted-list"><li style="list-style-type:circle">Network operations</li></ul><ul id="45a659e4-08a9-4de1-870b-feec345437bc" class="bulleted-list"><li style="list-style-type:circle">Secure against network intrusions</li></ul><ul id="234997ae-538d-4b1d-a8ac-5e151de9eaec" class="bulleted-list"><li style="list-style-type:circle">Security hardening</li></ul></li></ul><ul id="b00fa123-5c7c-4208-bfa6-d099ebc2e131" class="bulleted-list"><li style="list-style-type:disc"><strong>Google Security Resources</strong>:<ul id="f8d80ffb-9d1b-4179-bf46-0b45c557359b" class="bulleted-list"><li style="list-style-type:circle">https://cloud.google.com/security/</li></ul></li></ul><ul id="730df744-b0b9-4ca3-9f50-dfc72c726224" class="bulleted-list"><li style="list-style-type:disc"><strong>Wi-Fi Alliance</strong>:<ul id="03bfb73d-5fbf-445c-8c6d-5a5fd55305d0" class="bulleted-list"><li style="list-style-type:circle">https://www.wi-fi.org/</li></ul></li></ul><h3 id="2442e8e9-8042-4a53-b26d-dd8eed8f6e77" class="">Remember:</h3><ul id="a763a66f-9e27-4713-91d9-78c0cd7826eb" class="bulleted-list"><li style="list-style-type:disc">Secure wireless connections are crucial for protecting sensitive data and preventing unauthorized access.</li></ul><ul id="089ae30f-386d-4df0-8223-75efb84f218e" class="bulleted-list"><li style="list-style-type:disc">As a security analyst, you play a vital role in ensuring the security of your organization&#x27;s wireless networks.</li></ul><p id="730b6783-7720-4b43-89ed-c765eed10fab" class="">I hope these detailed notes are helpful! Please let me know if you have any questions or need further clarification.</p><figure id="98440ea7-574c-43b4-a3d9-7a96703bce99" class="link-to-page"><a href="Module%202%20d175cd6c6f9242eaa657b89c2e342ff5/The%20evolution%20of%20wireless%20security%20protocols%2098440ea7574c43b4a3d97a96703bce99.html">The evolution of wireless security protocols</a></figure><p id="3bf59ba0-0f8f-4cc1-8861-e46888b0eb31" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/TrOAQ/firewalls-and-network-security-measures?trk_ref=coach_copy">Firewalls and network security measures</a>  Jun 22, 2024</p><h2 id="69caadfd-b065-4c15-9b6b-dc39a9c6e7c4" class="">Detailed Notes for &quot;Connect and Protect: Networks and Network Security&quot; Lecture: Firewalls</h2><h3 id="206394d4-1c75-41a3-8e43-9a9b1896925f" class="">Introduction</h3><ul id="20f8f885-62c0-4d46-a8c2-3e63f8f1857c" class="bulleted-list"><li style="list-style-type:disc">Firewalls are network security devices that monitor traffic to and from your network.</li></ul><ul id="eeb5e189-2cab-417d-860e-75b6bf473ee6" class="bulleted-list"><li style="list-style-type:disc">They either allow or block traffic based on a defined set of security rules.</li></ul><ul id="f6a3a1ae-0e5a-43d7-b90e-f6a0b26919c8" class="bulleted-list"><li style="list-style-type:disc">Firewalls can use port filtering to block or allow certain port numbers to limit unwanted communication.</li></ul><ul id="d6e799ac-0cf8-4f19-a6cc-8ca72ade2837" class="bulleted-list"><li style="list-style-type:disc">The organization&#x27;s security policy determines the firewall settings.</li></ul><h3 id="c4b63804-abe7-459a-b08e-3cf7a41ad6b0" class="">Types of Firewalls</h3><ul id="7f501c7a-7952-4c3a-9194-ff5a51a0c3ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Hardware firewalls:</strong> Considered the most basic defense against network threats. They inspect each data packet before allowing it to enter the network.</li></ul><ul id="20a0cd21-0bd0-4bc8-a1c6-5e4e5cef7ef8" class="bulleted-list"><li style="list-style-type:disc"><strong>Software firewalls:</strong> Perform the same functions as hardware firewalls but are not physical devices. They are software programs installed on a computer or server.</li></ul><ul id="2ea6c947-495e-45df-a617-a295fb4d3fdb" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud-based firewalls:</strong> Offered as a service by cloud service providers. They are software firewalls hosted by a cloud service provider.</li></ul><h3 id="d439adf5-987c-48d3-8754-db673f11ed40" class="">Stateful vs. Stateless Firewalls</h3><ul id="92afe2ef-78f1-46cd-a439-01ae5b1db465" class="bulleted-list"><li style="list-style-type:disc"><strong>Stateful firewalls:</strong> Keep track of information passing through them and proactively filter out threats. They analyze network traffic for suspicious characteristics and behavior and stop them from entering the network.</li></ul><ul id="72d4f68a-4ed2-43b3-86f0-8434e5de9cb2" class="bulleted-list"><li style="list-style-type:disc"><strong>Stateless firewalls:</strong> Operate based on predefined rules and do not keep track of information from data packets. They only act according to preconfigured rules set by the administrator.</li></ul><h3 id="e96b414e-1f85-4df8-8619-380f7c3de20b" class="">Next Generation Firewalls (NGFWs)</h3><ul id="fce39fbd-229e-446b-9844-8ccc88d0ceda" class="bulleted-list"><li style="list-style-type:disc">Provide even more security than stateful firewalls.</li></ul><ul id="72edd01b-6d2c-4b5f-a5a8-165d0c4eab69" class="bulleted-list"><li style="list-style-type:disc">Perform stateful inspection of incoming and outgoing traffic.</li></ul><ul id="13a27727-329c-4a19-ae96-30509cd21ff3" class="bulleted-list"><li style="list-style-type:disc">Also perform more in-depth security functions like deep packet inspection and intrusion protection.</li></ul><ul id="df2c5228-cd10-457f-84ee-003144721640" class="bulleted-list"><li style="list-style-type:disc">Some NGFWs connect to cloud-based threat intelligence services for quick updates against emerging cyber threats.</li></ul><h3 id="0a2382a4-45bd-4516-be40-30388d3d62e8" class="">Key Takeaways</h3><ul id="8c0f5f20-79b1-4f52-bb9e-a5ef6630adc0" class="bulleted-list"><li style="list-style-type:disc">Firewalls are essential for network security.</li></ul><ul id="c0632b02-46e4-405c-9e47-f735ae5d44cd" class="bulleted-list"><li style="list-style-type:disc">Different types of firewalls offer varying levels of protection.</li></ul><ul id="465cc711-d40a-41d0-80e7-dd16a12e024a" class="bulleted-list"><li style="list-style-type:disc">Stateful firewalls are generally considered more secure than stateless firewalls.</li></ul><ul id="5a012559-4535-40a8-9286-9885661fe95e" class="bulleted-list"><li style="list-style-type:disc">NGFWs provide the most comprehensive security features.</li></ul><h3 id="0e161d17-52a5-421c-931e-8162b27f49f5" class="">Additional Resources</h3><ul id="a5b4f272-fdfa-4cc9-a94b-bf3863f8ca90" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.coursera.org/learn/network-security">Coursera Network Security Course</a></li></ul><ul id="21cd43b2-7ad2-49c2-a4cf-34ae114edfb9" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.cisco.com/c/en/us/solutions/collateral/security/firewalls/white-paper-c11-742980.html">Cisco Firewall Guide</a></li></ul><h2 id="f4b868f6-7542-41cf-8600-4efdf19987fc" class="">Remember</h2><ul id="28b77440-bee0-41ba-b418-e3dff9e15c74" class="bulleted-list"><li style="list-style-type:disc">These notes are a summary of the lecture content.</li></ul><ul id="203368a3-b84e-42ec-8c1b-0d81696cba26" class="bulleted-list"><li style="list-style-type:disc">For a complete understanding, please refer to the lecture and other course materials.</li></ul><ul id="8fc6b1ed-a280-43f5-8a43-c96da116c6d7" class="bulleted-list"><li style="list-style-type:disc">Don&#x27;t hesitate to ask questions if you need further clarification.</li></ul><p id="515c247d-7d47-43a7-80e0-d46e9e455e1b" class="">I hope this helps! Let me know if you have any other questions.</p><p id="3b98c0db-50ca-4a85-a48f-c794de831805" class="">
+</p><p id="4168b6b6-ffdf-4f18-aa29-7d8a6376636f" class="">
+</p><p id="c664be45-7a96-4b86-ab4c-8b237e7726c0" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/GccYm/security-zones?trk_ref=coach_copy">Security zones</a>  Jun 22, 2024</p><h2 id="d8b10152-f9ba-4193-a69f-fffb810ed053" class="">Security Zones: Protecting Your Network</h2><p id="fd00d927-3e5b-42ba-906b-fdc8e0d5b106" class="">This lecture dives into the concept of security zones, a crucial element in network security. Let&#x27;s break down the key points:</p><p id="9b3e3ecc-37a3-4c91-9611-66b30e553a2b" class=""><strong>What are Security Zones?</strong></p><ul id="4f3756d5-b34b-49fc-93d9-d874b95762f4" class="bulleted-list"><li style="list-style-type:disc">Segments of a network that protect the internal network from the internet.</li></ul><ul id="5c1f0292-f279-489c-8d4c-a9c14921d820" class="bulleted-list"><li style="list-style-type:disc">Part of a security technique called <strong>network segmentation</strong>, dividing the network into segments with specific access permissions and security rules.</li></ul><ul id="49e9913e-526f-487a-bef9-a534d75251f8" class="bulleted-list"><li style="list-style-type:disc">Control who can access different parts of the network.</li></ul><ul id="bc69ae42-cfef-49ad-a0de-098eea7b92df" class="bulleted-list"><li style="list-style-type:disc">Act as a barrier to internal networks, maintain privacy within groups, and prevent issues from spreading.</li></ul><p id="bf08d2a6-b35d-4656-a47f-affac7477d63" class=""><strong>Examples of Network Segmentation:</strong></p><ul id="ab7cbaf2-d86d-41ef-b41e-295a50ffaa6d" class="bulleted-list"><li style="list-style-type:disc"><strong>Hotel:</strong> Free public Wi-Fi (unsecured guest network) is separate from the encrypted network used by staff.</li></ul><ul id="7882a5a7-1af3-4719-a062-29101ad40980" class="bulleted-list"><li style="list-style-type:disc"><strong>University:</strong> Faculty and student subnets are separate, allowing isolation of issues if they arise.</li></ul><p id="e69508d1-527e-482c-a41f-31ae4cd7be5d" class=""><strong>Types of Security Zones:</strong></p><ul id="c6a20f02-28fc-411a-be7e-9833b9e049f5" class="bulleted-list"><li style="list-style-type:disc"><strong>Uncontrolled Zone:</strong> Any network outside the organization&#x27;s control, like the internet.</li></ul><ul id="1493ea67-b046-4c42-937b-298e1dd1eeef" class="bulleted-list"><li style="list-style-type:disc"><strong>Controlled Zone:</strong> A subnet that protects the internal network from the uncontrolled zone.</li></ul><p id="262238fc-64ec-4f99-8dc4-c09f1b11e124" class=""><strong>Controlled Zone Subtypes:</strong></p><ul id="5a969e0b-1ccc-45e3-aa15-4f1464f2b708" class="bulleted-list"><li style="list-style-type:disc"><strong>Demilitarized Zone (DMZ):</strong> Contains public-facing services accessible from the internet (web servers, proxy servers, DNS servers, email servers, file servers). Acts as a network perimeter to the internal network.</li></ul><ul id="0b404015-eb93-4e73-8ae1-fef720d6742f" class="bulleted-list"><li style="list-style-type:disc"><strong>Internal Network:</strong> Contains private servers and data requiring protection.</li></ul><ul id="ce67ccfa-fb2f-4279-a293-bc9c3df22a9c" class="bulleted-list"><li style="list-style-type:disc"><strong>Restricted Zone:</strong> Protects highly confidential information accessible only to authorized personnel.</li></ul><p id="8fb003b6-08dd-4306-95e5-8c116fb7e82b" class=""><strong>Security Zone Visualization:</strong></p><ul id="b8b07b27-d2ba-4f06-80d9-0497591eb731" class="bulleted-list"><li style="list-style-type:disc">Ideally, the DMZ is situated between two firewalls: one filtering traffic outside the DMZ and one filtering traffic entering the internal network.</li></ul><ul id="ea695764-b0c7-4532-8dd1-e14227fb8bd2" class="bulleted-list"><li style="list-style-type:disc">The restricted zone may also be protected by another firewall.</li></ul><ul id="c6b69166-71a1-4161-ab5d-0ac48d3b6c1b" class="bulleted-list"><li style="list-style-type:disc">This layered approach prevents attacks from spreading across different zones.</li></ul><p id="cedc9452-6a51-43cf-94bf-aaf476ab0d21" class=""><strong>Security Analyst Responsibilities:</strong></p><ul id="f38806f1-934b-45c6-8f3d-744668d2ec3a" class="bulleted-list"><li style="list-style-type:disc">Regulating access control policies on firewalls.</li></ul><ul id="f8a9497d-ad37-4da2-8d83-36a66ce13cf4" class="bulleted-list"><li style="list-style-type:disc">Controlling traffic reaching the DMZ and internal network by restricting IPs and ports (e.g., allowing only HTTPS traffic to web servers in the DMZ).</li></ul><p id="ba1ac573-8730-419c-9dd6-1438a5f7715a" class=""><strong>Importance of Security Zones:</strong></p><ul id="b87bc554-cd88-4c4b-b44c-b162da2b843b" class="bulleted-list"><li style="list-style-type:disc">Crucial for securing networks, especially in large organizations.</li></ul><ul id="2450f428-6e3f-4f52-acef-576712e11a5f" class="bulleted-list"><li style="list-style-type:disc">Understanding their use is essential for all security analysts.</li></ul><p id="aa027b6a-2750-4db6-a8c5-0b7e3c48794c" class=""><strong>Next Steps:</strong></p><ul id="89fc7013-858d-4a44-a5ab-a887f34f036d" class="bulleted-list"><li style="list-style-type:disc">Learn about securing internal networks.</li></ul><p id="55642e7e-94c1-4675-96ab-189e4fbb1ba6" class=""><strong>Additional Notes:</strong></p><ul id="7f3afddc-c1f2-48ac-9d81-178a421e80d1" class="bulleted-list"><li style="list-style-type:disc">Security zones are a fundamental concept in network security.</li></ul><ul id="65166687-3a24-4ff5-9bb1-3a4062d5c4c3" class="bulleted-list"><li style="list-style-type:disc">Understanding different types of zones and their functions is crucial for protecting sensitive data and systems.</li></ul><ul id="0b4e8209-f347-478c-aaf9-6c08e980cfad" class="bulleted-list"><li style="list-style-type:disc">Security analysts play a vital role in configuring and managing security zones to ensure network security.</li></ul><p id="9d2573fc-8086-4abd-b963-7c1dfa7e0499" class="">I hope these detailed notes are helpful! Let me know if you have any questions or need further clarification on any point.</p><p id="07eb917d-f046-4620-85fa-96217c9298f2" class="">
+</p><h1 id="88efef93-a3bf-46ea-8bab-ec243d06cc53" class="">Subnetting and CIDR</h1><p id="8b6e868f-a751-4728-9bc3-2e6d54fcd418" class="">Earlier in this course, you learned about network segmentation, a security technique that divides networks into sections. A private network can be segmented to protect portions of the network from the internet, which is an unsecured global network.</p><p id="b47e9d0e-62c2-40ec-a44b-5f0549786ed7" class="">For example, you learned about the uncontrolled zone, the controlled zone, the demilitarized zone, and the restricted zone. Feel free to review the video about <a href="https://www.coursera.org/learn/networks-and-network-security/lecture/GccYm/security-zones">security zones</a></p><p id="c04b63f1-4ef1-49ea-9904-4f1404547834" class="">for a refresher on how network segmentation can be used to add a layer of security to your organization’s network operations. Creating security zones is one example of a networking strategy called subnetting.</p><h2 id="aa20034c-6209-4cb1-9a51-44c851e527c6" class="">Overview of subnetting</h2><p id="45ed9428-22aa-48e0-a13b-15362c76a6bb" class=""><strong>Subnetting</strong> is the subdivision of a network into logical groups called subnets. It works like a network inside a network. Subnetting divides up a network address range into smaller subnets within the network. These smaller subnets form based on the IP addresses and network mask of the devices on the network. Subnetting creates a network of devices to function as their own network. This makes the network more efficient and can also be used to create security zones. If devices on the same subnet communicate with each other, the switch changes the transmissions to stay on the same subnet, improving speed and efficiency of the communications.</p><figure id="4e85e9ad-18bc-432b-a964-cae8e12df04d" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vzbgwk8-RoCJ8Ppet89raA_1a225a330b8b4eaeb4a2b8bc5baaaef1_qvNCswL7ECbUiKTyL6rjp35BTSD-bbfoAoajmAyy4hHvmBJwwr22RU8T5aGDunmwKb1kvZ5TneMbG-nngVlkPXF6W-BTMap_a6XP-kAy5jgW13XvT5OTSCmI7U9YVNX4JzC1qn-zCkiZSXhbKjm2zq7SESzmANYH17_p4jub1mNikwElbJZECK0VuM_4Yrwljgfgdx2VpNad7gx2lFHMiu01wfeRKp-sjRa_kQ?expiry=1719187200000&amp;hmac=gjXhHPXiOtyweAWDHzabaVoe3hWxI32nTKEBIG7Stb0"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/vzbgwk8-RoCJ8Ppet89raA_1a225a330b8b4eaeb4a2b8bc5baaaef1_qvNCswL7ECbUiKTyL6rjp35BTSD-bbfoAoajmAyy4hHvmBJwwr22RU8T5aGDunmwKb1kvZ5TneMbG-nngVlkPXF6W-BTMap_a6XP-kAy5jgW13XvT5OTSCmI7U9YVNX4JzC1qn-zCkiZSXhbKjm2zq7SESzmANYH17_p4jub1mNikwElbJZECK0VuM_4Yrwljgfgdx2VpNad7gx2lFHMiu01wfeRKp-sjRa_kQ?expiry=1719187200000&amp;hmac=gjXhHPXiOtyweAWDHzabaVoe3hWxI32nTKEBIG7Stb0"/></a></figure><h2 id="689f47ba-496f-4226-bf8b-0d2052bc4783" class="">Classless Inter-Domain Routing notation for subnetting</h2><p id="b08313bf-d1af-4c8b-89da-223479ea855b" class="">Classless Inter-Domain Routing (CIDR) is a method of assigning subnet masks to IP addresses to create a subnet. Classless addressing replaces classful addressing. Classful addressing was used in the 1980s as a system of grouping IP addresses into classes (Class A to Class E). Each class included a limited number of IP addresses, which were depleted as the number of devices connecting to the internet outgrew the classful range in the 1990s. Classless CIDR addressing expanded the number of available IPv4 addresses.</p><p id="e0602f47-3584-4071-bcb6-fae1d1f3671a" class="">CIDR allows cybersecurity professionals to segment classful networks into smaller chunks. CIDR IP addresses are formatted like IPv4 addresses, but they include a slash (“/’”) followed by a number at the end of the address, This extra number is called the IP network prefix.  For example, a regular IPv4 address uses the 198.51.100.0 format, whereas a CIDR IP address would include the IP network prefix at the end of the address, 198.51.100.0/24. This CIDR address encompasses all IP addresses between 198.51.100.0 and 198.51.100.255. The system of CIDR addressing reduces the number of entries in routing tables and provides more available IP addresses within networks. You can try converting CIDR to IPv4 addresses and vice versa through an online conversion tool, like <a href="https://www.ipaddressguide.com/cidr">IPAddressGuide</a></p><p id="31ced69f-2419-4d18-a522-b4d6edc09116" class="">, for practice and to better understand this concept.</p><p id="286b57d1-bf55-46be-983c-6fd961de3035" class=""><strong>Note:</strong> You may learn more about CIDR during your career, but it won&#x27;t be covered in any additional depth in this certificate program. For now, you only need a basic understanding of this concept.</p><h2 id="5c21591e-0ab6-468b-b853-f6c19186f857" class="">Security benefits of subnetting</h2><p id="d74aeaa5-f24f-4724-86c5-11c3eaad841c" class="">Subnetting allows network professionals and analysts to create a network within their own network without requesting another network IP address from their internet service provider. This process uses network bandwidth more efficiently and improves network performance. Subnetting is one component of creating isolated subnetworks through physical isolation, routing configuration, and firewalls.</p><h2 id="c4e424ff-f746-4f7c-a8e2-554006da051b" class="">Key takeaways</h2><p id="1ec9b347-6e70-4701-b2b6-85152a15a3e0" class="">Subnetting is a common security strategy used by organizations. Subnetting allows organizations to create smaller networks within their private network. This improves the efficiency of the network and can be used to create security zones.</p><h1 id="cebe995f-937c-4b7c-a70d-aa37c2ba337f" class="">Virtual networks and privacy</h1><p id="3963dd0d-9e44-40ec-b615-e8c2c9e6e530" class="">This section of the course covered a lot of information about network operations. You reviewed the fundamentals of network architecture and communication and can now use this knowledge as you learn how to secure networks. Securing a private network requires maintaining the confidentiality of your data and restricting access to authorized users.</p><p id="90dc539b-1e37-4736-bf0a-80fb2bb71f07" class="">In this reading, you will review several network security topics previously covered in the course, including virtual private networks (VPNs), proxy servers, firewalls, and security zones. You&#x27;ll continue to learn more about these concepts and how they relate to each other as you continue through the course.</p><h2 id="7b5037b3-0089-465f-b52d-f4565c383c41" class=""><strong>Common network protocols</strong></h2><p id="6353c70b-a897-4145-b255-d39727ed7f2c" class="">Network protocols are used to direct traffic to the correct device and service depending on the kind of communication being performed by the devices on the network. Protocols are the rules used by all network devices that provide a mutually agreed upon foundation for how to transfer data across a network.</p><p id="10e34d6a-8b03-4dd1-8217-97939c610ebf" class="">There are three main categories of network protocols: communication protocols, management protocols, and security protocols.</p><ol type="1" id="81fc7f41-8388-4de5-b75f-41669ec748ad" class="numbered-list" start="1"><li>Communication protocols are used to establish connections between servers. Examples include TCP, UDP, and Simple Mail Transfer Protocol (SMTP), which provides a framework for email communication.</li></ol><ol type="1" id="d05406a8-6a50-4ee8-970e-baa568ffd0e9" class="numbered-list" start="2"><li>Management protocols are used to troubleshoot network issues. One example is the Internet Control Message Protocol (ICMP).</li></ol><ol type="1" id="d9da149e-bb19-4686-a7cb-26b2ff7f7b6e" class="numbered-list" start="3"><li>Security protocols provide encryption for data in transit. Examples include IPSec and SSL/TLS.</li></ol><p id="ac3ed2f9-8bf2-4353-b7c3-7287da2b56fa" class="">Some other commonly used protocols are:</p><ul id="ce16b43f-4e24-4c8d-af92-cb748a133a25" class="bulleted-list"><li style="list-style-type:disc">HyperText Transfer Protocol (HTTP). HTTP is an application layer communication protocol. This allows the browser and the web server to communicate with one another.</li></ul><ul id="0641cc17-7d7a-4727-be48-0e4f6598edc8" class="bulleted-list"><li style="list-style-type:disc">Domain Name System (DNS). DNS is an application layer protocol that translates, or maps, host names to IP addresses.</li></ul><ul id="e3cb7e04-9842-468f-97a6-71f63d238c98" class="bulleted-list"><li style="list-style-type:disc">Address Resolution Protocol (ARP). ARP is a network layer communication protocol that maps IP addresses to physical machines or a MAC address recognized on the local area network.</li></ul><h2 id="ee3a0cc2-8c73-4a79-83e1-7b0ac33c3e44" class=""><strong>Wi-Fi</strong></h2><p id="540e57be-5990-4e4e-b0e6-bdaabecec50b" class="">This section of the course also introduced various wireless security protocols, including WEP, WPA, WPA2, and WPA3. WPA3 encrypts traffic with the Advanced Encryption Standard (AES) cipher as it travels from your device to the wireless access point. WPA2 and WPA3 offer two modes: personal and enterprise. Personal mode is best suited for home networks while enterprise mode is generally utilized for business networks and applications.</p><h2 id="bfbd25c4-85e8-4a09-b728-befabb7f78f6" class=""><strong>Network security tools and practices</strong></h2><h3 id="f0ceac0e-7411-4fa7-9bb4-b91148114e16" class=""><strong>Firewalls</strong></h3><p id="d4ba937d-ae80-410b-800f-245f41501150" class="">Previously, you learned that firewalls are network virtual appliances (NVAs) or hardware devices that inspect and can filter network traffic before it’s permitted to enter the private network. Traditional firewalls are configured with rules that tell it what types of data packets are allowed based on the port number and IP address of the data packet.</p><p id="21c4e59b-527c-4324-804b-ca4b7ef267e8" class="">There are two main categories of firewalls.</p><ul id="61225023-6827-4261-a4d4-643e1e557ef3" class="bulleted-list"><li style="list-style-type:disc"><strong>Stateless:</strong> A class of firewall that operates based on predefined rules and does not keep track of information from data packets</li></ul><ul id="6fc81fbd-7802-4b32-819c-9bf392869aea" class="bulleted-list"><li style="list-style-type:disc"><strong>Stateful:</strong> A class of firewall that keeps track of information passing through it and proactively filters out threats. Unlike stateless firewalls, which require rules to be configured in two directions, a stateful firewall only requires a rule in one direction. This is because it uses a &quot;state table&quot; to track connections, so it can match return traffic to an existing session</li></ul><p id="1b2b27db-cd9d-40c9-9888-9f4200f10ea2" class="">Next generation firewalls (NGFWs) are the most technologically advanced firewall protection. They exceed the security offered by stateful firewalls because they include deep packet inspection (a kind of packet sniffing that examines data packets and takes actions if threats exist) and intrusion prevention features that detect security threats and notify firewall administrators. NGFWs can inspect traffic at the application layer of the TCP/IP model and are typically application aware. Unlike traditional firewalls that block traffic based on IP address and ports, NGFWs rules can be configured to block or allow traffic based on the application. Some NGFWs have additional features like Malware Sandboxing, Network Anti-Virus, and URL and DNS Filtering.</p><h3 id="cfe26484-c64c-4a96-8fec-4cfa32673cb8" class=""><strong>Proxy servers</strong></h3><p id="1737ca97-5328-458c-a9ca-56aceee193ed" class="">A proxy server is another way to add security to your private network. Proxy servers utilize network address translation (NAT) to serve as a barrier between clients on the network and external threats. Forward proxies handle queries from internal clients when they access resources external to the network. Reverse proxies function opposite of forward proxies; they handle requests from external systems to services on the internal network. Some proxy servers can also be configured with rules, like a firewall.  For example, you can create filters to block websites identified as containing malware.</p><h3 id="9d8a95f4-6220-4a6a-a83e-8f284399785a" class=""><strong>Virtual Private Networks (VPN)</strong></h3><p id="4571dbac-4a5d-45e7-b1fc-c8298ac8b0c3" class="">A VPN is a service that encrypts data in transit and disguises your IP address. VPNs use a process called encapsulation. Encapsulation wraps your unencrypted data in an encrypted data packet, which allows your data to be sent across the public network while remaining anonymous. Enterprises and other organizations use VPNs to help protect communications from users’ devices to corporate resources. Some of these resources include servers or virtual machines that host business applications. Individuals also use VPNs to increase personal privacy. VPNs protect user privacy by concealing personal information, including IP addresses, from external servers. A reputable VPN also minimizes its own access to user internet activity by using strong encryption and other security measures. Organizations are increasingly using a combination of VPN and SD-WAN capabilities to secure their networks. A software-defined wide area network (SD-WAN) is a virtual WAN service that allows organizations to securely connect users to applications across multiple locations and over large geographical distances.</p><h3 id="38660560-e70f-4e6f-b6d9-566eb5bc9f42" class=""><strong>Key takeaways</strong></h3><p id="49a5a2a6-d215-401a-a55d-a4256099eebb" class="">There are three main categories of network protocols: communication, management, and security protocols. In this reading, you learned the fundamentals of firewalls, proxy servers, and VPNs. More organizations are implementing a cloud-based approach to network security by incorporating a combination of VPN and SD-WAN capabilities as a service.</p><h1 id="eb20efc8-6891-4e2c-aa16-3cbab6dc83ac" class="">VPN protocols: Wireguard and IPSec</h1><p id="5eaa66be-6e8e-46d5-b2e6-edd3d2f19d9b" class="">A VPN, or virtual private network, is a network security service that changes your public IP address and hides your virtual location so that you can keep your data private when you’re using a public network like the internet. VPNs provide a server that acts as a gateway between a computer and the internet. This server creates a path similar to a virtual tunnel that hides the computer’s IP address and encrypts the data in transit to the internet. The main purpose of a VPN is to create a secure connection between a computer and a network. Additionally, a VPN allows trusted connections to be established on non-trusted networks. VPN protocols determine how the secure network tunnel is formed. Different VPN providers provide different VPN protocols.</p><p id="1b84a916-a72f-4f10-b2c2-8209d3d5a5d1" class="">This reading will cover the differences between remote access and site-to-site VPNs, and two VPN protocols: WireGuard VPN and IPSec VPN. A VPN protocol is similar to a network protocol: It’s a set of rules or instructions that will determine how data moves between endpoints. An endpoint is any device connected on a network. Some examples of endpoints include computers, mobile devices, and servers.</p><h2 id="eb7ab59f-e096-460c-bb28-b9dd0f27ca49" class="">Remote access and site-to-site VPNs</h2><p id="5264e33d-5d62-42ef-a5a1-92aa765fe3fa" class="">Individual users use remote access VPNs to establish a connection between a personal device and a VPN server. Remote access VPNs encrypt data sent or received through a personal device. The connection between the user and the remote access VPN is established through the internet.</p><p id="6e7d335c-4069-498b-8ce7-78ae3001a4db" class="">Enterprises use site-to-site VPNs largely to extend their network to other networks and locations. This is particularly useful for organizations that have many offices across the globe. IPSec is commonly used in site-to-site VPNs to create an encrypted tunnel between the primary network and the remote network. One disadvantage of site-to-site VPNs is how complex they can be to configure and manage compared to remote VPNs.</p><h2 id="ec330dfc-28db-47ae-8193-f241fb006252" class="">WireGuard VPN vs. IPSec VPN</h2><p id="161320ea-74e2-400f-9f39-234f1f373d7f" class="">WireGuard and IPSec are two different VPN protocols used to encrypt traffic over a secure network tunnel. The majority of VPN providers offer a variety of options for VPN protocols, such as WireGuard or IPSec. Ultimately, choosing between IPSec and WireGuard depends on many factors, including connection speeds, compatibility with existing network infrastructure, and business or individual needs.</p><h3 id="af67469e-b1fc-4feb-a76a-eeb2c5b76960" class="">WireGuard VPN</h3><p id="e95b6296-cc8f-4ba8-9041-f161e8fbb0ae" class="">WireGuard is a high-speed VPN protocol, with advanced encryption, to protect users when they are accessing the internet. It’s designed to be simple to set up and maintain. WireGuard can be used for both site-to-site connection and client-server connections. WireGuard is relatively newer than IPSec, and is used by many people due to the fact that its download speed is enhanced by using fewer lines of code. WireGuard is also open source, which makes it easier for users to deploy and debug. This protocol is useful for processes that require faster download speeds, such as streaming video content or downloading large files.</p><h3 id="7abc888d-9fea-4368-b523-22534f11436c" class="">IPSec VPN</h3><p id="82c5d162-d7e2-4313-bf7b-671fa4c959da" class="">IPSec is another VPN protocol that may be used to set up VPNs. Most VPN providers use IPSec to encrypt and authenticate data packets in order to establish secure, encrypted connections. Since IPSec is one of the earlier VPN protocols, many operating systems support IPSec from VPN providers.</p><p id="897dc5be-5629-481c-9a03-7a1db461d850" class="">Although IPSec and WireGuard are both VPN protocols, IPSec is older and more complex than WireGuard. Some clients may prefer IPSec due to its longer history of use, extensive security testing, and widespread adoption. However, others may prefer WireGuard because of its potential for better performance and simpler configuration.</p><h2 id="21c0fb29-ed09-4104-a369-32bf4f253a1f" class="">Key Takeaways</h2><p id="31e6646d-e28b-46ca-8fe7-f57adb9542cf" class="">A VPN protocol is similar to a network protocol: It’s a set of rules or instructions that will determine how data moves between endpoints. There are two types of VPNs: remote access and site-to-site. Remote access VPNs establish a connection between a personal device and a VPN server and encrypt or decrypt data exchanged with a personal device. Enterprises use site-to-site VPNs largely to extend their network to different locations and networks. IPSec can be used to create site-to-site connections and WireGuard can be used for both site-to-site and remote access connections.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

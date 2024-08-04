@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c7fa390c-0016-46cc-b338-c5669300cd80" class="page sans"><header><h1 class="page-title">Module 4</h1><p class="page-description"></p></header><div class="page-body"><p id="a367b13b-9f1f-477b-b862-499a603ea351" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/0hAcA/security-hardening?trk_ref=coach_copy">Security hardening</a>  Jul 4, 2024</p><h2 id="13fe3265-a04d-4643-ad64-21fe3ffbf2a3" class="">Security Hardening: Key Points for Further Study</h2><p id="19f1e66f-d3db-4dc7-8925-e4b197c07cfc" class=""><strong>What is Security Hardening?</strong></p><ul id="d91c50d1-975b-4dc7-a44b-cbcfd1d125f4" class="bulleted-list"><li style="list-style-type:disc">The process of strengthening a system to reduce its vulnerability and attack surface.</li></ul><ul id="0a0f12f5-c077-47b3-a6fb-fdef5a9a84f5" class="bulleted-list"><li style="list-style-type:disc">Minimizing potential vulnerabilities to keep a network as secure as possible.</li></ul><p id="2261bfdb-04f7-4a19-8e1e-f5d1e5bf76d9" class=""><strong>Analogy:</strong></p><ul id="2614970a-901b-4d9d-96d6-2b73a097f709" class="bulleted-list"><li style="list-style-type:disc">Think of a network as a house.</li></ul><ul id="4c8379ae-8638-4f2a-ba6e-ba72c4032a67" class="bulleted-list"><li style="list-style-type:disc">The attack surface is like all the doors and windows a robber could use to gain access.</li></ul><ul id="626b8390-db39-4ba0-8d9f-2fee1223865e" class="bulleted-list"><li style="list-style-type:disc">Security hardening is like putting locks on all the doors and windows.</li></ul><p id="4ed0a277-401f-4a58-981b-ee452f3f0692" class=""><strong>Key Procedures:</strong></p><ul id="737158b9-3050-4f0a-98ae-66b978d02a7b" class="bulleted-list"><li style="list-style-type:disc"><strong>Regular maintenance:</strong> Keeping network devices and systems functioning securely and optimally.</li></ul><ul id="e23c1943-6efd-4dec-9848-b246f097c482" class="bulleted-list"><li style="list-style-type:disc"><strong>Software updates (patches):</strong> Fixing security vulnerabilities.</li></ul><ul id="d9d2dc0d-de55-4532-8657-060f17e1ff6f" class="bulleted-list"><li style="list-style-type:disc"><strong>Device application configuration changes:</strong> Increasing security and fixing vulnerabilities.</li></ul><ul id="8d567cd3-042d-4035-894b-52686f62bf3a" class="bulleted-list"><li style="list-style-type:disc"><strong>Removing/disabling unused applications and services:</strong> Reducing the attack surface.</li></ul><ul id="71efd8af-6a88-4de9-9bec-3509d2580c6b" class="bulleted-list"><li style="list-style-type:disc"><strong>Disabling unused ports:</strong> Reducing the attack surface.</li></ul><ul id="69187c13-9e15-4c12-bbf4-7bad89968d0f" class="bulleted-list"><li style="list-style-type:disc"><strong>Reducing access permissions:</strong> Making network and device monitoring more efficient.</li></ul><ul id="33e7639c-0976-4cfd-8db8-dcaa654b2edd" class="bulleted-list"><li style="list-style-type:disc"><strong>Penetration testing:</strong> Identifying vulnerabilities in a system.</li></ul><p id="b2687dce-da72-4d99-ad3d-d2d0d316e6ea" class=""><strong>Benefits:</strong></p><ul id="a1bcde63-6175-4d7c-9905-efec5807e64d" class="bulleted-list"><li style="list-style-type:disc">Reduces the number of successful attacks.</li></ul><ul id="f3a1005a-7c6b-44f7-9d7a-56e68b53e27f" class="bulleted-list"><li style="list-style-type:disc">Strengthens the network&#x27;s security posture.</li></ul><ul id="b87645e4-a67e-4cf2-b78b-64da6ec921d9" class="bulleted-list"><li style="list-style-type:disc">Makes network and device monitoring more efficient.</li></ul><p id="31fc0433-766c-420d-9140-5f1fb9d74f47" class=""><strong>Further Study:</strong></p><ul id="7411a2d5-8b6f-442e-a67e-95e9ee0d54bd" class="bulleted-list"><li style="list-style-type:disc">Explore specific security hardening techniques for different types of systems (hardware, operating systems, applications, etc.).</li></ul><ul id="139caf21-a4d0-43f3-bf61-e9b9f0ca494d" class="bulleted-list"><li style="list-style-type:disc">Learn about penetration testing methodologies and tools.</li></ul><ul id="0ba494e5-62e3-473c-86ad-377182e5898e" class="bulleted-list"><li style="list-style-type:disc">Research best practices for network security hardening in your specific industry.</li></ul><p id="56bd20db-1afa-4a4d-a652-91018b5aa483" class=""><strong>Additional Resources:</strong></p><ul id="ff54fe86-2519-4fe4-87f3-4d33129c4381" class="bulleted-list"><li style="list-style-type:disc"><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-123r1.pdf">NIST Special Publication 800-123: Guide to Security Hardening</a></li></ul><ul id="c1834f61-3394-45af-9d02-4241a166df0b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.cisecurity.org/controls/">CIS Controls</a></li></ul><ul id="bc927ccc-2d33-4721-b842-3ad39caacc4b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.sans.org/reading-room/whitepapers/bestpractices/security-hardening-best-practices-33575">Security Hardening Best Practices</a></li></ul><p id="7e34996f-98dc-4289-ae97-2ed04611ee6e" class=""><strong>Remember:</strong> Security hardening is an ongoing process, not a one-time event. Regularly review and update your security measures to stay ahead of evolving threats.</p><p id="b22a9cf0-273a-49ea-8611-5a8062bb2486" class="">I hope these notes are helpful for your further study! Please let me know if you have any other questions.</p><p id="90328c2c-f4ff-4aa6-a310-c775e68db4fd" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/sj35a/os-hardening-practices?trk_ref=coach_copy">OS hardening practices</a>  Jul 4, 2024</p><h2 id="10109ab1-386d-4c12-bba2-4c96f60c23c0" class="">Operating System Hardening: Key Points for Further Study</h2><p id="a92ea3d8-12f7-479d-96c2-cdb27bc4f06b" class=""><strong>What is OS Hardening?</strong></p><ul id="01e11f2f-0905-4100-95ee-190245a30de6" class="bulleted-list"><li style="list-style-type:disc">A set of procedures to maintain and improve OS security.</li></ul><ul id="a6afb68f-c7c2-460a-b866-65d48ccc84a4" class="bulleted-list"><li style="list-style-type:disc">Involves implementing security measures like access privileges and password policies.</li></ul><ul id="aff3cfc7-3a79-4012-90ef-9f0b1169fcf3" class="bulleted-list"><li style="list-style-type:disc">Regularly undergoes security checks.</li></ul><p id="76981e2b-b907-49da-b84a-4ad2e9164363" class=""><strong>Why is OS Hardening Important?</strong></p><ul id="5cb660be-2417-4646-bc0f-9ce9dc3d6955" class="bulleted-list"><li style="list-style-type:disc">One insecure OS can compromise the entire network.</li></ul><ul id="2d4fc5de-b5b6-4a05-bdc6-096771d040af" class="bulleted-list"><li style="list-style-type:disc">Protects against vulnerabilities and malicious actors.</li></ul><ul id="e6034347-8959-4540-974b-9c9c72667e8e" class="bulleted-list"><li style="list-style-type:disc">Ensures compliance with security standards.</li></ul><p id="68487c97-dd2b-4ddb-9e8a-6380955417d2" class=""><strong>Key OS Hardening Practices:</strong></p><ul id="a57bd90b-4470-4ff6-b47a-411dcb535a0c" class="bulleted-list"><li style="list-style-type:disc"><strong>Patch Updates:</strong><ul id="474df64a-a709-44f2-9b96-b66c379a0c72" class="bulleted-list"><li style="list-style-type:circle">Address security vulnerabilities in software and OS.</li></ul><ul id="bd9c5396-adeb-4e4d-9ccc-6396d6d8691b" class="bulleted-list"><li style="list-style-type:circle">Should be applied as soon as they are released.</li></ul><ul id="e89501ea-a4d6-4994-a353-4f634a9954c7" class="bulleted-list"><li style="list-style-type:circle">Update the OS to its latest software version.</li></ul></li></ul><ul id="686a82a9-3767-4f7c-befc-dab936b64d58" class="bulleted-list"><li style="list-style-type:disc"><strong>Baseline Configuration:</strong><ul id="ea65b5c7-ab78-4b1a-a80b-355ba950c4a1" class="bulleted-list"><li style="list-style-type:circle">Documented set of specifications for future builds, releases, and updates.</li></ul><ul id="d821580a-3a06-4bfb-bd12-b75df727a6c4" class="bulleted-list"><li style="list-style-type:circle">Includes firewall rules and allowed/disallowed network ports.</li></ul><ul id="4404f236-23b7-4268-bff1-8db5c39ade9f" class="bulleted-list"><li style="list-style-type:circle">Allows comparison to current configuration to detect changes.</li></ul></li></ul><ul id="6eea205f-380b-452a-bb83-d995c3235a68" class="bulleted-list"><li style="list-style-type:disc"><strong>Hardware and Software Disposal:</strong><ul id="f1b476e6-0e12-44ba-8df6-a287a855ad83" class="bulleted-list"><li style="list-style-type:circle">Properly wipe and dispose of old hardware.</li></ul><ul id="b66e6e02-5386-43d8-adbc-af778ac3134d" class="bulleted-list"><li style="list-style-type:circle">Delete unused software applications with known vulnerabilities.</li></ul><ul id="065bfac2-a481-4f60-a6bf-adf5f4436a12" class="bulleted-list"><li style="list-style-type:circle">Reduces unnecessary vulnerabilities.</li></ul></li></ul><ul id="2c528bbc-89fe-4c1b-bec7-797119cd742e" class="bulleted-list"><li style="list-style-type:disc"><strong>Strong Password Policy:</strong><ul id="ab9fe26a-d71b-429b-9e5b-cc0ddab70979" class="bulleted-list"><li style="list-style-type:circle">Requires passwords to follow specific rules (e.g., length, characters).</li></ul><ul id="4f8755cc-7730-4423-8dda-42b0f5ab4858" class="bulleted-list"><li style="list-style-type:circle">Limits access attempts to prevent unauthorized access.</li></ul><ul id="f4e48cb1-ec61-4c97-a349-f35aa7238e1d" class="bulleted-list"><li style="list-style-type:circle">May require multi-factor authentication (MFA).</li></ul></li></ul><p id="c07eef6d-98fd-454f-a6c5-97681d4833a0" class=""><strong>Further Study:</strong></p><ul id="ddd7686f-6c13-44ca-8ee2-bd021daa0d36" class="bulleted-list"><li style="list-style-type:disc">Explore specific OS hardening techniques for different operating systems.</li></ul><ul id="fe4c0f78-5bba-462d-b5d7-6c1cedd04c89" class="bulleted-list"><li style="list-style-type:disc">Research best practices for patch management and vulnerability assessment.</li></ul><ul id="f9675001-330b-405f-9726-7053d0eeb998" class="bulleted-list"><li style="list-style-type:disc">Learn about security compliance standards and regulations.</li></ul><ul id="b913e3e0-3be8-45bf-814d-458ce2d51fc6" class="bulleted-list"><li style="list-style-type:disc">Consider taking additional courses on network security and hardening.</li></ul><p id="c64ed1b4-9246-487a-9e9a-4363312f8f47" class=""><strong>Additional Resources:</strong></p><ul id="a6621ea5-bfba-4598-b5ae-b8fd2e4adbbc" class="bulleted-list"><li style="list-style-type:disc"><a href="https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-123r1.pdf">NIST Special Publication 800-123: Guide to Security Hardening</a></li></ul><ul id="4ad0216f-c7a3-4aaf-95ed-324627d4e2b1" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.cisecurity.org/controls/">CIS Controls</a></li></ul><ul id="f90baf6d-2bd4-464b-b120-07568ab8ed34" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.sans.org/reading-room/whitepapers/os/operating-system-hardening-33875">SANS Institute: Operating System Hardening</a></li></ul><p id="89c3605f-582b-4649-9f1a-aba1986022fd" class=""><strong>Remember:</strong></p><ul id="ecf4c186-7364-40af-bc99-21046888e5e3" class="bulleted-list"><li style="list-style-type:disc">OS hardening is an ongoing process, not a one-time event.</li></ul><ul id="7d9a3a15-e1c0-4401-b268-69e2b3913f35" class="bulleted-list"><li style="list-style-type:disc">Regularly review and update your hardening practices.</li></ul><ul id="a8c9ce36-6712-4a7b-88a7-54f99afa86d3" class="bulleted-list"><li style="list-style-type:disc">Stay informed about the latest security threats and vulnerabilities.</li></ul><p id="8311a81a-c1d5-41b3-b06f-68b5543fdd17" class="">I hope these notes are helpful for your further study. Please let me know if you have any other questions.</p><h1 id="e338789d-0b6d-495c-bc9a-4657092f8306" class="">Brute force attacks and OS hardening</h1><p id="aab008db-66d0-458a-82fa-29cc4d5e7ee4" class="">In this reading, you’ll learn about brute force attacks. You’ll consider how vulnerabilities can be assessed using virtual machines and sandboxes, and learn ways to prevent brute force attacks using a combination of authentication measures. Implementing various OS hardening tasks can help prevent brute force attacks. An attacker can use a brute force attack to gain access and compromise a network.</p><p id="af657d48-813f-4edb-8b0f-9d0192b91728" class="">Usernames and passwords are among the most common and important security controls in place today. They are used and enforced on everything that stores or accesses sensitive or private information, like personal phones, computers, and restricted applications within an organization. However, a major issue with relying on login credentials as a critical line of defense is that they’re vulnerable to being stolen and guessed by malicious actors.</p><h2 id="0b9caf32-b32c-449d-a490-85ff0148be83" class="">Brute force attacks</h2><p id="f451928d-82e2-4afe-91dd-8124ab94d06b" class="">A<strong> brute force attack</strong> is a trial-and-error process of discovering private information. There are different types of brute force attacks that malicious actors use to guess passwords, including:</p><ul id="75cf87f2-28e8-456b-ba3e-ef8a359234a9" class="bulleted-list"><li style="list-style-type:disc"><em>Simple brute force attacks. </em>When attackers try to guess a user&#x27;s login credentials, it’s considered a simple brute force attack. They might do this by entering any combination of usernames and passwords that they can think of until they find the one that works.</li></ul><ul id="2fa4d6c1-6170-46c5-8044-420174cc068a" class="bulleted-list"><li style="list-style-type:disc"><em>Dictionary attacks</em> use a similar technique. In dictionary attacks, attackers use a list of commonly used passwords and stolen credentials from previous breaches to access a system. These are called “dictionary” attacks because attackers originally used a list of words from the dictionary to guess the passwords, before complex password rules became a common security practice.</li></ul><p id="241bbacb-cc57-4dd7-8149-00a0e38f1b63" class="">Using brute force to access a system can be a tedious and time consuming process, especially when it’s done manually. There are a range of tools attackers use to conduct their attacks.</p><h2 id="b3d6623a-d449-4c7b-ae1d-fc7a10f3aab4" class="">Assessing vulnerabilities</h2><p id="0d98ca48-c4bc-4db3-9443-ce2730ab4d31" class="">Before a brute force attack or other cybersecurity incident occurs, companies can run a series of tests on their network or web applications to assess vulnerabilities. Analysts can use virtual machines and sandboxes to test suspicious files, check for vulnerabilities before an event occurs, or to simulate a cybersecurity incident.</p><h3 id="d36cb81c-a93d-4c0f-88af-ca213d93f769" class=""><strong>Virtual machines (VMs)</strong></h3><p id="f681aba3-0f83-441f-a4bb-b0e2c859f6da" class="">Virtual machines (VMs) are software versions of physical computers. VMs provide an additional layer of security for an organization because they can be used to run code in an isolated environment, preventing malicious code from affecting the rest of the computer or system. VMs can also be deleted and replaced by a pristine image after testing malware.</p><p id="c3e774b6-80d6-42dd-aa76-6e2d932299d8" class="">VMs are useful when investigating potentially infected machines or running malware in a constrained environment. Using a VM may prevent damage to your system in the event its tools are used improperly. VMs also give you the ability to revert to a previous state. However, there are still some risks involved with VMs. There’s still a small risk that a malicious program can escape virtualization and access the host machine.</p><p id="b7ffa3e0-7a55-4cb1-ad18-84818d7eebd3" class="">You can test and explore applications easily with VMs, and it’s easy to switch between different VMs from your computer. This can also help in streamlining many security tasks.</p><h3 id="79b2e7ea-043d-47cf-a038-4bee9c4ea0b0" class=""><strong>Sandbox environments</strong></h3><p id="9c98202d-ec40-4449-8e52-b6840d6266e3" class="">A sandbox is a type of testing environment that allows you to execute software or programs separate from your network. They are commonly used for testing patches, identifying and addressing bugs, or detecting cybersecurity vulnerabilities. Sandboxes can also be used to evaluate suspicious software, evaluate files containing malicious code, and simulate attack scenarios.</p><p id="741a8b14-c140-4fbd-9386-10f0243141ea" class="">Sandboxes can be stand-alone physical computers that are not connected to a network; however, it is often more time- and cost-effective to use software or cloud-based virtual machines as sandbox environments. Note that some malware authors know how to write code to detect if the malware is executed in a VM or sandbox environment. Attackers can program their malware to behave as harmless software when run inside these types of  testing environments.</p><h2 id="d6cf3d44-5017-43e7-b025-f0c9c73c824d" class="">Prevention measures</h2><p id="bf6bafbe-1e3f-4b55-a9cf-07b9c7d1986c" class="">Some common measures organizations use to prevent brute force attacks and similar attacks from occurring include:</p><ul id="8bdd61f0-681a-4a4a-8d7d-c36ba5ba940e" class="bulleted-list"><li style="list-style-type:disc"><strong>Salting and hashing:</strong> Hashing converts information into a unique value that can then be used to determine its integrity. It is a one-way function, meaning it is impossible to decrypt and obtain the original text. Salting adds random characters to hashed passwords. This increases the length and complexity of hash values, making them more secure.</li></ul><ul id="14b6b7b8-ebe0-43d4-9570-e6b9aee7204b" class="bulleted-list"><li style="list-style-type:disc"><strong>Multi-factor authentication (MFA) and two-factor authentication (2FA):</strong> MFA is a security measure which requires a user to verify their identity in two or more ways to access a system or network. This verification happens using a combination of authentication factors: a username and password, fingerprints, facial recognition, or a one-time password (OTP) sent to a phone number or email. 2FA is similar to MFA, except it uses only two forms of verification.</li></ul><ul id="4cf95d6c-85da-4781-9a7a-37ac393a8763" class="bulleted-list"><li style="list-style-type:disc"><strong>CAPTCHA and reCAPTCHA:</strong> CAPTCHA stands for Completely Automated Public Turing test to tell Computers and Humans Apart. It asks users to complete a simple test that proves they are human. This helps prevent software from trying to brute force a password. reCAPTCHA is a free CAPTCHA service from Google that helps protect websites from bots and malicious software.</li></ul><ul id="4d8c3c2a-e269-4010-9055-d1e447d6bc69" class="bulleted-list"><li style="list-style-type:disc"><strong>Password policies:</strong> Organizations use password policies to standardize good password practices throughout the business. Policies can include guidelines on how complex a password should be, how often users need to update passwords, whether passwords can be reused or not, and if there are limits to how many times a user can attempt to log in before their account is suspended.</li></ul><h2 id="4b0b4c24-bf5d-46b4-8a54-54afca366430" class="">Key takeaways</h2><p id="64763280-b5a6-421e-afd3-6222c66d06a9" class="">Brute force attacks are a trial-and-error process of guessing passwords. Attacks can be launched manually or through software tools. Methods include simple brute force attacks and dictionary attacks. To protect against brute force attacks, cybersecurity analysts can use sandboxes to test suspicious files, check for vulnerabilities, or to simulate real attacks and virtual machines to conduct vulnerability tests. Some common measures to prevent brute force attacks include: hashing and salting, MFA and/or 2FA, CAPTCHA and reCAPTCHA, and password policies.</p><figure id="90da60b1-4a87-4a02-b647-6e1d88f5941d"><div class="source">https://docs.google.com/document/d/1qGnbaRJiQeP71Cs0Ps3zGoGFwRuaa6qlPJNBKuAy510/edit?usp=sharing</div></figure><figure id="6e2e4fa2-98b6-493f-aee5-6118ca2d99d2"><div class="source">https://docs.google.com/document/d/1qGnbaRJiQeP71Cs0Ps3zGoGFwRuaa6qlPJNBKuAy510/edit?usp=sharing</div></figure><p id="ca13f695-d041-4830-b657-e51e36d1bd2a" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/q0gEZ/network-hardening-practices?trk_ref=coach_copy">Network hardening practices</a>  Jul 4, 2024</p><h2 id="553749a3-d65c-4fd5-bb69-1b7d9a717860" class="">Network Hardening Key Points:</h2><p id="264ad40a-aeae-4163-a64e-f032b62eeb1a" class=""><strong>Regularly Performed Tasks:</strong></p><ul id="2a984f28-16a9-4c39-b661-c4628ef6521d" class="bulleted-list"><li style="list-style-type:disc"><strong>Firewall rules maintenance:</strong> Regularly review and update firewall rules to ensure they are still relevant and effective.</li></ul><ul id="a127c0c8-8b62-437c-aefa-4794e0b37470" class="bulleted-list"><li style="list-style-type:disc"><strong>Network log analysis:</strong> Analyze network logs to identify suspicious activity and potential security threats.</li></ul><ul id="a4dcc13a-a9d4-45da-bd9b-33dc8ac5dea1" class="bulleted-list"><li style="list-style-type:disc"><strong>Patch updates:</strong> Install security patches promptly to address vulnerabilities in software and hardware.</li></ul><ul id="a1eff805-8b0f-4b29-b8ea-53087df0dadb" class="bulleted-list"><li style="list-style-type:disc"><strong>Server backups:</strong> Regularly back up servers to ensure data can be recovered in case of a security incident.</li></ul><p id="7ccc66da-d8d6-44df-98cb-011757144cf2" class=""><strong>Tasks Performed Once (and then updated as needed):</strong></p><ul id="9ad298a8-cb43-411a-89a0-0624ac40a71d" class="bulleted-list"><li style="list-style-type:disc"><strong>Port filtering:</strong> Block unnecessary ports on firewalls to prevent unauthorized access.</li></ul><ul id="91f4dd74-1879-4734-b982-e04f904f35f9" class="bulleted-list"><li style="list-style-type:disc"><strong>Network access privileges:</strong> Grant network access privileges based on the principle of least privilege.</li></ul><ul id="ea021058-00db-4f22-b5eb-dba53c41f791" class="bulleted-list"><li style="list-style-type:disc"><strong>Encryption:</strong> Encrypt all network communication to protect data confidentiality and integrity.</li></ul><ul id="227b5a0d-54a5-48d3-b5c7-285f801ee67d" class="bulleted-list"><li style="list-style-type:disc"><strong>Wireless protocol updates:</strong> Use the most up-to-date wireless protocols and disable older, insecure protocols.</li></ul><ul id="d51a8a3b-43fe-4ae8-8b9a-9355b8daa9a9" class="bulleted-list"><li style="list-style-type:disc"><strong>Network segmentation:</strong> Create isolated subnets for different departments or security zones to limit the impact of security incidents.</li></ul><ul id="b50e4a40-4e72-4de4-97d8-544a4481ee19" class="bulleted-list"><li style="list-style-type:disc"><strong>Data encryption standards:</strong> Use strong encryption standards for data in restricted zones to make it more difficult to access.</li></ul><p id="0d7adf0e-42cf-4ea8-b9fd-a8427566c2ac" class=""><strong>Additional Key Points:</strong></p><ul id="721474c4-fa8c-46ee-9529-d85bbdae7a02" class="bulleted-list"><li style="list-style-type:disc">Network hardening is an ongoing process that requires continuous monitoring and adjustments.</li></ul><ul id="3ddb2099-91ee-4364-bbb0-48bf9a35f697" class="bulleted-list"><li style="list-style-type:disc">Security analysts use various tools and techniques to perform network hardening tasks.</li></ul><ul id="7c082a26-3502-4717-a851-ad003dabfd57" class="bulleted-list"><li style="list-style-type:disc">A SIEM (Security Information and Event Management) tool can help analysts monitor and analyze network security events.</li></ul><ul id="56aaecc9-91fe-4184-a902-e1c441255552" class="bulleted-list"><li style="list-style-type:disc">Network segmentation can help isolate critical systems and data from potential threats.</li></ul><ul id="e251f9cc-a028-4f70-9a26-2dbbd92ff4d3" class="bulleted-list"><li style="list-style-type:disc">Strong encryption is essential for protecting sensitive data in transit and at rest.</li></ul><p id="b8857471-d1d8-4826-b48e-1d8d53892de6" class=""><strong>Remember:</strong></p><ul id="9b38c672-c890-4f25-900d-1f84365f1b8b" class="bulleted-list"><li style="list-style-type:disc">These key points provide a foundation for understanding network hardening.</li></ul><ul id="a8e79011-9821-4385-af1d-127b63de0d2f" class="bulleted-list"><li style="list-style-type:disc">Further study and exploration of specific tools and techniques are recommended for a deeper understanding.</li></ul><p id="16a67f44-718f-4c86-a662-8c2b4ea153ed" class=""><strong>I hope these detailed notes help you study further!</strong></p><p id="31899c64-94dd-4386-9165-5c88ab6fbc57" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/hbD5B/network-security-in-the-cloud?trk_ref=coach_copy">Network security in the cloud</a>  Jul 4, 2024</p><h2 id="3ef27850-3181-4929-8c57-1e5d794e8083" class="">Network Security Hardening in the Cloud</h2><h3 id="365818db-2173-4a63-aa26-5ec14ce5d30d" class="">Key Points:</h3><ul id="4b3d0b39-aabc-4d6b-812e-6e702cbe6644" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud Network Security:</strong><ul id="15cdc783-2aed-47ca-a201-89541e9a5fe8" class="bulleted-list"><li style="list-style-type:circle">Organizations are increasingly using cloud network services.</li></ul><ul id="40a34b95-544f-4aea-a127-535b2d140547" class="bulleted-list"><li style="list-style-type:circle">Security analysts need to secure both on-premises and cloud networks.</li></ul><ul id="34ce75a7-219d-4763-9927-3294cd3c3716" class="bulleted-list"><li style="list-style-type:circle">Cloud networks are collections of servers storing resources and data in remote data centers accessible via the internet.</li></ul><ul id="7566e263-c048-48c9-83b3-c0ee1cad9648" class="bulleted-list"><li style="list-style-type:circle">Cloud servers require proper maintenance through security hardening procedures.</li></ul><ul id="41976cd4-9fa6-49e6-8439-0c67388f4e7a" class="bulleted-list"><li style="list-style-type:circle">Cloud service providers cannot prevent intrusions, especially from malicious actors.</li></ul></li></ul><ul id="9085941a-5535-4a7a-befe-fe078cd44e65" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud Network Hardening vs. Traditional Network Hardening:</strong><ul id="7d4704cd-f463-45c0-a38e-e05a1c681e72" class="bulleted-list"><li style="list-style-type:circle">Cloud network hardening uses a server baseline image for all server instances stored in the cloud.</li></ul><ul id="51efcd65-6fb9-4fb1-a8e4-96cc405d4af8" class="bulleted-list"><li style="list-style-type:circle">This allows comparison of data in cloud servers to the baseline image to detect unverified changes, indicating potential intrusions.</li></ul></li></ul><ul id="33fc086a-2247-4835-8a03-15d666de40a3" class="bulleted-list"><li style="list-style-type:disc"><strong>Data and Application Separation:</strong><ul id="342a1bd3-40f2-4b94-8b3c-908160f0d927" class="bulleted-list"><li style="list-style-type:circle">Similar to OS hardening, data and applications on a cloud network are kept separate based on their service category.</li></ul><ul id="20e751e8-c9c3-49de-9786-c7e3f42d882b" class="bulleted-list"><li style="list-style-type:circle">This helps prevent unauthorized access and data breaches.</li></ul></li></ul><ul id="42e2650a-1005-4ba3-be67-19d6edb3d125" class="bulleted-list"><li style="list-style-type:disc"><strong>Shared Responsibility Model:</strong><ul id="c68113cb-d870-49ab-99d7-2b5f3a813f6b" class="bulleted-list"><li style="list-style-type:circle">Cloud service providers share responsibility with organizations for cloud network security.</li></ul><ul id="a9b91d3b-fa3e-4da3-92a0-63aedb2e8971" class="bulleted-list"><li style="list-style-type:circle">Organizations must implement additional security measures to ensure their cloud network&#x27;s safety.</li></ul></li></ul><ul id="7d96ce95-5ed8-4e3c-b290-34b6746b1066" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud Network Operations Security:</strong><ul id="1f31f030-8bce-43d1-bed8-788e1e038032" class="bulleted-list"><li style="list-style-type:circle">Cloud network operations require security measures just like traditional networks.</li></ul></li></ul><h3 id="d4912749-fd71-4689-8161-96e17f3691af" class="">Additional Notes:</h3><ul id="984bc592-2f46-4beb-a030-79f61dcd32be" class="bulleted-list"><li style="list-style-type:disc">The video emphasizes the importance of securing cloud networks due to their increasing adoption.</li></ul><ul id="1f887731-5e98-4258-9e1a-7cc2234656de" class="bulleted-list"><li style="list-style-type:disc">It highlights the use of server baseline images for intrusion detection in cloud environments.</li></ul><ul id="83e21acb-655c-46b9-a01e-2bbc5dc2efa0" class="bulleted-list"><li style="list-style-type:disc">The video stresses the need for data and application separation to enhance security.</li></ul><ul id="02983c32-e081-47b4-b165-81d9fdbfb163" class="bulleted-list"><li style="list-style-type:disc">It reminds us of the shared responsibility model for cloud network security.</li></ul><ul id="1b6d8b86-3a8e-4611-ab97-d0c0af4e20de" class="bulleted-list"><li style="list-style-type:disc">The video concludes by emphasizing the importance of securing cloud network operations.</li></ul><h3 id="00da12fb-e1a5-4254-85d8-4a25f5fdd40d" class="">Studying Further:</h3><ul id="39152186-4b5f-4707-a953-a88974fec8bc" class="bulleted-list"><li style="list-style-type:disc">Review the course materials on cloud network security hardening.</li></ul><ul id="30e5717c-9945-4ded-ac0a-8b3f0bca8f0d" class="bulleted-list"><li style="list-style-type:disc">Explore additional resources on cloud security best practices.</li></ul><ul id="276fd56b-183c-40ce-818c-5acf4c525395" class="bulleted-list"><li style="list-style-type:disc">Practice applying these concepts to real-world scenarios.</li></ul><ul id="7500f5c6-aa8f-4fe4-a50e-836439fb80ea" class="bulleted-list"><li style="list-style-type:disc">Consider taking additional courses on cloud security to deepen your understanding.</li></ul><p id="b3dc815e-5953-4b96-847b-fa671ff64c46" class="">I hope these detailed notes help you study further! Remember, you&#x27;re doing great! Keep up the excellent work!</p><h1 id="fe502a59-3071-4711-93e5-865fe164b8a4" class="">Cryptography and cloud security</h1><p id="e31e45b3-b7df-46f2-a4cd-08514e9e5cff" class="">Earlier in this course, you were introduced to the concepts of the shared responsibility model and identity and access management (IAM). Similar to on-premise networks, cloud networks also need to be secured through a mixture of security hardening practices and cryptography.</p><p id="607a4e1f-6a94-4a93-8977-338faa413399" class="">This reading will address common cloud security hardening practices, what to consider when implementing cloud security measures, and the fundamentals of cryptography. Since cloud infrastructure is becoming increasingly common, it’s important to understand how cloud networks operate and how to secure them.</p><h2 id="cac47e8e-9764-465e-93de-5795382b28c5" class="">Cloud security hardening</h2><p id="3b47a16a-7934-4d78-a631-b342d357b52f" class="">There are various techniques and tools that can be used to secure cloud network infrastructure and resources. Some common cloud security hardening techniques include incorporating IAM, hypervisors, baselining, cryptography, and cryptographic erasure.</p><h3 id="4e3c8e65-4aa8-4594-a09b-dee30e4b16b4" class="">Identity access management (IAM)</h3><p id="e7d70000-e23a-4f3e-b073-e74629eecb74" class=""><strong>Identity access management (IAM)</strong> is a collection of processes and technologies that helps organizations manage digital identities in their environment. This service also authorizes how users can leverage different cloud resources.</p><h3 id="dd5ef3c3-2ac8-4f6f-8120-72d73b8d062e" class="">Hypervisors</h3><p id="7ba077f2-1687-42dd-9dce-82d7ef42cf3c" class="">A <strong>hypervisor</strong> abstracts the host’s hardware from the operating software environment. There are two types of hypervisors. Type one hypervisors run on the hardware of the host computer. An example of a type one hypervisor is VMware®&#x27;s ESXi. Type two hypervisors operate on the software of the host computer. An example of a type two hypervisor is VirtualBox. Cloud service providers (CSPs) commonly use type one hypervisors. CSPs are responsible for managing the hypervisor and other virtualization components. The CSP ensures that cloud resources and cloud environments are available, and it  provides regular patches and updates. Vulnerabilities in hypervisors or misconfigurations can lead to virtual machine escapes (VM escapes). A VM escape is an exploit where a malicious actor gains access to the primary hypervisor, potentially the host computer and other VMs. As a CSP customer, you will rarely deal with hypervisors directly.</p><h3 id="186e03dc-80ca-4b36-a920-17315b13bc59" class="">Baselining</h3><p id="f8b1a13a-a23d-4d4c-9972-c3c47f8be3f1" class="">Baselining for cloud networks and operations cover how the cloud environment is configured and set up. A baseline is a fixed reference point. This reference point can be used to compare changes made to a cloud environment. Proper configuration and setup can greatly improve the security and performance of a cloud environment. Examples of establishing a baseline in a cloud environment include: restricting access to the admin portal of the cloud environment, enabling password management, enabling file encryption, and enabling threat detection services for SQL databases.</p><h2 id="74155c1f-bab7-4ec4-8c8d-b439b1528e54" class="">Cryptography in the cloud</h2><p id="6806365d-f954-4043-a217-00ed27bd7f69" class="">Cryptography can be applied to secure data that is processed and stored in a cloud environment. Cryptography uses encryption and secure key management systems to provide data integrity and confidentiality. Cryptographic encryption is one of the key ways to secure sensitive data and information in the cloud.</p><p id="fdc80949-15f7-47ce-bfd7-c5b294cf400d" class="">Encryption is the process of scrambling information into ciphertext, which is not readable to anyone without the encryption key. Encryption primarily originated from manually encoding messages and information using an algorithm to convert any given letter or number to a new value. Modern encryption relies on the secrecy of a key, rather than the secrecy of an algorithm. Cryptography is an important tool that helps secure cloud networks and data at rest to prevent unauthorized access. You’ll learn more about cryptography in-depth in an upcoming course.</p><h2 id="ef37a4a3-4f78-486f-bcf7-8904c8a8e830" class="">Cryptographic erasure</h2><p id="69b3683c-d311-4d1a-a355-a4102e5bb239" class="">Cryptographic erasure is a method of erasing the encryption key for the encrypted data. When destroying data in the cloud, more traditional methods of data destruction are not as effective. Crypto-shredding is a newer technique where the cryptographic keys used for decrypting the data are destroyed. This makes the data undecipherable and prevents anyone from decrypting the data. When crypto-shredding, all copies of the key need to be destroyed so no one has any opportunity to access the data in the future.</p><h2 id="8897bfc1-3c2f-4069-9a04-52be9979417f" class="">Key Management</h2><p id="39a6e12c-5537-4d0a-8085-c32d75614552" class="">Modern encryption relies on keeping the encryption keys secure. Below are the measures you can take to further protect your data when using cloud applications:</p><ul id="5ade26e4-17d8-4c2e-870a-c2214d0399f9" class="bulleted-list"><li style="list-style-type:disc">Trusted platform module (TPM). TPM is a computer chip that can securely store passwords, certificates, and encryption keys.</li></ul><ul id="f3486fd7-fbd0-43cd-8849-9ba90c8401ff" class="bulleted-list"><li style="list-style-type:disc">Cloud hardware security module (CloudHSM). CloudHSM is a computing device that provides secure storage for cryptographic keys and processes cryptographic operations, such as encryption and decryption.</li></ul><p id="a7cafd8a-757e-4d08-bd01-700f41ca453d" class="">Organizations and customers do not have access to the cloud service provider (CSP) directly, but they can request audits and security reports by contacting the CSP. Customers typically do not have access to the specific encryption keys that CSPs use to encrypt the customers’ data. However, almost all CSPs allow customers to provide their own encryption keys, depending on the service the customer is accessing. In turn, the customer is responsible for their encryption keys and ensuring the keys remain confidential. The CSP is limited in how they can help the customer if the customer’s keys are compromised or destroyed. One key benefit of the shared responsibility model is that the customer is not entirely responsible for maintenance of the cryptographic infrastructure. Organizations can assess and monitor the risk involved with allowing the CSP to manage the infrastructure by reviewing a CSPs audit and security controls. For federal contractors, FEDRAMP provides a list of verified CSPs.</p><h2 id="3a5f024f-e8a5-4090-8afa-ab7a6c1a226d" class="">Key takeaways</h2><p id="464a3122-3640-4b00-89b0-5da212d2d777" class="">Cloud security hardening is a critical component to consider when assessing the security of various public cloud environments and improving the security within your organization. Identity access management (IAM), correctly configuring a baseline for the cloud environment, securing hypervisors, cryptography, and cryptographic erasure are all methods to use to further secure cloud infrastructure.</p><p id="f80baf37-389b-446d-8f69-fb0c45d47c97" class="">
+</p><p id="0d8471e1-a425-47ab-811a-7f3cdd35cf10" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/exam/AFji2/portfolio-activity-use-the-nist-cybersecurity-framework-to-respond-to-a-security/attempt">https://www.coursera.org/learn/networks-and-network-security/exam/AFji2/portfolio-activity-use-the-nist-cybersecurity-framework-to-respond-to-a-security/attempt</a></p><p id="6a2112f4-9be6-4f0d-83bc-2c5a0fdf290b" class="">
+</p><p id="b7398f9a-2522-4f0e-b0d0-31b9a13746d5" class=""><a href="https://docs.google.com/document/d/1EnieOKYJyKGsVff5Gg-3-dVwrHrZ2m8Hig6tVpfKqyg/template/preview?usp=sharing&amp;resourcekey=0-eb5t-d69zTPLEGthIpVlXw">https://docs.google.com/document/d/1EnieOKYJyKGsVff5Gg-3-dVwrHrZ2m8Hig6tVpfKqyg/template/preview?usp=sharing&amp;resourcekey=0-eb5t-d69zTPLEGthIpVlXw</a></p><figure id="2f7f8667-c4bc-4fa1-b159-dee0217a31c4"><div class="source"><a href="Module%204%20c7fa390c001646ccb338c5669300cd80/Applying_the_NIST_CSF.url">Applying the NIST CSF.url</a></div></figure><figure id="4e2f59e9-b07d-40b7-a91b-e9b3f32dc3ad"><div class="source"><a href="Module%204%20c7fa390c001646ccb338c5669300cd80/Example_of_an_incident_report_analysis.url">Example of an incident report analysis.url</a></div></figure><figure id="b872e90b-1df1-416e-97d3-8b6b572d2a58"><div class="source"><a href="Module%204%20c7fa390c001646ccb338c5669300cd80/Download_DOCX_File_Incident_report_analysis_exemplar_DOCX_File.url">Download DOCX File Incident report analysis exemplar DOCX File.url</a></div></figure><figure id="fbd8c059-cae9-4a12-9bd4-3d62a6467d50"><div class="source"><a href="Module%204%20c7fa390c001646ccb338c5669300cd80/Course_3_glossary.url">Course 3 glossary.url</a></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

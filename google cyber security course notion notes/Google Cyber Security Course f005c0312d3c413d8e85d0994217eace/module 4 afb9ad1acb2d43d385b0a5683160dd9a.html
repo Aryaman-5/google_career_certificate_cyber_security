@@ -1,0 +1,680 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>module 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="afb9ad1a-cb2d-43d3-85b0-a5683160dd9a" class="page sans"><header><h1 class="page-title">module 4</h1><p class="page-description"></p></header><div class="page-body"><h1 id="71613115-6cc8-45c2-8043-02b7d2392605" class="">More about playbooks</h1><p id="76fb3c56-87cf-4dff-adad-9436c5b781d1" class="">Previously, you learned that playbooks are tools used by cybersecurity professionals to identify and respond to security issues. In this reading, you’ll learn more about playbooks and their purpose in the field of cybersecurity.</p><h2 id="d68e5235-0ce7-4daa-b8c5-ee8b057a8825" class="">Playbook overview</h2><p id="2b8aaa23-ff5f-4f99-aeb0-0e3d6811d9b9" class="">A <strong>playbook</strong> is a manual that provides details about any operational action. Essentially, a playbook provides a predefined and up-to-date list of steps to perform when responding to an incident.</p><figure id="88f0ebac-4b72-4f25-993c-e6172076c431" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/qw2OZW3yR1mxXRbPB1hM7w_617d975b56f64c68a26c2aee35004bf1_BTtE4EbRQ9_-1C9WWklOU8-Gd6LLhOgGS4Vm7i_pyp-74LH4jhgguaIvcnDUiZSfYKfnjCv3VLHqmx_-K-5mOyf3wuc5oljeJUgt0Zkk5x-wE8lKKhDcCF_ST43l4-D3Qj84qy3bOkbZqnrYov2jfiZiEINajO9AGMeKUqYCNKfBFJTOWu_fxNBEQY2D0g?expiry=1718668800000&amp;hmac=ICmKXZw4u3APgRjxsa5Q165e7RY8Dw0fJkz9o-R4VuQ"><img style="width:672px" src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/qw2OZW3yR1mxXRbPB1hM7w_617d975b56f64c68a26c2aee35004bf1_BTtE4EbRQ9_-1C9WWklOU8-Gd6LLhOgGS4Vm7i_pyp-74LH4jhgguaIvcnDUiZSfYKfnjCv3VLHqmx_-K-5mOyf3wuc5oljeJUgt0Zkk5x-wE8lKKhDcCF_ST43l4-D3Qj84qy3bOkbZqnrYov2jfiZiEINajO9AGMeKUqYCNKfBFJTOWu_fxNBEQY2D0g?expiry=1718668800000&amp;hmac=ICmKXZw4u3APgRjxsa5Q165e7RY8Dw0fJkz9o-R4VuQ"/></a></figure><p id="4462001d-236a-4970-924b-0509a82547a0" class="">Playbooks are accompanied by a strategy. The strategy outlines expectations of team members who are assigned a task, and some playbooks also list the individuals responsible. The outlined expectations are accompanied by a plan. The plan dictates how the specific task outlined in the playbook must be completed.</p><p id="ef9e9330-901f-4d30-87ad-990e7d6d2118" class="">Playbooks should be treated as living documents, which means that they are frequently updated by security team members to address industry changes and new threats. Playbooks are generally managed as a collaborative effort, since security team members have different levels of expertise.</p><p id="acedf432-d433-4c30-8289-327ae17cee26" class="">Updates are often made if:</p><ul id="b68ccbcc-729d-4a24-947f-6a6bc2c6c722" class="bulleted-list"><li style="list-style-type:disc">A failure is identified, such as an oversight in the outlined policies and procedures, or in the playbook itself.</li></ul><ul id="4f20a198-0524-4f2d-b568-94493adb9f9d" class="bulleted-list"><li style="list-style-type:disc">There is a change in industry standards, such as changes in laws or regulatory compliance.</li></ul><ul id="9ca81cc4-b40e-4fa6-98ec-500e6ed90c6d" class="bulleted-list"><li style="list-style-type:disc">The cybersecurity landscape changes due to evolving threat actor tactics and techniques.</li></ul><h2 id="9a1aeaa7-50e1-4036-a4a1-db8f5766d21a" class="">Types of playbooks</h2><p id="97bbd055-89f1-45c3-a97e-cff668ed2435" class="">Playbooks sometimes cover specific incidents and vulnerabilities. These might include ransomware, vishing, business email compromise (BEC), and other attacks previously discussed. Incident and vulnerability response playbooks are very common, but they are not the only types of playbooks organizations develop.</p><p id="f203a763-6c43-4b99-b617-1e9a93b136f9" class="">Each organization has a different set of playbook tools, methodologies, protocols, and procedures that they adhere to, and different individuals are involved at each step of the response process, depending on the country they are in. For example, incident notification requirements from government-imposed laws and regulations, along with compliance standards, affect the content in the playbooks. These requirements are subject to change based on where the incident originated and the type of data affected.</p><h3 id="db822f1d-be11-4f59-8e2e-40845cf6937f" class=""><strong>Incident and vulnerability response playbooks</strong></h3><p id="e36fb9c2-0229-4355-b28b-eccf1ec20264" class="">Incident and vulnerability response playbooks are commonly used by entry-level cybersecurity professionals. They are developed based on the goals outlined in an organization’s business continuity plan. A business continuity plan is an established path forward allowing a business to recover and continue to operate as normal, despite a disruption like a security breach.</p><p id="1fcac76c-cfcf-4ffb-b378-ba97e5ea1436" class="">These two types of playbooks are similar in that they both contain predefined and up-to-date lists of steps to perform when responding to an incident. Following these steps is necessary to ensure that you, as a security professional, are adhering to legal and organizational standards and protocols. These playbooks also help minimize errors and ensure that important actions are performed within a specific timeframe.</p><p id="9204b14a-7304-4e35-906a-d327568d54d9" class="">When an incident, threat, or vulnerability occurs or is identified, the level of risk to the organization depends on the potential damage to its assets. A basic formula for determining the level of risk is that risk equals the likelihood of a threat. For this reason, a sense of urgency is essential. Following the steps outlined in playbooks is also important if any forensic task is being carried out. Mishandling data can easily compromise forensic data, rendering it unusable.</p><p id="4fad6312-1895-4c39-bea8-3506b8148de6" class="">Common steps included in incident and vulnerability playbooks include:</p><ul id="78d53036-18d7-45c7-82a0-618d67a6c07d" class="bulleted-list"><li style="list-style-type:disc">Preparation</li></ul><ul id="225f6df2-a7ab-4e3b-a997-034bf2fabdca" class="bulleted-list"><li style="list-style-type:disc">Detection</li></ul><ul id="7d8b97bc-ea9c-431f-a5ae-319401ee2f3e" class="bulleted-list"><li style="list-style-type:disc">Analysis</li></ul><ul id="495cb735-347e-466a-9618-a0fc6cf9db66" class="bulleted-list"><li style="list-style-type:disc">Containment</li></ul><ul id="11dab71e-b401-40bc-b4b7-c7ca32ca1ff1" class="bulleted-list"><li style="list-style-type:disc">Eradication</li></ul><ul id="75634cef-59ba-4b66-9794-5e5d1dbd574d" class="bulleted-list"><li style="list-style-type:disc">Recovery from an incident</li></ul><p id="a4670f21-7031-4da7-9622-61c8d1fa5ad3" class="">Additional steps include performing post-incident activities, and a coordination of efforts throughout the investigation and incident and vulnerability response stages.</p><h2 id="8a789d7d-48dd-4b76-adb1-c304f73184ad" class="">Key takeaways</h2><p id="0db6f622-76d3-41a6-9903-9350dda8996c" class="">It is essential to refine processes and procedures outlined in a playbook. With every documented incident, cybersecurity teams need to consider what was learned from the incident and what improvements should be made to handle incidents more effectively in the future. Playbooks create structure and ensure compliance with the law.</p><h2 id="7bbf7c36-baae-4641-b131-d7e45373044f" class="">Resources for more information</h2><p id="7a0db7d1-7aab-4b65-b4ac-99c6cf42d472" class="">Incident and vulnerability response playbooks are only two examples of the many playbooks that an organization uses. If you plan to work as a cybersecurity professional outside of the U.S., you may want to explore the following resources:</p><ul id="77114b75-201b-4bb6-930a-9db1f1b03375" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.ncsc.gov.uk/section/about-ncsc/incident-management">United Kingdom, National Cyber Security Center (NCSC) - Incident Management</a></li></ul><ul id="4f4b85df-572b-4d8f-b5c7-5aab4e15a865" class="bulleted-list"><li style="list-style-type:disc"></li></ul><ul id="a77727e4-34cd-461f-a023-858f333e7b9c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.cyber.gov.au/sites/default/files/2023-03/ACSC%20Cyber%20Incident%20Response%20Plan%20Guidance_A4.pdf">Australian Government - Cyber Incident Response Plan</a></li></ul><ul id="af01473e-5a86-430a-a88f-2fe86842fd5f" class="bulleted-list"><li style="list-style-type:disc"></li></ul><ul id="d0579317-3723-42ce-a636-c3a072f191f6" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.jpcert.or.jp/english/vh/guidelines.html">Japan Computer Emergency Response Team Coordination Center (JPCERT/CC) - Vulnerability Handling and related guidelines</a></li></ul><ul id="094ea185-3a1e-4d58-9b51-c0b1930a40ac" class="bulleted-list"><li style="list-style-type:disc"></li></ul><ul id="d0efa0ef-8bb5-4815-9b69-d0d26fd8ccfe" class="bulleted-list"><li style="list-style-type:disc"><a href="https://cyber.gc.ca/en/guidance/ransomware-playbook-itsm00099">Government of Canada - Ransomware Playbook</a></li></ul><ul id="0b706e4d-9353-4c78-8a62-a3fd7508bb10" class="bulleted-list"><li style="list-style-type:disc"></li></ul><ul id="b4b19a7c-5571-472d-b96c-36bffc6d3bc8" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.gov.scot/publications/cyber-resilience-incident-management/">Scottish Government - Playbook Templates</a></li></ul><ul id="09006d4b-373f-488c-9574-926c975a4057" class="bulleted-list"><li style="list-style-type:disc"></li></ul><p id="f15b7291-cde1-49cd-b7c6-e8bd0b45d442" class="">
+</p><p id="256444c4-374c-43da-b08c-da5cdceff0a6" class="">
+</p><p id="1b4de555-c182-4a31-a035-162c8612a548" class=""><a href="https://www.coursera.org/learn/manage-security-risks/lecture/M5rAU/course-wrap-up?trk_ref=coach_copy">Course wrap-up</a>  Jun 18, 2024</p><h2 id="3f062dfd-ce5a-4b43-9c41-60379dbd7183" class="">Play It Safe: Manage Security Risks Course Summary</h2><p id="8f938eaf-6456-4306-aa11-d8a9df50edbb" class="">This course has equipped you with the knowledge and skills to effectively manage security risks. Let&#x27;s recap the key takeaways:</p><p id="9dce63c2-c395-4673-8414-332dd87d5dcc" class=""><strong>Security Domains:</strong></p><ul id="35164076-9f74-49c1-a8d9-6d193781a627" class="bulleted-list"><li style="list-style-type:disc">We explored the eight CISSP security domains, focusing on threats, risks, and vulnerabilities to business operations.</li></ul><p id="ef146639-4787-446c-a105-ca8a8f23a93d" class=""><strong>Security Frameworks and Controls:</strong></p><ul id="104bdd44-f7c0-477c-9866-89f47057e15d" class="bulleted-list"><li style="list-style-type:disc">We learned how security frameworks and controls serve as a foundation for creating security policies and processes.</li></ul><ul id="4a9ae8f9-9e3a-4d4b-8856-ec8b741b90e8" class="bulleted-list"><li style="list-style-type:disc">We discussed the CIA triad, NIST frameworks, and security design principles, understanding their benefits for the security community.</li></ul><ul id="af59b400-5be1-4347-908d-0dce77ac0bf8" class="bulleted-list"><li style="list-style-type:disc">We explored the relationship between frameworks, controls, and principles with security audits.</li></ul><p id="e8ce3ce1-ad12-4d81-85af-e845ccef500a" class=""><strong>Security Tools:</strong></p><ul id="02616803-2c4e-43e7-b52a-79150df9d3a9" class="bulleted-list"><li style="list-style-type:disc">We gained insights into basic security tools like SIEM dashboards and their role in protecting business operations.</li></ul><p id="3f24e08a-6ac5-4ac5-9bbe-e875b7ac1c5c" class=""><strong>Playbooks for Incident Response:</strong></p><ul id="fb7a3e3c-ef00-4794-b1e8-0d93619df5f3" class="bulleted-list"><li style="list-style-type:disc">We learned how to utilize playbooks to effectively protect assets and data.</li></ul><p id="07638815-c482-4cf6-af46-21427a9106c8" class=""><strong>Key Takeaways:</strong></p><ul id="42408a65-102a-4547-b7cc-eac2b1e04edb" class="bulleted-list"><li style="list-style-type:disc">Understanding the available security tools and their applications is crucial for success as a security analyst.</li></ul><ul id="faa23d1b-a76a-411a-ba46-de65e91fdb89" class="bulleted-list"><li style="list-style-type:disc">This knowledge will enhance your expertise and enable you to efficiently accomplish your daily tasks.</li></ul><p id="d5b03e69-d03e-4bf4-bca8-28a546ad479e" class=""><strong>Next Steps:</strong></p><ul id="1ab75519-15b9-4f62-9a1e-125519dd3459" class="bulleted-list"><li style="list-style-type:disc">Join Chris in the next program segment for a deeper dive into these topics and an introduction to new core security concepts.</li></ul><p id="e42a11dc-fc54-4d04-b60d-5ad69d6ff814" class=""><strong>Remember:</strong></p><ul id="35ec2cb9-9515-43cd-b5f3-8c7c4513e3af" class="bulleted-list"><li style="list-style-type:disc">This course is just the beginning of your cybersecurity journey. Keep exploring and learning to stay ahead of evolving threats and vulnerabilities.</li></ul><p id="af556f9f-d6ed-43df-a601-06a632adcf4c" class="">I hope this summary is helpful. Please let me know if you have any questions or need further clarification.</p><p id="377248e6-2732-4da7-800e-2cdd009c1ed0" class="">
+</p><p id="e8469765-b853-4b10-8e6e-e88137ce949e" class=""><a href="https://www.coursera.org/learn/manage-security-risks/lecture/M5rAU/course-wrap-up?trk_ref=coach_copy">Course wrap-up</a>  Jun 18, 2024</p><h2 id="9cfce8c1-c220-4cb3-87af-c4e91a05122f" class="">Play It Safe: Manage Security Risks Course Summary</h2><p id="88542389-6eec-4c7e-91ae-0c3a6ce4fe58" class="">This course has equipped you with the knowledge and skills to effectively manage security risks. Let&#x27;s recap the key takeaways:</p><p id="19c8dd3a-610a-40f6-9ab8-9ffe1d70d5ec" class=""><strong>Security Domains:</strong></p><ul id="01365783-0955-45a3-acad-bb718d653b7a" class="bulleted-list"><li style="list-style-type:disc">We explored the eight CISSP security domains, focusing on threats, risks, and vulnerabilities to business operations.</li></ul><p id="f67904cc-4d8d-469c-9a93-89ad783098d5" class=""><strong>Security Frameworks and Controls:</strong></p><ul id="f3fbe5f1-c719-48ca-a479-7981d72f4cc9" class="bulleted-list"><li style="list-style-type:disc">We learned how security frameworks and controls serve as a foundation for creating security policies and processes.</li></ul><ul id="8686b561-8f9d-4864-98f1-591eca2461ab" class="bulleted-list"><li style="list-style-type:disc">We discussed the CIA triad, NIST frameworks, and security design principles, understanding their benefits for the security community.</li></ul><ul id="2900fab4-1622-46ca-8249-922c80411e8f" class="bulleted-list"><li style="list-style-type:disc">We explored the relationship between frameworks, controls, and principles with security audits.</li></ul><p id="617cb088-1f8d-4bd2-947b-8ebb36ef5bdf" class=""><strong>Security Tools:</strong></p><ul id="1a37de86-e94c-4081-ba24-fb68d90b2877" class="bulleted-list"><li style="list-style-type:disc">We gained insights into basic security tools like SIEM dashboards and their role in protecting business operations.</li></ul><p id="86154b32-9688-44c8-b767-e32c86bb46fb" class=""><strong>Playbooks for Incident Response:</strong></p><ul id="9ac07453-e90c-4e85-ad16-0227804f8353" class="bulleted-list"><li style="list-style-type:disc">We learned how to utilize playbooks to effectively protect assets and data.</li></ul><p id="62a37b29-13d1-4086-aaca-bbe86c522e0e" class=""><strong>Key Takeaways:</strong></p><ul id="0213b7de-1603-4d1c-ae0c-8a53daa2b964" class="bulleted-list"><li style="list-style-type:disc">Understanding the available security tools and their applications is crucial for success as a security analyst.</li></ul><ul id="855a5f75-023d-46ce-abcb-5d32b6588552" class="bulleted-list"><li style="list-style-type:disc">This knowledge will enhance your expertise and enable you to efficiently accomplish your daily tasks.</li></ul><p id="2d009b9e-f1e7-4263-9ffe-23eadf74dddc" class=""><strong>Next Steps:</strong></p><ul id="ca86474e-f074-491b-a6ea-de8b90eb388b" class="bulleted-list"><li style="list-style-type:disc">Join Chris in the next program segment for a deeper dive into these topics and an introduction to new core security concepts.</li></ul><p id="e2e04c8a-fac1-409c-80a5-6f68bb6dc6eb" class=""><strong>Remember:</strong></p><ul id="0ade634b-e98b-4a19-bca8-4ffd6e2c1bad" class="bulleted-list"><li style="list-style-type:disc">This course is just the beginning of your cybersecurity journey. Keep exploring and learning to stay ahead of evolving threats and vulnerabilities.</li></ul><p id="d6043c7d-a8ce-42c6-8148-e1a599d6f982" class="">I hope this summary is helpful. Please let me know if you have any questions or need further clarification.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

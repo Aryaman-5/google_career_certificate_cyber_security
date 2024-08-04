@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Google Cyber Security Course</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f005c031-2d3c-413d-8e85-d0994217eace" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🔐</span></div><h1 class="page-title">Google Cyber Security Course</h1><p class="page-description"></p></header><div class="page-body"><ul id="2f747bf9-01e5-4fe8-862b-751942496ee3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/foundations-of-cybersecurity/home/week/1">Foundations of Cybersecurity</a></strong></mark><p id="314c7be3-446b-427b-92b7-58534ae5671e" class=""><strong></strong>— Explore the cybersecurity profession, including significant events that led to the development of the cybersecurity field and its continued importance to organizational operations. Learn about entry-level cybersecurity roles and responsibilities.</p></li></ul><ul id="c9622a25-d314-4592-b146-cceaa1d4c6b2" class="toggle"><li><details open=""><summary>course materials</summary><figure id="1cacf96d-dadd-4264-9b11-194f3fada59d" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%203%201cacf96ddadd42649b11194f3fada59d.html">Module 3</a></figure><figure id="3a681b8c-dca1-4b67-9ba6-1e712d43e975" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%204%203a681b8cdca14b679ba61e712d43e975.html">Module 4</a></figure><figure id="d7872f0e-4b5a-4163-9c08-2ed3bdb473bd" class="image"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Untitled.png"><img style="width:708px" src="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Untitled.png"/></a></figure><figure id="6401ed92-87ea-435e-832b-3d78db091d89" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/course%201%20glossary%206401ed9287ea435e832b3d78db091d89.html">course 1 glossary</a></figure></details></li></ul><p id="cf21b0cc-8a1b-41a0-b6a6-be729063dfcc" class="">
+</p><p id="17c42984-7b87-4dad-85e7-567c08ec356f" class="">
+</p><ul id="9988ce29-742f-46e3-9887-dfba561c95a1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/manage-security-risks/home/week/1">Play It Safe: Manage Security Risks</a></strong></mark><p id="084d066a-aa3a-447b-aced-ab02d7c0ecd7" class=""><strong></strong>— <em>(current course) </em>Identify how cybersecurity professionals use frameworks and controls to protect business operations, and explore common cybersecurity tools.</p><ul id="cdb81779-e3d0-4078-b432-719b3c6b7fd2" class="toggle"><li><details open=""><summary>course materials</summary><figure id="e598e4a0-3e03-4ac3-bafc-34b172fd43e3" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%201%20Security%20domains%20e598e4a03e034ac3bafc34b172fd43e3.html">Module 1: Security domains</a></figure><figure id="3e23073c-aec9-4f55-af79-b5c3f5041c9b" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%202%203e23073caec94f55af79b5c3f5041c9b.html">Module 2</a></figure><figure id="1c7132c9-a65d-4a18-81f9-8d2294103702" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/module%203%201c7132c9a65d4a1881f98d2294103702.html">module 3</a></figure><figure id="afb9ad1a-cb2d-43d3-85b0-a5683160dd9a" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/module%204%20afb9ad1acb2d43d385b0a5683160dd9a.html">module 4</a></figure><p id="c2f7aafc-a8b6-473b-8667-269ffd38cff2" class="">
+</p></details></li></ul></li></ul><ul id="ef6af0b8-abb8-422b-bbef-95403c93700a" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/networks-and-network-security/home/week/1">Connect and Protect: Networks and Network Security</a></strong></mark><p id="db743fc6-76e5-4d29-9376-0ef9990507f2" class=""><strong></strong>— Gain an understanding of network-level vulnerabilities and how to secure networks.</p><ul id="a45c23a3-9b23-4cfb-b564-a6e890d31847" class="toggle"><li><details open=""><summary>course materials</summary><figure id="f52fdf15-5c12-4589-a0bc-ac96da9896fa" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%201%20f52fdf155c124589a0bcac96da9896fa.html">Module 1</a></figure><figure id="d175cd6c-6f92-42ea-a657-b89c2e342ff5" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%202%20d175cd6c6f9242eaa657b89c2e342ff5.html">Module 2</a></figure><figure id="33c80ae2-6aa8-45e9-be79-d6abd0a182b1" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%203%2033c80ae26aa845e9be79d6abd0a182b1.html">Module 3</a></figure><figure id="c7fa390c-0016-46cc-b338-c5669300cd80" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%204%20c7fa390c001646ccb338c5669300cd80.html">Module 4</a></figure></details></li></ul><p id="7111fba8-fc34-4dd8-9ce8-5feae8b0efd7" class="">
+</p></li></ul><ul id="7893e3ac-5d59-40d9-bede-3ffaa226207d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/linux-and-sql/home/week/1">Tools of the Trade: Linux and SQL</a></strong></mark><p id="2654ed7a-015a-40a1-8eaf-b101a2c30b98" class=""><strong></strong>— Explore foundational computing skills, including communicating with the Linux operating system through the command line and querying databases with SQL.</p><ul id="f01d52d1-4ecd-4538-8f24-32f24d939372" class="toggle"><li><details open=""><summary>course materials</summary><figure id="1efacdaf-9f06-4339-93f7-78a867134a42" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%201%201efacdaf9f06433993f778a867134a42.html">Module 1</a></figure><figure id="726efe8c-4619-4d89-8bd5-436a4c94e8ed" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%202%20726efe8c46194d898bd5436a4c94e8ed.html">Module 2</a></figure><figure id="0d772009-b4b7-460d-a9a9-fe0702ebc603" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%203%200d772009b4b7460da9a9fe0702ebc603.html">Module 3</a></figure><figure id="febaf6af-d6b1-49fd-b5c5-287a35c92d79" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%204%20febaf6afd6b149fdb5c5287a35c92d79.html">Module 4</a></figure></details></li></ul></li></ul><p id="d1b6f72f-562b-47fb-b3ce-71cee7d4c556" class="">
+</p><ul id="6e27d2e4-9566-4ecf-9b34-bcd6414c334d" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/assets-threats-and-vulnerabilities/home/week/1">Assets, Threats, and Vulnerabilities</a></strong></mark><p id="2562c224-0093-48a9-b762-6510c7bca727" class=""><strong></strong>— Learn about the importance of security controls and developing a threat actor mindset to protect and defend an organization’s assets from various threats, risks, and vulnerabilities.</p><ul id="f2d33455-8cfb-48fe-b647-ee1182c0cdd8" class="toggle"><li><details open=""><summary>course materials</summary><figure id="cb63af9a-bf14-43e2-be9f-097053b61af9" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%201%20(1)%20cb63af9abf1443e2be9f097053b61af9.html">Module 1 (1)</a></figure><figure id="898e4eaa-0f27-4fa3-b29d-2af495ce7578" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%202%20(1)%20898e4eaa0f274fa3b29d2af495ce7578.html">Module 2 (1)</a></figure><figure id="b274bfa8-cff2-46d1-b7a2-496bc5022104" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%203%20(1)%20b274bfa8cff246d1b7a2496bc5022104.html">Module 3 (1)</a></figure><figure id="0eb7b28e-a69a-4a68-8130-3c01343d46ac" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%204%20(1)%200eb7b28ea69a4a6881303c01343d46ac.html">Module 4 (1)</a></figure><p id="a751705b-9626-4fe9-93b1-8d8ece3a55cd" class="">
+</p></details></li></ul></li></ul><p id="fa862850-6742-4eb6-abe4-6c5c80e19628" class="">
+</p><ul id="92cc7281-8c17-4784-a8a1-025a6aee98e9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/detection-and-response/home/week/1">Sound the Alarm: Detection and Response</a></strong></mark><p id="8492b8d7-4eeb-439d-93e0-ab152003cf82" class=""><strong></strong>— Understand the incident response lifecycle and practice using tools to detect and respond to cybersecurity incidents.</p><ul id="3afb699c-0fac-42ff-a4b5-e54c1dcda49a" class="toggle"><li><details open=""><summary>course materials</summary><figure id="cb979d38-6718-4c01-b728-fb1d86356813" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%201%20(1)%20cb979d3867184c01b728fb1d86356813.html">Module 1 (1)</a></figure><figure id="52fda3b8-53a3-41c5-8a17-ba6f8eaaf9d4" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%202%20(1)%2052fda3b853a341c58a17ba6f8eaaf9d4.html">Module 2 (1)</a></figure><figure id="d42376f1-28f8-4cdc-a58d-806392ef65c7" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%203%20(1)%20d42376f128f84cdca58d806392ef65c7.html">Module 3 (1)</a></figure><figure id="0ff36072-dbec-419d-a421-db3417803d1a" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%204%20(1)%200ff36072dbec419da421db3417803d1a.html">Module 4 (1)</a></figure></details></li></ul></li></ul><p id="54cf5f48-fb3d-4306-9405-f2be6a0d968e" class="">
+</p><ul id="8de337ba-6fde-4de0-8a58-05e68018d524" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/automate-cybersecurity-tasks-with-python/home/week/1">Automate Cybersecurity Tasks with Python</a></strong></mark><p id="5965e40e-328e-474e-be09-e56eb36fd878" class=""><strong></strong>— Explore the Python programming language and write code to automate cybersecurity tasks.</p></li></ul><p id="fc8707e6-8869-4e08-bd8e-f387095286fb" class="">
+</p><ul id="e73522ba-d5c6-4769-a6a2-0c34975a966c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-blue"><strong><a href="https://www.coursera.org/learn/prepare-for-cybersecurity-jobs/home/week/1">Put It to Work: Prepare for Cybersecurity Jobs</a></strong></mark></li></ul><p id="0ce53816-6f56-4bed-8b76-b582038f2cbd" class="">— Learn about incident classification, escalation, and ways to communicate with stakeholders. This course closes out the program with tips on how to engage with the cybersecurity community and prepare for your job search.</p><ul id="a48db5fe-909a-4651-bcad-d8b72927de75" class="toggle"><li><details open=""><summary>course materials</summary><figure id="fb71acd8-2b6d-4584-a820-b07fb12d4daa" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Module%203%20fb71acd82b6d4584a820b07fb12d4daa.html">Module 3</a></figure></details></li></ul><p id="16182e2d-f21c-4c5d-844f-9c5c90fbb385" class="">
+</p><figure id="ac728e93-f0f3-4e37-9832-1aeb39d5bd52" class="link-to-page"><a href="Google%20Cyber%20Security%20Course%20f005c0312d3c413d8e85d0994217eace/Computer%20Networks%20PYQa%20ac728e93f0f34e3798321aeb39d5bd52.html">Computer Networks PYQa</a></figure><p id="453203c2-4169-483b-ac50-f390513d036c" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

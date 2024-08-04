@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 4</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="febaf6af-d6b1-49fd-b5c5-287a35c92d79" class="page sans"><header><h1 class="page-title">Module 4</h1><p class="page-description"></p></header><div class="page-body"><p id="e2b9f78e-03dc-42d5-8648-cf8946d04911" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/LugfX/welcome-to-module-4?trk_ref=coach_copy">Welcome to module 4</a>  Jul 28, 2024</p><p id="6726ff8b-9219-4b96-b3a1-817aed208cd9" class="">It&#x27;s great to see you&#x27;re eager to take detailed notes!  Let&#x27;s break down this lecture into key takeaways:</p><ul id="d03e6c95-2653-4d0c-8b92-4e7aed4cf233" class="bulleted-list"><li style="list-style-type:disc"><strong>Importance of Tool Diversity in Security:</strong><ul id="5fcbfd16-eaea-4768-bcce-77e69ab7970a" class="bulleted-list"><li style="list-style-type:circle">Different tools offer unique perspectives and solutions.</li></ul><ul id="c4134689-2ce2-46b0-9d10-95c2281fedb0" class="bulleted-list"><li style="list-style-type:circle">Security analysts often use a variety of tools.</li></ul></li></ul><ul id="6e67c8fa-c301-4ea8-a198-d76abebb259f" class="bulleted-list"><li style="list-style-type:disc"><strong>From Linux Command Line to SQL:</strong><ul id="02f58c87-18b0-4f92-a5f8-97cabc2601c7" class="bulleted-list"><li style="list-style-type:circle">Previous section: Linux command line for data searching, file navigation, and user authentication.</li></ul><ul id="73642c03-0e9d-4658-a416-1ebe212a0063" class="bulleted-list"><li style="list-style-type:circle">This section: SQL for data analysis.</li></ul></li></ul><ul id="9714a5b3-73f1-4e5a-9112-a78f6eef8132" class="bulleted-list"><li style="list-style-type:disc"><strong>Introduction to SQL:</strong><ul id="c7c065de-ab18-4f3a-b5f2-191d31d329e0" class="bulleted-list"><li style="list-style-type:circle">Focus on using SQL for security analysis.</li></ul><ul id="952eae50-cd76-4c2a-874e-3359e5007c11" class="bulleted-list"><li style="list-style-type:circle">Covers relational databases and their structure.</li></ul></li></ul><ul id="e254e760-8f3c-4380-944c-588ac1aaf28b" class="bulleted-list"><li style="list-style-type:disc"><strong>SQL Queries:</strong><ul id="0869cf4c-2a63-4628-9064-5d50b5093d34" class="bulleted-list"><li style="list-style-type:circle">Learn how to write queries to retrieve specific data from databases.</li></ul></li></ul><ul id="d33afeed-69bd-4624-98a5-644d94306b28" class="bulleted-list"><li style="list-style-type:disc"><strong>SQL Filters:</strong><ul id="8faae029-0a3e-4b08-a942-d81981dc3f04" class="bulleted-list"><li style="list-style-type:circle">Refine SQL queries to get precise information.</li></ul></li></ul><ul id="41bacb92-2dc8-4fc4-a246-fcab85c911f0" class="bulleted-list"><li style="list-style-type:disc"><strong>SQL Joins:</strong><ul id="2e0e2e9e-c5e2-410e-91d2-1de77fcc65d8" class="bulleted-list"><li style="list-style-type:circle">Combine data from multiple tables for comprehensive analysis.</li></ul></li></ul><ul id="4b6d31a8-cee4-4568-9af8-853e0b39b646" class="bulleted-list"><li style="list-style-type:disc"><strong>Benefits of SQL:</strong><ul id="801cd6ca-4505-42e4-864b-978881e8ed6e" class="bulleted-list"><li style="list-style-type:circle">Enables quick and efficient data review.</li></ul><ul id="f634d5fe-4217-46fe-a701-92209310d1ee" class="bulleted-list"><li style="list-style-type:circle">Provides consistent and reliable query results.</li></ul></li></ul><ul id="edce93eb-3b85-4e6e-a9f9-a89e8d69fef3" class="bulleted-list"><li style="list-style-type:disc"><strong>Practical Application:</strong><ul id="6d0fae17-ef20-41c3-b28e-7621ab643017" class="bulleted-list"><li style="list-style-type:circle">Hands-on experience with SQL for security analysis tasks.</li></ul></li></ul><p id="c6e8c4d2-4b0d-4cb2-b8e2-685ce5a17c9f" class="">Let me know if you have any questions about these concepts as you progress through the lecture. I&#x27;m here to help!</p><h1 id="795f911d-361c-4f8e-9f76-aaa2ccfe2481" class="">Introduction to database</h1><p id="0f1acc6e-0a86-4411-99cf-28afb6633fe1" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/N6dfJ/introduction-to-databases?trk_ref=coach_copy">Introduction to databases</a>  Jul 28, 2024</p><p id="1141fd12-c6a3-4e34-a982-70591f917d80" class="">It&#x27;s great to see you taking initiative to make detailed notes! That&#x27;s a very effective way to learn. Here&#x27;s a breakdown of the key points from the lecture, structured for clarity:</p><p id="b4ac9ff8-23a9-49b0-a364-f6681e61c5f3" class=""><strong>Databases: The Why and What</strong></p><ul id="763bef26-5c40-4863-b26a-4d0b9dca0467" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Importance:</strong> We live in a data-driven world. Databases help us store, organize, and access this data efficiently.</li></ul><ul id="85efbb74-8850-46e8-a530-d667ba342a00" class="bulleted-list"><li style="list-style-type:disc"><strong>Databases vs. Spreadsheets:</strong> While spreadsheets are useful for small-scale data management, databases shine when dealing with large datasets and multiple users simultaneously.</li></ul><ul id="794ee469-7750-4f32-803f-b5e414b8a96c" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Analyst Perspective:</strong> Databases are crucial for security analysts as they often contain information about login attempts, software, system updates, and user activity.</li></ul><p id="87d84a81-64d0-433e-a997-1e261b542c1c" class=""><strong>Relational Databases: A Closer Look</strong></p><ul id="05ece735-d07c-4875-89ab-7403b242d081" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition:</strong> A relational database organizes data into tables with defined relationships between them.</li></ul><ul id="eecf4019-b811-4770-8173-42ae05925fc1" class="bulleted-list"><li style="list-style-type:disc"><strong>Tables, Fields, and Records:</strong><ul id="a34a0460-4bab-42f2-9e22-eefb42bf29e5" class="bulleted-list"><li style="list-style-type:circle"><strong>Tables:</strong> Containers for data, similar to spreadsheets.</li></ul><ul id="0e7b9e5f-f649-4498-b1c5-dce58f91ba87" class="bulleted-list"><li style="list-style-type:circle"><strong>Fields (Columns):</strong> Represent specific categories of information within a table (e.g., employee_id, username).</li></ul><ul id="41cf5969-66ea-4b82-9864-b01e00bb2cb8" class="bulleted-list"><li style="list-style-type:circle"><strong>Records (Rows):</strong> Hold the actual data for each entry in a table.</li></ul></li></ul><p id="e28a8521-e3be-4f7e-8fa5-c4a2a1eb9410" class=""><strong>Keys: Connecting the Dots</strong></p><ul id="285fd64e-07e4-4986-90c2-532ba2f72af6" class="bulleted-list"><li style="list-style-type:disc"><strong>Primary Key:</strong><ul id="bd91a949-f84c-4a6d-a421-5162986a8e69" class="bulleted-list"><li style="list-style-type:circle">Uniquely identifies each row in a table.</li></ul><ul id="4fcb7bbf-5796-4daf-a991-17d6e9ce6bb8" class="bulleted-list"><li style="list-style-type:circle">Must contain unique values (no duplicates).</li></ul><ul id="a1dba695-b880-42c1-9bb6-664ad9bc95e4" class="bulleted-list"><li style="list-style-type:circle">Cannot be empty (no null values).</li></ul><ul id="a5e4a275-17c1-440a-b8e7-de7ca3b7e977" class="bulleted-list"><li style="list-style-type:circle">Example: employee_id in an employee table.</li></ul></li></ul><ul id="40cc6984-8815-4485-8231-164f6cf192a3" class="bulleted-list"><li style="list-style-type:disc"><strong>Foreign Key:</strong><ul id="f2cf5fc6-ebd8-43d0-83fc-705fac793197" class="bulleted-list"><li style="list-style-type:circle">A column in one table that refers to the primary key of another table.</li></ul><ul id="ee40dba9-a881-4b9a-ae08-73d7072242d5" class="bulleted-list"><li style="list-style-type:circle">Establishes relationships between tables.</li></ul><ul id="75a98eb8-642b-44f3-b0aa-bc1e5c5f3d10" class="bulleted-list"><li style="list-style-type:circle">Can have duplicate values or be empty.</li></ul><ul id="faca237d-eb60-4a99-ba1f-8f7be793dfd2" class="bulleted-list"><li style="list-style-type:circle">Example: employee_id in a &#x27;machines&#x27; table, linking it to the &#x27;employees&#x27; table.</li></ul></li></ul><p id="8c6ba8dc-b4bb-40e4-8646-10af93d1ffe8" class=""><strong>SQL: The Language of Databases</strong></p><ul id="df881ad0-e105-4395-9e8c-b2dae70a5320" class="bulleted-list"><li style="list-style-type:disc">SQL (Structured Query Language) is used to interact with and manage data within relational databases. The upcoming sections will provide hands-on experience with SQL concepts.</li></ul><p id="c6c487e3-c9d4-47d3-8080-ca3a5c6127e5" class="">Let me know if you have any questions about these concepts. Keep up the great work!</p><p id="5b554c5b-d946-48f5-8e75-ed3fb81e58d9" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/N6dfJ/introduction-to-databases?trk_ref=coach_copy">Introduction to databases</a>  Jul 28, 2024</p><p id="7dc8134d-bf9d-44af-b0d3-4515ae97c646" class="">Excellent question! Understanding the components and their relationships is key to working with relational databases. Here&#x27;s a breakdown:</p><p id="653b7634-3768-4f05-9940-20141fcb7793" class=""><strong>Key Components and Relationships:</strong></p><ul id="448e9a99-b28f-4cd5-9598-6026a209a90e" class="bulleted-list"><li style="list-style-type:disc"><strong>Tables:</strong> The foundation of a relational database. Each table stores data about a specific entity (e.g., employees, products, orders). Think of them like well-organized spreadsheets.</li></ul><ul id="821684c9-e195-48ad-adfb-7c690cedb350" class="bulleted-list"><li style="list-style-type:disc"><strong>Fields (Columns):</strong> Represent the different attributes or characteristics of the entity stored in a table. For example, an &#x27;employees&#x27; table might have fields like &#x27;employee_id&#x27;, &#x27;name&#x27;, &#x27;department&#x27;, and &#x27;salary&#x27;.</li></ul><ul id="cfe630ff-873c-4d0a-b5c2-bce72890f25d" class="bulleted-list"><li style="list-style-type:disc"><strong>Records (Rows):</strong> Each row represents a single instance of the entity defined by the table. For instance, a single row in the &#x27;employees&#x27; table would hold all the information for one specific employee.</li></ul><ul id="bb32678c-1e6e-4ec2-abb8-2b25884d26c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Primary Key:</strong> A special field (or combination of fields) that uniquely identifies each record in a table. It ensures that no two records are exactly alike. For example, &#x27;employee_id&#x27; could be the primary key in the &#x27;employees&#x27; table.</li></ul><ul id="65181fc9-fa19-4664-88f1-9fb863a9ca99" class="bulleted-list"><li style="list-style-type:disc"><strong>Foreign Key:</strong> A field in one table that refers to the primary key of another table. This establishes a link or relationship between the two tables. For instance, an &#x27;orders&#x27; table might have a foreign key &#x27;customer_id&#x27; that links each order to a specific customer in the &#x27;customers&#x27; table.</li></ul><p id="63226d2f-4965-4018-92df-d54c49bfeeb2" class=""><strong>How They Relate:</strong></p><ul id="e9a6d798-6b35-4c6c-856f-793821bd55d5" class="bulleted-list"><li style="list-style-type:disc">Tables are connected through relationships established using primary and foreign keys.</li></ul><ul id="d7c7505a-32c9-457a-a4ba-502dbdffd0ea" class="bulleted-list"><li style="list-style-type:disc">A primary key in one table is referenced by a foreign key in another table, creating a link between the data.</li></ul><ul id="4b9b9810-0bbb-4f97-be90-5b10a212ee8f" class="bulleted-list"><li style="list-style-type:disc">This interconnected structure allows for efficient data retrieval and analysis across multiple tables.</li></ul><p id="cd83e5e7-1ee9-4487-809a-ea7f8001eb08" class=""><strong>Example:</strong></p><p id="5263e662-e937-495c-8c27-b067dc651231" class="">Imagine an online store database:</p><ul id="0385cbbe-5c35-4a0e-98ff-b103d9e5c23d" class="bulleted-list"><li style="list-style-type:disc"><strong>Customers Table:</strong> (customer_id (PK), name, email, address)</li></ul><ul id="21aed904-982a-4ff4-a7c3-d493f57c4b25" class="bulleted-list"><li style="list-style-type:disc"><strong>Orders Table:</strong> (order_id (PK), customer_id (FK), order_date, total_amount)</li></ul><p id="9adbe30a-37bb-4490-aaf7-2264fe544d2d" class="">The &#x27;customer_id&#x27; in the &#x27;Orders&#x27; table is a foreign key that references the &#x27;customer_id&#x27; (primary key) in the &#x27;Customers&#x27; table. This connection allows you to easily retrieve all orders made by a specific customer.</p><p id="116ac7f2-fb35-4d60-bfa9-e01a45b7c7c4" class="">Let me know if you&#x27;d like more clarification or examples!</p><p id="7b3c29a8-197d-49e0-9675-35bbd7fbaaa7" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/dOeQp/query-databases-with-sql?trk_ref=coach_copy">Query databases with SQL</a>  Jul 28, 2024</p><p id="4e210176-8828-4527-a3d9-7dcbb7f458ba" class="">It&#x27;s great to see you&#x27;re eager to take effective notes! Organizing information is a key skill for any security analyst. Here&#x27;s a breakdown of the lecture, focusing on key points:</p><p id="5d6a695f-943c-48e0-acd5-bdb611016d5c" class=""><strong>SQL for Security Analysts</strong></p><ul id="d163b5e7-56c4-4fda-beca-a1fe7b9e925d" class="bulleted-list"><li style="list-style-type:disc"><strong>Why is SQL important for security analysts?</strong><ul id="d18ae4b9-2ac5-4163-902b-6de0ab478ab8" class="bulleted-list"><li style="list-style-type:circle"><strong>Log Analysis:</strong> Security logs are massive. SQL helps retrieve specific information quickly from these logs (e.g., finding improperly configured machines).</li></ul><ul id="e5e6adcb-56d5-405e-a9e7-c2aa3379ef37" class="bulleted-list"><li style="list-style-type:circle"><strong>Data Analysis:</strong> SQL aids in basic data analytics, crucial for security analysts. It helps identify vulnerabilities and make informed security decisions (e.g., finding machines needing patches).</li></ul></li></ul><ul id="25c147df-89ef-4bfc-af81-3ccab8244f54" class="bulleted-list"><li style="list-style-type:disc"><strong>What is SQL?</strong><ul id="a0ef1d40-3a3a-4ccf-89eb-ab76d8b42535" class="bulleted-list"><li style="list-style-type:circle">SQL stands for Structured Query Language.</li></ul><ul id="dd630b11-91e0-404d-8647-3d4e7db6fd2b" class="bulleted-list"><li style="list-style-type:circle">It&#x27;s a programming language used for:<ul id="a08a484e-7f7f-4802-a3df-8526a9e637d4" class="bulleted-list"><li style="list-style-type:square">Creating databases</li></ul><ul id="bb12d1b0-6719-44df-bb9d-efbc5c11cf14" class="bulleted-list"><li style="list-style-type:square">Interacting with databases</li></ul><ul id="4da142fd-b9d4-41c2-b91f-bcfe20d6a22d" class="bulleted-list"><li style="list-style-type:square">Requesting information (querying) from databases</li></ul></li></ul></li></ul><ul id="3117a8d1-87e4-4218-a551-c4ff9e7968b5" class="bulleted-list"><li style="list-style-type:disc"><strong>What is a Query?</strong><ul id="5b96d408-2373-4d04-9d97-f1bc491b3c5e" class="bulleted-list"><li style="list-style-type:circle">A query is a request for data from a database table or multiple tables.</li></ul><ul id="c8c81219-1b76-40b0-8e16-bf4d935319f1" class="bulleted-list"><li style="list-style-type:circle">SQL is used to perform these queries.</li></ul></li></ul><ul id="cee114c8-64ee-40bf-8b9b-32ebd5872cc8" class="bulleted-list"><li style="list-style-type:disc"><strong>Key Takeaways:</strong><ul id="129e153a-a7d7-43db-8d8b-6b73fa1edf3d" class="bulleted-list"><li style="list-style-type:circle">SQL is essential for security analysts to analyze logs, identify vulnerabilities, and make informed security decisions.</li></ul><ul id="4ad8ba7a-a0aa-43ac-98ee-4eda6899c9ec" class="bulleted-list"><li style="list-style-type:circle">The lecture will further explore basic SQL queries for practical application.</li></ul></li></ul><p id="5e451fbf-a198-4b57-bbfe-12174864eedb" class="">Keep in mind these notes are a starting point. Feel free to add your own insights and examples as you progress through the course!</p><h1 id="788a62ce-53d2-40ec-8dfd-d17f8f9bddab" class="">SQL filtering versus Linux filtering</h1><p id="e2128bed-dcd5-41f5-a945-f906fa676704" class="">Previously, you explored the Linux commands that allow you to filter for specific information contained within files or directories. And, more recently, you examined how SQL helps you efficiently filter for the information you need. In this reading, you&#x27;ll explore differences between the two tools as they relate to filtering. You&#x27;ll also learn that one way to access SQL is through the Linux command line.</p><h2 id="c9d57234-9355-46ac-8b6f-7d28c8576c25" class=""><strong>Accessing SQL</strong></h2><p id="c24a1305-f284-454d-add4-3a22968b1162" class="">There are many interfaces for accessing SQL and many different versions of SQL. One way to access SQL is through the Linux command line.</p><p id="05d8fb0d-0ca1-4462-899f-b5a53cb59e0e" class="">To access SQL from Linux, you need to type in a command for the version of SQL that you want to use. For example, if you want to access SQLite, you can enter the command <strong>sqlite3</strong> in the command line.</p><p id="1e319daa-edbc-4230-b714-1d799f2d647b" class="">After this, any commands typed in the command line will be directed to SQL instead of Linux commands.</p><h2 id="f02c3126-eb13-4249-ac2b-b181b67c7a87" class=""><strong>Differences between Linux and SQL filtering</strong></h2><p id="73c1bc73-d687-40e0-a409-09fed2f7c9b7" class="">Although both Linux and SQL allow you to filter through data, there are some differences that affect which one you should choose.</p><h3 id="fc504b06-a7a2-4b30-a3d8-84e3f6a86b9b" class=""><strong>Purpose</strong></h3><p id="32df950f-fd42-4900-ba81-6726cacc3aa2" class="">Linux filters data in the context of files and directories on a computer system. It’s used for tasks like searching  for specific files, manipulating file permissions, or managing processes.</p><p id="92708306-c28a-4193-80b9-f75e456c1223" class="">SQL is used to filter data within a database management system. It’s used for querying and manipulating data stored in tables and retrieving specific information based on defined criteria.</p><h3 id="bfc6d8c3-62f5-4a23-a405-9b17791ac289" class=""><strong>Syntax</strong></h3><p id="5b6b71f3-afd2-4dfa-a3c9-a6ecd33f9691" class="">Linux uses various commands and command-line options specific to each filtering tool. Syntax varies depending on the tool and purpose. Some examples of Linux commands are find, sed, cut, e grep</p><p id="17a60637-5b56-4c49-bbe4-9c8b92b9956c" class="">SQL uses the Structured Query Language (SQL), a standardized language with specific keywords and clauses for filtering data across different SQL databases. Some examples of SQL keywords and clauses are WHERE, SELECT, JOIN</p><h3 id="3c2aab77-c967-4124-8415-edcd3a39e15d" class=""><strong>Structure</strong></h3><p id="b39c913b-6842-43bf-8dbc-7d2bef35a550" class="">SQL offers a lot more structure than Linux, which is more free-form and not as tidy.</p><p id="374c0009-cc5f-49dc-a40e-09f6bfafe577" class="">For example, if you wanted to access a log of employee log-in attempts, SQL would have each record separated into columns. Linux would print the data as a line of text without this organization. As a result, selecting a specific column to analyze would be easier and more efficient in SQL.</p><p id="da53cdc0-f02a-4a96-93d5-29e0ea1ce9a9" class="">In terms of structure, SQL provides results that are more easily readable and that can be adjusted more quickly than when using Linux.</p><h3 id="faccab7f-647e-44da-bed3-28a83c3639e8" class=""><strong>Joining tables</strong></h3><p id="caa9253d-e0e0-4197-9f2d-5d31d63a8333" class="">Some security-related decisions require information from different tables. SQL allows the analyst to join multiple tables together when returning data. Linux doesn’t have that same functionality; it doesn’t allow data to be connected to other information on your computer. This is more restrictive for an analyst going through security logs.</p><h3 id="e37eefcb-d05a-45e5-86c8-2a16a46a1979" class=""><strong>Best uses</strong></h3><p id="3fe44d40-db26-4b5f-b61c-30e6f107ffa1" class="">As a security analyst, it’s important to understand when you can use which tool. Although SQL has a more organized structure and allows you to join tables, this doesn’t mean that there aren’t situations that would require you to filter data in Linux.</p><p id="84ef41c6-896e-4af8-95ae-b7b78f1090b3" class="">A lot of data used in cybersecurity will be stored in a database format that works with SQL. However, other logs might be in a format that is not compatible with SQL. For instance, if the data is stored in a text file, you cannot search through it with SQL. In those cases, it is useful to know how to filter in Linux.</p><h2 id="9a597c02-631f-4689-961a-e8ffade2ce0c" class=""><strong>Key takeaways</strong></h2><p id="9c99610f-aa4f-4923-86dd-d9d5b70208ff" class="">Linux filtering focuses on managing files and directories on a system, while SQL filtering focuses on structured data manipulation within databases. To work with SQL, you can access it from multiple different interfaces, such as the Linux command line. Both SQL and Linux allow you to filter for specific data, but SQL offers the advantages of structuring the data and allowing you to join data from multiple tables.</p><p id="8f5301f7-4bc1-487c-93e3-b05b7bfe1807" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/02SRq/basic-queries?trk_ref=coach_copy">Basic queries</a>  Jul 28, 2024</p><p id="20cc42ea-5959-41cf-9fe1-bfc658a6b424" class="">It&#x27;s great to see you&#x27;re taking notes! Actively engaging with the material helps solidify your understanding. Here&#x27;s a breakdown of the key points from the lecture:</p><p id="58f6b4b9-a6ef-4dc2-94dc-5f54aa649642" class=""><strong>SQL Queries: A Basic Example</strong></p><ul id="b6a84192-569a-44f2-8ff4-efa1ef246151" class="bulleted-list"><li style="list-style-type:disc"><strong>Scenario:</strong> Imagine you need to find out which computer is assigned to a specific employee. You have a table named &quot;employees&quot; with columns like &quot;employee_id&quot; and &quot;device_id.&quot;</li></ul><ul id="a84b99b9-e479-47c5-bd1f-8af6519b61fa" class="bulleted-list"><li style="list-style-type:disc"><strong>Keywords:</strong><ul id="c4ed564b-0617-4c13-bbe2-39abb4b87bfa" class="bulleted-list"><li style="list-style-type:circle"><code>SELECT</code>: Specifies the columns you want to retrieve.</li></ul><ul id="4f217d5f-71c0-47dd-89f1-951dc9842287" class="bulleted-list"><li style="list-style-type:circle"><code>FROM</code>: Indicates the table from which to fetch the data.</li></ul></li></ul><ul id="8c1d00cc-b086-4465-bac3-791407d4e18b" class="bulleted-list"><li style="list-style-type:disc"><strong>Syntax:</strong> SQL isn&#x27;t case-sensitive (meaning <code>SELECT</code> is the same as <code>select</code>), but using uppercase for keywords enhances readability. Always end SQL statements with a semicolon (;).</li></ul><ul id="7dff79ab-c71d-4ab3-bf81-37955be96e0c" class="bulleted-list"><li style="list-style-type:disc"><strong>Basic Query:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6228b390-be20-4b88-ab2e-5b3c42f60800" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT employee_id, device_id
+FROM employees;
+</code></pre></li></ul><ul id="b9bf6ed2-1ca9-4b4f-88f5-7c153e0e29a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Explanation:</strong> This query selects data from the &quot;employees&quot; table and returns only the &quot;employee_id&quot; and &quot;device_id&quot; columns.</li></ul><p id="0bad9136-75b4-4338-9e18-ef4b2681083a" class=""><strong>&quot;Select All&quot;  with the Asterisk (*)</strong></p><ul id="23e173c4-96db-4064-a6e5-41714ca65f9e" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong> To retrieve all columns from a table, use the asterisk (*) as a shortcut.</li></ul><ul id="3dd36d8f-ccf5-4b00-b138-fd4e3659e3dd" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7c9e06e9-c9da-4aa8-88a6-a3fda9974437" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT *
+FROM employees;
+</code></pre></li></ul><ul id="901871f0-339f-4d12-a90e-8dc9824f3ce9" class="bulleted-list"><li style="list-style-type:disc"><strong>Explanation:</strong> This query selects every column from the &quot;employees&quot; table.</li></ul><p id="8715951f-3903-48f9-a58b-0f06c12ecaf1" class=""><strong>Key Takeaways</strong></p><ul id="428c876c-8844-4842-8b5a-625d54010eca" class="bulleted-list"><li style="list-style-type:disc">You&#x27;ve learned how to construct basic SQL queries to retrieve specific data from a table.</li></ul><ul id="c4a6e973-7a70-4ead-8174-e6e3c3f544af" class="bulleted-list"><li style="list-style-type:disc">The <code>SELECT</code> and <code>FROM</code> keywords are fundamental building blocks of SQL queries.</li></ul><ul id="fb152f00-f2a2-42fe-86ed-ceee011af4b4" class="bulleted-list"><li style="list-style-type:disc">The asterisk (*) acts as a wildcard to select all columns.</li></ul><p id="14b87562-98dc-404a-bb3a-f65b268619a9" class="">Let me know if you have any questions about this lecture. Keep up the great work!</p><p id="e0ee6d6d-d296-4692-8ecd-6ba19944a3de" class="">
+</p><p id="8ad6e313-d82a-4f35-bbdf-e7a27f2b406b" class="">
+</p><figure id="4e3ddcae-ea68-4df8-90fb-961365544ff9" class="link-to-page"><a href="Module%204%20febaf6afd6b149fdb5c5287a35c92d79/LAB%20perform%20a%20SQL%20query%204e3ddcaeea684df890fb961365544ff9.html">LAB perform a SQL query</a></figure><p id="4acbc7a5-00f0-404a-bdc9-5c5f3aeacacb" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/F5V3e/basic-filters-on-sql-queries?trk_ref=coach_copy">Basic filters on SQL queries</a>  Jul 28, 2024</p><p id="12718e45-bc62-42d0-9722-b33382f95f9e" class="">That&#x27;s a great idea to take notes! It will help you remember the important points covered. Here are some detailed notes from the lecture:</p><p id="bd1c7dd0-2589-4999-9cb2-eedf590aaabe" class=""><strong>Filtering in SQL</strong></p><ul id="17dfbf2a-686d-4c40-a053-455db3f12168" class="bulleted-list"><li style="list-style-type:disc"><strong>What is filtering?</strong> Filtering is like selecting specific items from a collection. In SQL, it means choosing only the data that matches certain criteria.</li></ul><ul id="2631d882-321a-482a-8c88-4f555bbd6732" class="bulleted-list"><li style="list-style-type:disc"><strong>Why filter?</strong> Filtering helps you focus on specific data within a larger dataset, making your queries more efficient and meaningful.</li></ul><ul id="0edf7c56-8685-4e7f-9911-372de7975516" class="bulleted-list"><li style="list-style-type:disc"><strong>How to filter:</strong><ul id="0faa9771-ce26-4932-9baf-a28ec846c1f6" class="bulleted-list"><li style="list-style-type:circle">Use the <code>WHERE</code> clause after your <code>SELECT</code> and <code>FROM</code> statements.</li></ul><ul id="6927b429-a927-46e5-b994-845c4bdc817b" class="bulleted-list"><li style="list-style-type:circle">Specify the filtering condition using operators.</li></ul></li></ul><p id="1cbf35db-09db-441c-9f17-36596fc3393e" class=""><strong>Operators in SQL</strong></p><ul id="0af8c5e6-9d05-42a9-ac14-f54605a6d9af" class="bulleted-list"><li style="list-style-type:disc"><strong>What is an operator?</strong> An operator is a symbol or keyword that performs an operation on data.</li></ul><ul id="3a595f3d-4822-4716-803d-afc6afa0df21" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> The equal to operator (<code>=</code>) checks if two values are equal.</li></ul><p id="66267179-bd6c-4af9-b5c4-b4516999a693" class=""><strong>Using the WHERE Clause</strong></p><ul id="c164a9f2-1764-417c-8b26-f6bde3e429cb" class="bulleted-list"><li style="list-style-type:disc"><strong>Syntax:</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="065add37-ba49-43d6-8e91-26baceef2e63" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+</code></pre></li></ul><ul id="fe032ed9-23d0-4e9e-b065-f4df5740ffa4" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> To select login attempts from the USA:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a7a7af9-1073-4b6b-9bf0-bcf2de8512bc" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT *
+FROM log_in_attempts
+WHERE country = &#x27;USA&#x27;;
+</code></pre></li></ul><p id="519a7d8f-fb14-4c60-8399-95cfa79202d1" class=""><strong>Pattern Matching with LIKE</strong></p><ul id="f0cf7ff1-e96f-4912-a482-de4002faca7a" class="bulleted-list"><li style="list-style-type:disc"><strong>Purpose:</strong> The <code>LIKE</code> operator allows you to search for patterns in text data.</li></ul><ul id="6090a1fe-ba32-4bc1-820b-9f2d3c168f17" class="bulleted-list"><li style="list-style-type:disc"><strong>Wildcard:</strong> The percentage sign (<code>%</code>) acts as a wildcard, representing any sequence of characters.</li></ul><ul id="a52fb591-8648-484f-91dc-7c645bccc851" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> To find offices starting with &quot;East&quot;:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0e83949e-20f0-4a28-a0f4-fc9cc3740082" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT *
+FROM employees
+WHERE office LIKE &#x27;East%&#x27;;
+</code></pre></li></ul><p id="536451c3-44cc-4acd-9b69-8a2e28e86572" class=""><strong>Handling Inconsistencies</strong></p><ul id="c8205eed-4454-4ba4-97ea-779c83ec20b3" class="bulleted-list"><li style="list-style-type:disc"><strong>Problem:</strong> Databases can have inconsistencies in data entry (e.g., &quot;US&quot; vs. &quot;USA&quot;).</li></ul><ul id="0df64149-b40f-4062-8c62-43d95fe4cedb" class="bulleted-list"><li style="list-style-type:disc"><strong>Solution:</strong> Use <code>LIKE</code> with wildcards to capture variations.</li></ul><ul id="4169d515-b219-48e4-863c-1ecaa1c58585" class="bulleted-list"><li style="list-style-type:disc"><strong>Example:</strong> To find login attempts from the United States, accounting for both &quot;US&quot; and &quot;USA&quot;:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4c236198-245c-4f10-9615-66314c589568" class="code"><code class="language-SQL" style="white-space:pre-wrap;word-break:break-all">SELECT *
+FROM log_in_attempts
+WHERE country LIKE &#x27;US%&#x27;;
+</code></pre></li></ul><p id="9713264d-871c-45ae-ac49-ee2049216616" class="">By understanding these concepts and practicing the examples, you&#x27;ll be well on your way to mastering filtering in SQL! If you have any questions, feel free to ask</p><p id="fa7f2373-bd16-4543-a3dd-c04d183820ab" class="">
+</p><p id="7bf31171-fc89-4e4d-87a2-d5d10032a30e" class="">WHERE and other basic operators : LIKE</p><p id="9620174e-d68f-475b-a0de-5149d96c1814" class="">
+</p><p id="ce9b1de7-60f7-4119-8046-52c750781bd5" class="">
+</p><p id="6399c503-e6ba-4e07-9158-191c26717030" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/Z5xWc/filter-dates-and-numbers?trk_ref=coach_copy">Filter dates and numbers</a>  Jul 28, 2024</p><p id="644fed7c-9056-43cf-ac5a-87e4443f7db0" class="">Great question! Taking notes is a great way to solidify your learning. Here are some notes based on the lecture you provided:</p><ul id="c9d86674-974b-4871-9598-8c26ea4e584d" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Types</strong><ul id="1dec2238-ba20-44d2-a6cf-1dc2eb8bd44d" class="bulleted-list"><li style="list-style-type:circle"><strong>String:</strong> Ordered sequence of characters (letters, numbers, symbols). Example: <code>analyst10</code></li></ul><ul id="fb360a21-dfa1-466e-9a84-1372471ae02d" class="bulleted-list"><li style="list-style-type:circle"><strong>Numeric:</strong> Numbers that can be used with mathematical operations (addition, multiplication, etc.). Example: Number of login attempts.</li></ul><ul id="998047c1-ad11-4519-84f3-221f6b2ed411" class="bulleted-list"><li style="list-style-type:circle"><strong>Date and Time:</strong> Represents a specific date and/or time.</li></ul></li></ul><ul id="7c9e6de5-af8f-4ae2-a366-491dafbbbb7f" class="bulleted-list"><li style="list-style-type:disc"><strong>Operators for Numeric &amp; Date/Time Data Types:</strong> These operators are used in SQL queries to filter data.<ul id="ffe47db3-68a1-4bcd-bda3-ab151fef3813" class="bulleted-list"><li style="list-style-type:circle">Equals (<code>=</code>)</li></ul><ul id="3e3fe3d4-1229-48cf-b28a-716ec90c0114" class="bulleted-list"><li style="list-style-type:circle">Greater than (<code>&gt;</code>)</li></ul><ul id="66296736-1862-4309-908d-4fd17e081623" class="bulleted-list"><li style="list-style-type:circle">Less than (<code>&lt;</code>)</li></ul><ul id="2a42374e-5593-480c-8050-97f6e91155ac" class="bulleted-list"><li style="list-style-type:circle">Not equal to (<code>!=</code> or <code>&lt;&gt;</code>)</li></ul><ul id="67890d20-9b44-4e33-b39a-765a109f6227" class="bulleted-list"><li style="list-style-type:circle">Greater than or equal to (<code>&gt;=</code>)</li></ul><ul id="024f2b0b-8df6-4984-a8fa-8421e88c3aaa" class="bulleted-list"><li style="list-style-type:circle">Less than or equal to (<code>&lt;=</code>)</li></ul></li></ul><ul id="5c4fa7bb-c1d6-47f2-bcd0-d7e218e8aba3" class="bulleted-list"><li style="list-style-type:disc"><strong>BETWEEN Operator:</strong><ul id="b1003b67-3993-43ba-aaa3-8421ae4c89c8" class="bulleted-list"><li style="list-style-type:circle">Filters for numbers or dates within a specified range.</li></ul><ul id="1a1cf423-80b0-45f2-b4e3-1c7fdde1abd0" class="bulleted-list"><li style="list-style-type:circle">Syntax: <code>WHERE column_name BETWEEN start_value AND end_value;</code></li></ul></li></ul><ul id="47cb628a-6e00-4c52-b4b1-f594d3243ad2" class="bulleted-list"><li style="list-style-type:disc"><strong>Important Notes:</strong><ul id="3dcb43e3-4c4d-4ce1-bae2-0da9999f4051" class="bulleted-list"><li style="list-style-type:circle">Use quotation marks around string, date, and time values in SQL queries.</li></ul><ul id="d0145441-a652-46f3-877f-cae141a5128f" class="bulleted-list"><li style="list-style-type:circle">Do not use quotation marks around numeric values in SQL queries.</li></ul></li></ul><p id="e889d615-5935-44b7-8519-5f04e5c0e64e" class="">Let me know if you have any other questions about this lecture! I&#x27;m here to help you succeed in this course.</p><h1 id="b8b8d004-259f-4f51-9c9e-d485a1359894" class="">Operators for filtering dates and numbers</h1><p id="994b2e88-e7a8-4e72-b6b4-8b2cc17b1178" class="">Previously, you examined operators like less than (&lt;) or greater than (&gt;) and explored how they can be used in filtering numeric and date and time data types. This reading summarizes what you learned and provides new examples of using operators in filters.</p><h2 id="a416fccf-49f3-4243-a6d5-998a72474307" class="">Numbers, dates, and times in cybersecurity</h2><p id="f887f54a-fa54-4a57-a355-61af7f08f79e" class="">Security analysts work with more than just <strong>string data</strong>, or data consisting of an ordered sequence of characters.</p><p id="85cb3d7f-4b47-458d-b64b-c0830484756f" class="">They also frequently work with <strong>numeric data</strong>, or data consisting of numbers. A few examples of numeric data that you might encounter in your work as a security analyst include:</p><ul id="b1695d4d-7740-4a37-9efb-df4f15a7ae0a" class="bulleted-list"><li style="list-style-type:disc">the number of login attempts</li></ul><ul id="bda98b2e-fd57-4f6c-877b-ee6f47c5ff56" class="bulleted-list"><li style="list-style-type:disc">the count of a specific type of log entry</li></ul><ul id="089abebf-80be-4cfc-8c02-3e73dd4bc8b2" class="bulleted-list"><li style="list-style-type:disc">the volume of data being sent from a source</li></ul><ul id="cad9c527-c784-4fd5-a251-eb67e19e8666" class="bulleted-list"><li style="list-style-type:disc">the volume of data being sent to a destination</li></ul><p id="1b0a985c-8837-4f30-aa6f-2904e2ffba5c" class="">You&#x27;ll also encounter <strong>date and time data</strong>, or data representing a date and/or time. As a first example, logs will generally timestamp every record. Other time and date data might include:</p><ul id="065c2c87-cdfa-46fc-a25c-89f1c5c2d6b5" class="bulleted-list"><li style="list-style-type:disc">login dates</li></ul><ul id="ed8598ab-6224-45c9-a06e-f88081808b44" class="bulleted-list"><li style="list-style-type:disc">login times</li></ul><ul id="85fa0100-bcd2-4dea-8d71-81a91fb8b892" class="bulleted-list"><li style="list-style-type:disc">dates for patches</li></ul><ul id="02919392-7824-4999-86bd-4615ed2aecfb" class="bulleted-list"><li style="list-style-type:disc">the duration of a connection</li></ul><h2 id="efc3f025-b7a6-4e7d-9523-899b39f162ca" class="">Comparison operators</h2><p id="cc875782-e796-4614-b33a-e19dcae9591c" class="">In SQL, filtering numeric and date and time data often involves operators. You can use the following operators in your filters to make sure you return only the rows you need:</p><table id="18eb0baf-e56b-4ae8-96f6-5991ad8d9894" class="simple-table"><tbody><tr id="dd3cbbee-241b-42c4-a6e6-43dfd3ef87da"><td id="fss:" class=""><strong>operator</strong></td><td id="DBrf" class=""><strong>use</strong></td></tr><tr id="05661d6a-0573-4aa5-bdf7-1a8980e732e6"><td id="fss:" class="">&lt;</td><td id="DBrf" class="">less than</td></tr><tr id="de462c7e-d739-4272-8569-dfbba10e1f25"><td id="fss:" class="">&gt;</td><td id="DBrf" class="">greater than</td></tr><tr id="94edde56-14de-458e-baa7-9e1e398f29d9"><td id="fss:" class="">=</td><td id="DBrf" class="">equal to</td></tr><tr id="0a4b2cb9-7951-4534-9cb1-ecb305e6db3e"><td id="fss:" class="">&lt;=</td><td id="DBrf" class="">less than or equal to</td></tr><tr id="bdf1de3e-b15b-4e46-834b-68a2d5ec9d70"><td id="fss:" class="">&gt;=</td><td id="DBrf" class="">greater than or equal to</td></tr><tr id="de48ee20-d8c0-4a95-8237-39fe9b0bd48d"><td id="fss:" class="">&lt;&gt;</td><td id="DBrf" class="">not equal to</td></tr></tbody></table><p id="30fd87bf-84af-4066-8d86-58afffeedeb7" class=""><strong>Note:</strong> You can also use != as an alternative operator for not equal to.</p><p id="2a3cbbaf-2659-4bdd-a868-22a24279cd92" class=""><a href="https://www.coursera.org/learn/linux-and-sql/ungradedLti/6rCNC/activity-apply-more-filters-in-sql">https://www.coursera.org/learn/linux-and-sql/ungradedLti/6rCNC/activity-apply-more-filters-in-sql</a></p><p id="1cf6a2eb-8754-403c-a414-32474a944791" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

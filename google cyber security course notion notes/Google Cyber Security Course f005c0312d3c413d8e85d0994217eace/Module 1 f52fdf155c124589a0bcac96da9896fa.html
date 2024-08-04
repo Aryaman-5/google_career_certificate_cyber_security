@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f52fdf15-5c12-4589-a0bc-ac96da9896fa" class="page sans"><header><h1 class="page-title">Module 1</h1><p class="page-description"></p></header><div class="page-body"><p id="a591dddf-db13-4d28-aec4-e60380984306" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/1qwr2/introduction-to-course-3?trk_ref=coach_copy">Introduction to Course 3</a>  Jun 18, 2024</p><h2 id="c2303e0a-1447-4763-a751-6c1edb90caaa" class="">Welcome to the &quot;Connect and Protect: Networks and Network Security&quot; course!</h2><p id="eaa099a2-5230-4ae6-9613-1de7961e2004" class="">I&#x27;m excited to be your Learning Coach for this module on network security. In this module, you&#x27;ll delve deeper into the world of networks and explore how to protect them from various threats.</p><p id="b98025e3-a3b4-48d7-a6f1-b94cfb008b60" class="">Here&#x27;s a breakdown of what you&#x27;ll learn:</p><p id="f9004fd6-2495-427a-a1db-b16a136c1927" class=""><strong>Network Architecture:</strong></p><ul id="cd1853d6-6aed-4655-9283-74bc0d023d49" class="bulleted-list"><li style="list-style-type:disc">Understand the fundamental building blocks of a network, including its components and how they interact.</li></ul><ul id="e5e427fa-2723-4508-bcbd-d283dc69c4c4" class="bulleted-list"><li style="list-style-type:disc">Learn about different network topologies and their advantages and disadvantages.</li></ul><ul id="0f4b46a4-a13b-46be-9f8b-66b03be46dca" class="bulleted-list"><li style="list-style-type:disc">Explore common network devices like routers, switches, and firewalls.</li></ul><h3 id="1d9b2d2d-7241-4007-8382-f487e1bd6535" class=""><strong>Network Operations:</strong></h3><ul id="da78787e-ba81-4dcf-bb88-ac8ba1a1b06d" class="bulleted-list"><li style="list-style-type:disc">Gain insights into the day-to-day operations of a network, including configuration, management, and troubleshooting.</li></ul><ul id="5f9b025c-c314-4792-b75e-00c46b041c8e" class="bulleted-list"><li style="list-style-type:disc">Learn about essential network protocols like TCP/IP and how they enable communication across the network.</li></ul><ul id="80dfb07b-c0de-4fdc-bce6-8cac2051ab13" class="bulleted-list"><li style="list-style-type:disc">Discover tools and techniques used by network administrators to monitor and maintain network performance.</li></ul><h3 id="e9af13e3-3a64-4707-a9d4-49ee4b4b4ab0" class=""><strong>Secure Against Network Intrusions:</strong></h3><ul id="a31e275f-f500-4061-a54b-2706a1d75414" class="bulleted-list"><li style="list-style-type:disc">Identify common network attacks and vulnerabilities that can compromise network security.</li></ul><ul id="688e698a-5575-4711-979c-45f9af98f21b" class="bulleted-list"><li style="list-style-type:disc">Learn about network intrusion detection and prevention systems (IDS/IPS) and their role in protecting networks.</li></ul><ul id="6f0e8986-43ed-47d6-85bc-ef6c482a2eb7" class="bulleted-list"><li style="list-style-type:disc">Explore various security measures like firewalls, access control lists (ACLs), and intrusion detection systems to mitigate network threats.</li></ul><h3 id="998177d6-0ca4-4c64-a46b-c801b1dafa80" class=""><strong>Security Hardening:</strong></h3><ul id="d27c6a91-d444-42fb-9c12-1028f20932c2" class="bulleted-list"><li style="list-style-type:disc">Understand the importance of security hardening in strengthening network defenses.</li></ul><ul id="268a1814-a8f0-4d0c-b89b-2061d8fe6540" class="bulleted-list"><li style="list-style-type:disc">Learn about best practices for hardening network devices, operating systems, and applications.</li></ul><ul id="221cb860-aadc-41cb-9a8b-20f0567765b5" class="bulleted-list"><li style="list-style-type:disc">Discover techniques for vulnerability management and patch management to keep your network secure.</li></ul><p id="12d0addb-7a49-4519-98f0-a07c082ce7d9" class="">Throughout this module, you&#x27;ll gain valuable knowledge and practical skills to secure networks and protect them from evolving threats. You&#x27;ll also have the opportunity to apply your learnings through hands-on exercises and real-world case studies.</p><p id="80766c57-fb9f-43b6-adeb-e92d24dbb4dd" class="">Remember, I&#x27;m here to support you throughout your learning journey. Feel free to ask me any questions you may have, and I&#x27;ll be happy to help!</p><p id="de17cc9b-a42c-464f-87de-a549eb845920" class=""><strong>Let&#x27;s get started!</strong></p><p id="d87d1e03-421f-4a91-aaa7-3dca42a0d0ed" class="">
+</p><h2 id="8e79e886-9226-419f-9a4e-24ed1391f352" class="">Lecture 1</h2><p id="e6b0315a-2796-4282-8c8e-fc349c4e8dea" class="">Network Architecture, Operations, Security, and Hardening: A Detailed Note</p><p id="f75e552e-50d8-4f66-a068-2b7d5a742cc2" class="">This lecture introduces the fundamental concepts of network <br/>architecture, operations, security, and hardening. It provides a <br/>foundation for understanding how networks function and how to secure <br/>them against potential threats.<br/></p><p id="daf61527-10d2-49e5-9581-410be533953f" class="">Network Architecture</p><ul id="05ce8584-5760-4c58-90c6-809a206eb148" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition:</strong> A network is a group of interconnected devices that can communicate with each other.</li></ul><ul id="bcb9e8d9-d7d4-483b-bdd9-2887ded9da60" class="bulleted-list"><li style="list-style-type:disc"><strong>Types of Networks:</strong><ul id="0405cc8a-dd29-4560-9037-21f72fa2956f" class="bulleted-list"><li style="list-style-type:circle"><strong>Local Area Network (LAN):</strong> Connects devices in a small geographical area, such as a home, office, or school.</li></ul><ul id="89c14cd7-7aaf-4f84-b278-0088dc4c26bf" class="bulleted-list"><li style="list-style-type:circle"><strong>Wide Area Network (WAN):</strong> Connects devices across a larger geographical area, such as a city, state, or country.</li></ul></li></ul><ul id="d4b9a1c2-514c-42fc-8e5d-cf0c8f00e4e1" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Devices:</strong><ul id="c0875c62-5459-417c-a4a0-631fe4d2ad93" class="bulleted-list"><li style="list-style-type:circle"><strong>Routers:</strong> Direct traffic between networks.</li></ul><ul id="18b58062-950b-4227-847b-25b0eb989e33" class="bulleted-list"><li style="list-style-type:circle"><strong>Switches:</strong> Connect devices within a network.</li></ul><ul id="1f6f6651-aac1-485d-b247-0a543962258f" class="bulleted-list"><li style="list-style-type:circle"><strong>Firewalls:</strong> Filter traffic to and from a network.</li></ul><ul id="a5672586-20ea-4a5b-a8e0-694204b62e54" class="bulleted-list"><li style="list-style-type:circle"><strong>Access Points:</strong> Provide wireless connectivity to devices.</li></ul></li></ul><p id="af97ddf7-38ff-4fbe-91cf-8b85c5574b7e" class="">Network Operations</p><ul id="1f6b8a8e-36ea-4b30-8dee-454a7845ce03" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Management:</strong> The process of planning, implementing, and monitoring network resources.</li></ul><ul id="10d3eba6-0cc6-4842-a547-f06dd32ecab3" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Monitoring:</strong> The process of observing network activity to identify and troubleshoot problems.</li></ul><ul id="84a3f8f1-e50b-4822-910c-0dbaeb0f4cbd" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Troubleshooting:</strong> The process of diagnosing and resolving network issues.</li></ul><p id="5d2ab591-2d92-4dd6-8183-95601d15ec96" class="">Network Security</p><ul id="abb8731d-df93-45af-8602-49b8321f1df6" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition:</strong> The process of protecting network<br/>resources from unauthorized access, use, disclosure, disruption,<br/>modification, or destruction.<br/></li></ul><ul id="64cc66be-066f-4ccf-be5b-679a22a790c2" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Threats:</strong><ul id="b82e951f-5b73-43fb-8245-da3019387efe" class="bulleted-list"><li style="list-style-type:circle"><strong>Malware:</strong> Software designed to harm or disable computers.</li></ul><ul id="195d6367-b490-426c-b8b3-db3063a1deda" class="bulleted-list"><li style="list-style-type:circle"><strong>Phishing:</strong> Attempts to trick users into revealing sensitive information.</li></ul><ul id="653506a2-98ef-4733-b572-dbc5b734caa2" class="bulleted-list"><li style="list-style-type:circle"><strong>Denial-of-service attacks:</strong> Attempts to make a network or website unavailable.</li></ul></li></ul><ul id="790d5ab3-4cb5-41a4-b589-9d599307d1e8" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Measures:</strong><ul id="99046b52-c80b-4616-8cd3-33e9af78bdda" class="bulleted-list"><li style="list-style-type:circle"><strong>Firewalls:</strong> Filter traffic to and from a network.</li></ul><ul id="8d4f7355-947a-4f4b-818e-bea9f93ab4c5" class="bulleted-list"><li style="list-style-type:circle"><strong>Intrusion detection and prevention systems (IDS/IPS):</strong> Detect and block malicious activity.</li></ul><ul id="d4184de4-43ec-4e66-b314-e595d417f9f5" class="bulleted-list"><li style="list-style-type:circle"><strong>Anti-virus and anti-malware software:</strong> Protect against malware infections.</li></ul><ul id="8296a3f2-6d90-4b7b-9601-bbb43f43e268" class="bulleted-list"><li style="list-style-type:circle"><strong>Strong passwords and encryption:</strong> Protect sensitive data.</li></ul></li></ul><p id="01e85a0f-7161-438b-9fb9-6f4d7fd02beb" class="">Network Hardening</p><ul id="c2c300a2-b766-4c9c-80e4-fde68f2ce204" class="bulleted-list"><li style="list-style-type:disc"><strong>Definition:</strong> The process of securing a network by reducing its attack surface and vulnerabilities.</li></ul><ul id="f4dfb41d-c0de-421c-9808-1a7df7b8a1c5" class="bulleted-list"><li style="list-style-type:disc"><strong>Hardening Techniques:</strong><ul id="4fb6774a-ca03-4ca1-96fd-5667499e129f" class="bulleted-list"><li style="list-style-type:circle"><strong>Disabling unnecessary services and ports.</strong></li></ul><ul id="bb130bed-a330-4dd6-9d11-32ae50074b18" class="bulleted-list"><li style="list-style-type:circle"><strong>Installing security patches and updates.</strong></li></ul><ul id="bf3ed3f6-db2a-46ef-a118-4865cf50138d" class="bulleted-list"><li style="list-style-type:circle"><strong>Configuring strong security policies.</strong></li></ul><ul id="e5eda1f8-f76c-4986-b115-24d3b88f7f09" class="bulleted-list"><li style="list-style-type:circle"><strong>Regularly reviewing and auditing security configurations.</strong></li></ul></li></ul><p id="ff32e172-5fe7-47c5-a433-6914ea7840b6" class="">Key Takeaways</p><ul id="8158b619-3ef2-44cd-b7a3-afd07929a59b" class="bulleted-list"><li style="list-style-type:disc">Networks are essential for communication and collaboration in today&#x27;s world.</li></ul><ul id="6d29795a-29e0-45d6-8bdf-d7a352875d99" class="bulleted-list"><li style="list-style-type:disc">Understanding network architecture, operations, security, and hardening is crucial for protecting networks from threats.</li></ul><ul id="0c611f23-9b81-4520-bf21-24f6e3eb470d" class="bulleted-list"><li style="list-style-type:disc">There are various security measures and hardening techniques that can be implemented to enhance network security.</li></ul><p id="979e76b0-6c9e-4cae-b5c4-8dc9a202f662" class="">Additional Resources</p><ul id="5c23455a-86fa-41f1-b575-514be1a4b9ed" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.coursera.org/specializations/network-security">Coursera Network Security Specialization</a></li></ul><ul id="9745d37c-543f-48e8-8617-350ac7ed1bea" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.netacad.com/">Cisco Networking Academy</a></li></ul><ul id="a1d95a87-3069-4551-b738-d3e4a2f7e5c8" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.comptia.org/certifications/network">CompTIA Network+ Certification</a></li></ul><p id="23d44a51-549d-4f83-9127-97e0888a4b28" class="">
+</p><p id="0f2eb3ed-4196-48ca-ad3a-53ae376d059f" class="">
+</p><h2 id="66cdb907-7327-4f35-8389-00076beff657" class="">video 2</h2><p id="b1a032b1-9da4-4429-8ed9-2c984dc74464" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/My1pv/emmanuel-useful-skills-for-network-security?trk_ref=coach_copy">Emmanuel: Useful skills for network security</a>  Jun 18, 2024</p><h2 id="f6758000-67ee-4a79-9a5d-2500c4890bbc" class="">Key Points from the Video:</h2><ul id="c9852f4d-fc00-4bcc-bfe1-50b6662e7af3" class="bulleted-list"><li style="list-style-type:disc"><strong>Offensive Security Engineer at Google:</strong> Emmanuel&#x27;s role involves simulating attacks on Google&#x27;s infrastructure to identify vulnerabilities and improve security.</li></ul><ul id="28e08c21-3484-48fd-a2ad-7c291c6cdc3b" class="bulleted-list"><li style="list-style-type:disc"><strong>Technical Skills:</strong> Cybersecurity professionals utilize programming, operational security, and platform security knowledge. Understanding computer systems and their components is crucial.</li></ul><ul id="9803b9a8-c6e8-4b00-89ee-3cda18f7f0e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Entry-Level Cybersecurity Analyst Skills:</strong> These professionals use command lines, log parsing, and network traffic analysis in their daily work.</li></ul><ul id="52eb4521-22ea-4a5e-9ed6-d11df4c3e84b" class="bulleted-list"><li style="list-style-type:disc"><strong>Command Line:</strong> Allows interaction with various operating system levels, from low-level memory and kernel to high-level applications and programs.</li></ul><ul id="05323076-0f28-4985-aead-6c351598a949" class="bulleted-list"><li style="list-style-type:disc"><strong>Log Parsing:</strong> Helps identify and debug issues in programs and applications.</li></ul><ul id="835ae513-fb8a-4504-98ab-2611ef6c6e61" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Traffic Analysis:</strong> Involves examining network traffic across various layers to secure it, identify vulnerabilities, and troubleshoot problems.</li></ul><ul id="bd795573-8d58-4f62-808e-c36ca26563e7" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Considerations:</strong> Analyzing network traffic for leaked passwords, infrastructure security, and firewall configuration.</li></ul><ul id="5ed35e90-0dad-4b27-b012-ed1207ffd85e" class="bulleted-list"><li style="list-style-type:disc"><strong>Effective Communication:</strong> Cybersecurity professionals need to communicate effectively with product teams and engineers to explain issues and solutions.</li></ul><ul id="07f28826-e2a4-4315-9d18-dc632236d3fa" class="bulleted-list"><li style="list-style-type:disc"><strong>Learning and Growth:</strong> Taking things apart, embracing discomfort, and seeking opportunities to learn are essential for continuous growth.</li></ul><h2 id="8fea0fcb-7e46-4ade-84bb-67cd66ee823e" class="">Additional Notes:</h2><ul id="ba7eec87-58d5-4eab-9636-31eaad4a0b4b" class="bulleted-list"><li style="list-style-type:disc">The video emphasizes the importance of understanding how things work and the value of continuous learning in cybersecurity.</li></ul><ul id="e5aad222-595e-4366-b927-9c3b5e0272dc" class="bulleted-list"><li style="list-style-type:disc">Emmanuel&#x27;s advice to take things apart and embrace discomfort encourages learners to actively engage with the material and challenge themselves.</li></ul><p id="939cfc1a-7c4a-49cd-b111-01328fd3eb7f" class="">I hope this summary is helpful! Let me know if you have any other questions.</p><p id="ce6cab7c-ecca-4aca-ae7f-40c94bb95ced" class="">
+</p><p id="8d14ad1f-952c-4a3a-9b04-a7352d64f59c" class="">
+</p><h2 id="8ec567b6-b7c5-47e6-8f28-c0602944d868" class="">Lecture 2</h2><p id="f8b7c86f-5744-4c49-9dd7-b73ff12130e9" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/OWH9Y/network-tools?trk_ref=coach_copy">Network tools</a>  Jun 18, 2024</p><h2 id="461f62c1-0eb6-4ecd-8e2f-ab12cd004008" class="">Network Devices: Hubs, Switches, Routers, and Modems</h2><h3 id="2905cee6-b87f-4c41-aabe-0cfacc3d344f" class="">Hubs</h3><ul id="f8f2282a-e097-4705-904d-a0aad238d8c6" class="bulleted-list"><li style="list-style-type:disc">A hub is a network device that broadcasts information to every device on the network.</li></ul><ul id="33c61552-aae8-43f6-b56e-4a071f704c13" class="bulleted-list"><li style="list-style-type:disc">Think of a hub like a radio tower that broadcasts a signal to any radio tuned to the correct frequency.</li></ul><ul id="8c531100-61eb-41e2-b9e8-80c086073fec" class="bulleted-list"><li style="list-style-type:disc">Hubs are not very intelligent and do not control the flow of traffic.</li></ul><h3 id="0352e414-342f-46c8-95c7-b26466c401d2" class="">Switches</h3><ul id="92500a85-fee8-458f-abb8-ec586d477e46" class="bulleted-list"><li style="list-style-type:disc">A switch is a network device that makes connections between specific devices on a network.</li></ul><ul id="f43a70d2-99e1-4be6-86d6-9dfc15d0504b" class="bulleted-list"><li style="list-style-type:disc">Switches are more intelligent than hubs and only pass data to the intended destination.</li></ul><ul id="20d7e1c2-5c9a-463f-bc2c-7c2732411a51" class="bulleted-list"><li style="list-style-type:disc">This makes switches more secure than hubs and enables them to control the flow of traffic and improve network performance.</li></ul><h3 id="97e38a84-477c-4c1a-aaf1-d5b69cdaed1d" class="">Routers</h3><ul id="407eaf4a-8731-499c-bbe7-d03b5c6b4cec" class="bulleted-list"><li style="list-style-type:disc">A router is a network device that connects multiple networks together.</li></ul><ul id="18005970-0a32-4458-94c2-45950638d389" class="bulleted-list"><li style="list-style-type:disc">For example, if a computer in one network wants to send information to a tablet on another network, the information will be transferred as follows:<ul id="fa59aa94-1191-401c-9050-b6ac475d9142" class="bulleted-list"><li style="list-style-type:circle">First, the information travels from the computer to the router.</li></ul><ul id="8992645c-4a59-4b37-a782-3697203fff7d" class="bulleted-list"><li style="list-style-type:circle">Then, the router reads the destination address and forwards the data to the intended network&#x27;s router.</li></ul><ul id="1ae2ae0d-5b6b-4a6f-8eb6-c886577e72e4" class="bulleted-list"><li style="list-style-type:circle">Finally, the receiving router directs that information to the tablet.</li></ul></li></ul><h3 id="75df9703-a292-4a92-af65-8e028e8bb10b" class="">Modems</h3><ul id="72d28fb8-4e4a-4f6b-a43e-6566ae9df86e" class="bulleted-list"><li style="list-style-type:disc">A modem is a device that connects your router to the internet and brings internet access to the LAN.</li></ul><ul id="37adab2a-85d2-4350-81e0-0499389c9505" class="bulleted-list"><li style="list-style-type:disc">For example, if a computer from one network wants to send information to a device on a network in a different geographic location, it would be transferred as follows:<ul id="9461c0a0-4140-4b2d-aca4-acdfc56cb725" class="bulleted-list"><li style="list-style-type:circle">The computer would send information to the router, and the router would then transfer the information through the modem to the internet.</li></ul><ul id="8c2387be-2c44-488f-8df1-e6b4f5072cdf" class="bulleted-list"><li style="list-style-type:circle">The intended recipient&#x27;s modem receives the information and transfers it to the router.</li></ul><ul id="e7859942-a340-47b2-890b-503b7616942a" class="bulleted-list"><li style="list-style-type:circle">Finally, the recipient&#x27;s router forwards that information to the destination device.</li></ul></li></ul><h3 id="7891a1fa-f078-4fa3-9f95-6d9c7c205ef2" class="">Virtualization Tools</h3><ul id="9e78fd5a-a725-49ad-a282-5c6f47d64df4" class="bulleted-list"><li style="list-style-type:disc">Many functions performed by physical network devices can be completed by virtualization tools.</li></ul><ul id="699a270c-e93c-4acc-989c-3d2bfa8cff0f" class="bulleted-list"><li style="list-style-type:disc">Virtualization tools are pieces of software that perform network operations.</li></ul><ul id="2c198998-27b7-4c67-82af-9689495eabdc" class="bulleted-list"><li style="list-style-type:disc">Virtualization tools carry out operations that would normally be completed by a hub, switch, router, or modem.</li></ul><ul id="9ea5ee93-c984-4931-9fc5-edef21cb0479" class="bulleted-list"><li style="list-style-type:disc">They are offered by Cloud service providers and provide opportunities for cost savings and scalability.</li></ul><h2 id="f6af8e85-ac5f-41e4-8917-d4c8131560a5" class="">Next Steps</h2><ul id="fb4a8ce1-c0ab-402d-bc58-b126ba10488d" class="bulleted-list"><li style="list-style-type:disc">You will learn more about cloud computing and how networks can be designed using cloud services.</li></ul><h2 id="dad714fe-e83d-4ebc-ab49-a0bc86dcd65e" class="">Additional Resources</h2><ul id="1068cfca-a229-4e22-81e8-ca6658e531c0" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.coursera.org/learn/cloud-computing">Cloud Computing</a></li></ul><ul id="3b61ffe0-e1a5-42a6-87f4-169dbc604533" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.coursera.org/learn/networking">Networking</a></li></ul><h2 id="2c1867bb-9944-4d29-a857-4a5648f8f8a4" class="">Summary</h2><ul id="1a09a4a5-88bd-4c0a-91c3-77f63fb04662" class="bulleted-list"><li style="list-style-type:disc">Network devices such as hubs, switches, routers, and modems are essential for connecting devices and networks.</li></ul><ul id="5942ba72-9211-473d-bbb1-c7e8efd4f5e9" class="bulleted-list"><li style="list-style-type:disc">Virtualization tools can perform the functions of these physical devices and offer advantages such as cost savings and scalability.</li></ul><ul id="8d81dd1b-6f79-42dd-94b3-d8fd76fe97cb" class="bulleted-list"><li style="list-style-type:disc">Cloud computing provides opportunities for designing networks using virtualized resources.</li></ul><h2 id="23f19b7c-93e0-417a-b171-8f90a3221718" class="">Key Takeaways</h2><ul id="9fd6b429-accd-4150-8dad-af4ac880380f" class="bulleted-list"><li style="list-style-type:disc">Understand the different types of network devices and their functions.</li></ul><ul id="1feda4bc-6480-4e06-8964-aef8732b787e" class="bulleted-list"><li style="list-style-type:disc">Recognize the benefits of using virtualization tools for network operations.</li></ul><ul id="5ba274ac-5854-408c-97be-aec2e9a4d2cc" class="bulleted-list"><li style="list-style-type:disc">Explore the role of cloud computing in network design.</li></ul><h2 id="d6d52c95-f7bd-485e-a700-1fa6fab33362" class="">Questions for Reflection</h2><ul id="9945d649-dcc2-4174-9841-de13eb70ca13" class="bulleted-list"><li style="list-style-type:disc">How do network devices contribute to secure and efficient communication?</li></ul><ul id="0aff6445-a2c1-45e1-b70d-776596934742" class="bulleted-list"><li style="list-style-type:disc">What are the potential challenges and benefits of using virtualization tools for network management?</li></ul><ul id="9faaffb7-1eb2-4e20-bc46-b624a714ec15" class="bulleted-list"><li style="list-style-type:disc">How can cloud computing be leveraged to design and manage scalable networks?</li></ul><p id="fe6ad15b-a6eb-4fdf-b846-9824ca676913" class="">I hope these detailed notes are helpful! Please let me know if you have any questions.</p><p id="053f4fb0-51d1-47da-8761-ddc812024af7" class="">
+</p><p id="cc8ee1a4-0386-4c01-8bb3-9be3d5fbe4d2" class="">
+</p><figure id="c7c09e20-6a83-4f6c-98a6-4812e179e49e" class="link-to-page"><a href="Module%201%20f52fdf155c124589a0bcac96da9896fa/Network%20components,%20devices,%20and%20diagrams%20c7c09e206a834f6c98a64812e179e49e.html">Network components, devices, and diagrams</a></figure><p id="2f5731d9-3535-44cb-a5ce-0b7584985c32" class="">
+</p><h2 id="080240ad-bc7c-4a55-8e36-b23f327f0933" class="">Lecture 3</h2><p id="c635bf75-6fc8-4ae2-86b3-f6212965b6cb" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/BGlnq/cloud-networks?trk_ref=coach_copy">Cloud networks</a>  Jun 18, 2024</p><h2 id="df3b43b9-05aa-411e-80a4-adb8c149b0d6" class="">Connect and Protect: Networks and Network Security - Lecture Notes</h2><h3 id="aaf8fabe-b729-4b43-ba0b-2b3a42c371e6" class="">Introduction</h3><ul id="381714cc-545a-45a7-9780-be9a62d59f65" class="bulleted-list"><li style="list-style-type:disc"><strong>Traditional Network Model:</strong> Companies owned and managed their own network devices on-premise.</li></ul><ul id="18d3ebb1-2f98-498c-8785-762b0905da40" class="bulleted-list"><li style="list-style-type:disc"><strong>Modern Network Model:</strong> Companies are increasingly using third-party providers to manage their networks.</li></ul><h3 id="1894f595-b426-4c44-a3b5-90e984decd64" class="">Benefits of Third-Party Network Management</h3><ul id="49698932-e597-4417-9544-9c82dba10c12" class="bulleted-list"><li style="list-style-type:disc"><strong>Cost Savings:</strong> Companies can save money by outsourcing network management to providers who have economies of scale.</li></ul><ul id="84f91520-efce-4f3c-b71f-953a723f0341" class="bulleted-list"><li style="list-style-type:disc"><strong>Access to More Resources:</strong> Providers offer access to a wider range of network resources and expertise.</li></ul><ul id="a875d977-c6d8-400d-b349-dbc9ab8e6f7b" class="bulleted-list"><li style="list-style-type:disc"><strong>Streamlined Operations:</strong> Providers can help companies streamline their network operations and improve efficiency.</li></ul><h3 id="32230bbf-f193-4542-a7a3-02776d17d6d4" class="">Cloud Computing and Network Security</h3><ul id="ecc1909b-060b-4930-a746-72849e1fbe1d" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud Computing:</strong> The practice of using remote servers, applications, and network services hosted on the internet.</li></ul><ul id="cca81eb7-7b37-4150-8145-3ee04d4f1d36" class="bulleted-list"><li style="list-style-type:disc"><strong>Benefits of Cloud Computing:</strong> Reduced costs, streamlined operations, and access to more resources.</li></ul><ul id="ac1e8485-82a1-4d44-b1ec-da4b46787e98" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud Security:</strong> The practice of protecting cloud-based networks and data.</li></ul><h3 id="6afd4e8d-521b-49cf-8d85-b175bbeb53df" class="">Cloud Network Architecture</h3><ul id="76a05243-ca02-4541-ad75-9e941c338d06" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud Network:</strong> A collection of servers or computers that store resources and data in a remote data center.</li></ul><ul id="71ad6d62-df9b-4767-9483-ce9e4f79e40f" class="bulleted-list"><li style="list-style-type:disc"><strong>Benefits of Cloud Networks:</strong> Reduced costs, simplified operations, and access to more resources.</li></ul><ul id="70b7e598-1ebc-4ee4-87ac-45b4c40aa505" class="bulleted-list"><li style="list-style-type:disc"><strong>Security Considerations:</strong> Cloud networks require different security considerations than traditional on-premise networks.</li></ul><h3 id="38f6f49e-c6a3-44e6-9a6b-d820b1eb7d4f" class="">Identity-Based Security</h3><ul id="6bc29fd1-d72b-4b4c-a7ec-d5ccee28d109" class="bulleted-list"><li style="list-style-type:disc"><strong>Identity-Based Security:</strong> Verifying both the source of network traffic and the identity associated with it.</li></ul><ul id="04d00fde-c5d2-42c8-bdef-3e8c6eea017c" class="bulleted-list"><li style="list-style-type:disc"><strong>Importance of Identity-Based Security:</strong> As more organizations move to cloud services, identity-based security becomes increasingly important.</li></ul><h3 id="1552bea8-d3ce-445b-a73d-b0858c1fe845" class="">Cloud Security Trends</h3><ul id="01c4849f-eb17-4422-ae9d-4cbb5fdae6bf" class="bulleted-list"><li style="list-style-type:disc"><strong>Increased Adoption of Cloud Services:</strong> More organizations are moving their network services to the cloud.</li></ul><ul id="7545b5f7-13a9-4104-8a17-a1d85f6a9782" class="bulleted-list"><li style="list-style-type:disc"><strong>Growing Importance of Cloud Security:</strong> Cloud security is becoming a significant aspect of network security.</li></ul><h2 id="752808dd-421d-41ff-965b-681f14d0798f" class="">Key Takeaways</h2><ul id="a4843894-9e98-4ec1-ae58-a9dad354ad4b" class="bulleted-list"><li style="list-style-type:disc">Third-party network management can offer cost savings, access to more resources, and streamlined operations.</li></ul><ul id="bfdc4aaf-a71c-4353-9034-cc07de57070e" class="bulleted-list"><li style="list-style-type:disc">Cloud computing is becoming increasingly popular, and cloud security is becoming increasingly important.</li></ul><ul id="e4aba546-6632-4bb6-af61-79f83ab811fa" class="bulleted-list"><li style="list-style-type:disc">Cloud networks require different security considerations than traditional on-premise networks.</li></ul><ul id="19f3d5ab-0ab7-4912-8c26-acf39732d391" class="bulleted-list"><li style="list-style-type:disc">Identity-based security is becoming increasingly important as more organizations move to cloud services.</li></ul><h2 id="015d4d06-0732-485e-b1fc-9ccbd958c39d" class="">Additional Resources</h2><ul id="1a99f1e4-ce1a-4b35-9432-f47e8019088e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.coursera.org/">Coursera Catalog</a></li></ul><ul id="50722668-9563-4e6b-9400-f86b3a2a83a7" class="bulleted-list"><li style="list-style-type:disc"><a href="https://cloud.google.com/security">Google Cloud Security</a></li></ul><h2 id="b2c4e85e-d9bc-420c-8f25-05530bd5012b" class="">Questions for Discussion</h2><ul id="8ce41509-c1c7-4e5c-826f-1f1740fed4ad" class="bulleted-list"><li style="list-style-type:disc">What are the biggest challenges of migrating to a cloud-based network?</li></ul><ul id="331a7e57-ae83-4867-af84-5d09ad7dd42c" class="bulleted-list"><li style="list-style-type:disc">How can organizations ensure the security of their cloud-based data?</li></ul><ul id="ab2c74de-46d2-4238-9b14-83da5afda45f" class="bulleted-list"><li style="list-style-type:disc">What are the future trends in cloud security?</li></ul><p id="732b54fb-f5ae-4b05-bff0-263613103c5b" class="">I hope these notes are helpful! Please let me know if you have any questions.</p><p id="c868e7a8-35e7-4880-9d3b-344bedf03bc7" class="">
+</p><figure id="e47645e5-a3ea-4a90-9b6a-e71e60539568" class="link-to-page"><a href="Module%201%20f52fdf155c124589a0bcac96da9896fa/Cloud%20computing%20and%20software-defined%20networks%20e47645e5a3ea4a909b6ae71e60539568.html">Cloud computing and software-defined networks</a></figure><h2 id="98feb0fa-916f-4b58-aa64-32a7a3b76f69" class="">Lecture 3</h2><p id="113a720f-885d-48fd-891a-381b8a94210f" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/GbJvv/ip-addresses-and-network-communication?trk_ref=coach_copy">IP addresses and network communication</a>  Jun 18, 2024</p><h2 id="4fec8429-aa2a-4685-b786-e66a960b7073" class="">Connect and Protect: Networks and Network Security - Detailed Notes</h2><p id="b29ae519-7d3c-4418-93dd-8d00e52a20b0" class=""><strong>Module 1: Network Architecture</strong></p><ul id="16536537-dd18-433e-94c6-88ae2e8d8f02" class="bulleted-list"><li style="list-style-type:disc"><strong>IP Addresses:</strong><ul id="96d564e9-7e15-444a-bae8-7dbf097403eb" class="bulleted-list"><li style="list-style-type:circle"><strong>Definition:</strong> A unique string of characters that identifies a device on the internet.</li></ul><ul id="71560de1-8bd8-4a69-a0d7-3648fad7b70b" class="bulleted-list"><li style="list-style-type:circle"><strong>Types:</strong><ul id="71af05d6-44f4-4a6f-8c53-264877e24305" class="bulleted-list"><li style="list-style-type:square"><strong>IPv4:</strong> Written as four 1, 2, or 3-digit numbers separated by a decimal point.</li></ul><ul id="e35edc14-ef07-40c4-a2b6-6fb953262970" class="bulleted-list"><li style="list-style-type:square"><strong>IPv6:</strong> Made up of 32 characters.</li></ul></li></ul><ul id="d0b21e0f-e865-4738-b872-696cb2c0c435" class="bulleted-list"><li style="list-style-type:circle"><strong>Public vs. Private:</strong><ul id="aa56c948-d8bb-4d72-9b46-a17dd0614be0" class="bulleted-list"><li style="list-style-type:square"><strong>Public:</strong> Assigned by your internet service provider, visible to the entire internet.</li></ul><ul id="4ded9164-4aaa-4748-ab20-66f279a24b35" class="bulleted-list"><li style="list-style-type:square"><strong>Private:</strong> Only visible to devices on the same local network.</li></ul></li></ul></li></ul><ul id="3ed7a117-93d6-4680-b9fb-e907d47d26ac" class="bulleted-list"><li style="list-style-type:disc"><strong>MAC Addresses:</strong><ul id="638d3504-2152-4242-926e-5265af75563a" class="bulleted-list"><li style="list-style-type:circle"><strong>Definition:</strong> A unique alphanumeric identifier assigned to each physical device on a network.</li></ul><ul id="bf6ef3b3-af56-456f-a89c-2940a7535751" class="bulleted-list"><li style="list-style-type:circle"><strong>Function:</strong> Used by switches to direct data packets to the appropriate device.</li></ul></li></ul><ul id="d53fb198-96c3-49be-861d-a1e23200ae0a" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Devices:</strong><ul id="3a170d16-30c7-40ce-9ddd-a8e4e6441c04" class="bulleted-list"><li style="list-style-type:circle"><strong>Routers:</strong> Connect networks and forward data packets.</li></ul><ul id="54f05fab-23a5-4662-8955-86e1e034d75d" class="bulleted-list"><li style="list-style-type:circle"><strong>Switches:</strong> Connect devices within a network and forward data packets based on MAC addresses.</li></ul><ul id="ba74f24b-7c3b-42a9-9f65-42e1e3db47e2" class="bulleted-list"><li style="list-style-type:circle"><strong>Firewalls:</strong> Filter incoming and outgoing network traffic based on security rules.</li></ul></li></ul><ul id="54e14d51-0b1c-43f9-8da3-fa93953db67f" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Topologies:</strong><ul id="ed1027fc-20f7-410e-bef9-84f5ecd265eb" class="bulleted-list"><li style="list-style-type:circle"><strong>Bus:</strong> All devices connected to a single cable.</li></ul><ul id="9dd157af-4828-4d31-942f-f226ffb71435" class="bulleted-list"><li style="list-style-type:circle"><strong>Star:</strong> All devices connected to a central hub.</li></ul><ul id="7ca53d98-b7cb-472f-9a77-7c5c3e52f3ad" class="bulleted-list"><li style="list-style-type:circle"><strong>Mesh:</strong> Devices connected to multiple other devices, creating a redundant network.</li></ul></li></ul><p id="12c26815-a69f-4612-ba92-b187fdf2adc2" class=""><strong>Module 2: Network Operations</strong></p><ul id="05243cc6-6944-42a1-a8bf-5070b451de5f" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Management:</strong><ul id="25d6f72e-dfe5-47c7-9562-af5c1e8501a6" class="bulleted-list"><li style="list-style-type:circle"><strong>Monitoring:</strong> Observing network performance and identifying potential issues.</li></ul><ul id="fb1623c4-d022-46a3-b6e0-d0a2fd33a65c" class="bulleted-list"><li style="list-style-type:circle"><strong>Troubleshooting:</strong> Diagnosing and resolving network problems.</li></ul><ul id="e18cd48e-fe65-415d-b254-6152e6d16125" class="bulleted-list"><li style="list-style-type:circle"><strong>Configuration:</strong> Setting up and configuring network devices.</li></ul></li></ul><ul id="5aad2c6b-6d12-423f-90d9-8a8a1d338b25" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Security:</strong><ul id="e85f0b71-fc25-431e-9c4c-708c3962da82" class="bulleted-list"><li style="list-style-type:circle"><strong>Identifying vulnerabilities:</strong> Finding weaknesses in the network that could be exploited by attackers.</li></ul><ul id="33507820-6c9b-4de6-8d4f-f6bf4e573e9b" class="bulleted-list"><li style="list-style-type:circle"><strong>Implementing security controls:</strong> Putting measures in place to protect the network from attacks.</li></ul><ul id="d5775863-fcc5-4ed1-bdab-88fe3b3c7348" class="bulleted-list"><li style="list-style-type:circle"><strong>Incident response:</strong> Responding to security incidents and minimizing damage.</li></ul></li></ul><ul id="2971be77-3926-4747-8f29-adcd339025f2" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Protocols:</strong><ul id="cfb7fc68-ab25-4517-b39d-fe36d8dc86e5" class="bulleted-list"><li style="list-style-type:circle"><strong>TCP/IP:</strong> Suite of protocols used for communication over the internet.</li></ul><ul id="94b7da5c-9617-43db-b0e2-31fb238638d8" class="bulleted-list"><li style="list-style-type:circle"><strong>UDP:</strong> Protocol used for faster, connectionless communication.</li></ul><ul id="79263bf8-9672-471c-b85b-7f2b409e16be" class="bulleted-list"><li style="list-style-type:circle"><strong>DNS:</strong> Protocol used to translate domain names into IP addresses.</li></ul></li></ul><p id="6fb1779a-a84d-49d1-8c74-ea16ae8ff256" class=""><strong>Module 3: Secure Against Network Intrusions</strong></p><ul id="88d9769f-aecf-4271-93e8-a2d0fd097a12" class="bulleted-list"><li style="list-style-type:disc"><strong>Types of Network Attacks:</strong><ul id="9e8be6b7-d003-4ed7-8a3b-0ae60aa71382" class="bulleted-list"><li style="list-style-type:circle"><strong>Denial-of-service (DoS):</strong> Flooding a network with traffic to make it unavailable.</li></ul><ul id="700c544e-7377-4a22-87cc-5f343501e9e3" class="bulleted-list"><li style="list-style-type:circle"><strong>Man-in-the-middle (MitM):</strong> Intercepting communication between two parties.</li></ul><ul id="c5bcfa9b-e99c-41c0-ba01-88eb0f6fb976" class="bulleted-list"><li style="list-style-type:circle"><strong>Malware:</strong> Malicious software that can damage or steal data.</li></ul></li></ul><ul id="a685806d-8684-4830-bb2b-af0a05750786" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Intrusion Detection and Prevention Systems (IDS/IPS):</strong><ul id="2a17f300-7755-4ebd-a19f-5ef0587d7511" class="bulleted-list"><li style="list-style-type:circle"><strong>IDS:</strong> Monitors network traffic for suspicious activity.</li></ul><ul id="1824a3fa-4bf5-438a-8563-1c1e8d317840" class="bulleted-list"><li style="list-style-type:circle"><strong>IPS:</strong> Takes action to block or mitigate attacks.</li></ul></li></ul><ul id="68b7998a-9f57-4d26-9379-af91d70a112a" class="bulleted-list"><li style="list-style-type:disc"><strong>Vulnerability Management:</strong><ul id="c96bcbf9-88d8-4a8f-b616-52f67717ce1e" class="bulleted-list"><li style="list-style-type:circle"><strong>Identifying vulnerabilities:</strong> Finding weaknesses in software and hardware that could be exploited by attackers.</li></ul><ul id="a3e8ab24-80b2-4f0a-b2f0-ca5010b71550" class="bulleted-list"><li style="list-style-type:circle"><strong>Patching vulnerabilities:</strong> Fixing vulnerabilities to prevent attackers from exploiting them.</li></ul></li></ul><p id="a2b4a4e3-6513-474c-8a64-d8480fd0e1f6" class=""><strong>Module 4: Security Hardening</strong></p><ul id="4f02a53a-494d-4d04-8fd9-58c422ef9a5f" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Segmentation:</strong> Dividing a network into smaller, isolated segments to limit the impact of attacks.</li></ul><ul id="ef77f512-8778-410c-8345-9a744bb297cc" class="bulleted-list"><li style="list-style-type:disc"><strong>Access Control:</strong> Limiting access to network resources based on user roles and permissions.</li></ul><ul id="fcb66234-57d0-4eb8-ae08-1b81acb13ea4" class="bulleted-list"><li style="list-style-type:disc"><strong>Encryption:</strong> Protecting data in transit and at rest using encryption algorithms.</li></ul><ul id="69526791-48ad-4791-8758-fb7426290438" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Backup and Recovery:</strong> Regularly backing up data to ensure it can be recovered in case of a disaster.</li></ul><p id="7d09478e-ecb4-46df-a605-5a461c81da56" class=""><strong>Additional Resources:</strong></p><ul id="de4909b7-82db-4ca0-a6a2-72ed981631a2" class="bulleted-list"><li style="list-style-type:disc"><strong>Google Cloud Network Security Documentation:</strong> https://cloud.google.com/network-security/docs/</li></ul><ul id="c6a01a9b-41ea-44c3-8f87-fdf795eea300" class="bulleted-list"><li style="list-style-type:disc"><strong>Coursera Help Center:</strong> https://learner.coursera.help/hc/en-us</li></ul><p id="43038a48-c9ad-4915-a55a-26ef1027228f" class=""><strong>Remember:</strong></p><ul id="ed49c0cc-5e1e-473c-be86-ccfa41134dbd" class="bulleted-list"><li style="list-style-type:disc">This is just a summary of the key points covered in the course. Be sure to review the course materials and complete the assignments to fully understand the concepts.</li></ul><ul id="c8b9eb75-b4fe-43fd-87a8-8d10f792ac57" class="bulleted-list"><li style="list-style-type:disc">Don&#x27;t hesitate to ask me any questions you have about the course content. I&#x27;m here to help you succeed!</li></ul><p id="6652c8bf-da0a-460a-b066-a65b5ecb121c" class="">I hope this detailed note is helpful. Please let me know if you have any other questions.</p><h1 id="aea4a6c6-d9ed-4c53-9dec-46548746e356" class="">Components of network layer communication</h1><p id="f52f7d6d-b659-4d92-849a-b47a6603a9c9" class="">In the reading about the <a href="https://www.coursera.org/learn/networks-and-network-security/supplement/YbKL0/the-osi-model-explained">OSI model</a></p><p id="4e2be842-4d41-4578-8ed4-d06e9cf675d3" class="">, you learned about the seven layers of the OSI model that are used to conceptualize the way data is transmitted across the internet. In this reading, you will learn more about operations that take place at layer 3 of the OSI model: the network layer.</p><h2 id="d11b5582-8dae-4977-8451-0fb3fc791565" class="">Operations at the network layer</h2><p id="841d2ab7-f8c5-468b-bc41-b4b203692621" class="">Functions at the network layer organize the addressing and delivery of data packets across the network from the host device to the destination device. This includes directing the packets from one router to another router across the internet, till it reaches the internet protocol (IP) address of the destination network. The destination IP address is contained within the header of each data packet. This address will be stored for future routing purposes in  routing tables along the packet’s path to its destination.</p><p id="02bc808c-05d3-4e13-bfb1-f35950e7bcb6" class="">All data packets include an IP address. A data packet is also referred to as an IP packet for TCP connections or a datagram for UDP connections. A router uses the IP address to route packets from network to network based on information contained in the IP header of a data packet. Header information communicates more than just the address of the destination. It also includes information such as the source IP address, the size of the packet, and which protocol will be used for the data portion of the packet.</p><h2 id="abb082c3-925b-45b5-a77c-df2b34e646bd" class="">Format of an IPv4 packet</h2><figure id="6ff0284c-b988-460d-81fe-4cf79ec45d9b" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/NHNCeVwQQCCcfSTfEUTolg_afd9af6faf854e3db824471a7f2e56f1_CS_R-044_Edited_IP-packet-header-and-data-final.png?expiry=1718841600000&amp;hmac=36NLELFBCreWHdU5AmsAAXg4ZHamPbda0FCgGZ6eZds"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/NHNCeVwQQCCcfSTfEUTolg_afd9af6faf854e3db824471a7f2e56f1_CS_R-044_Edited_IP-packet-header-and-data-final.png?expiry=1718841600000&amp;hmac=36NLELFBCreWHdU5AmsAAXg4ZHamPbda0FCgGZ6eZds"/></a></figure><p id="c7beca87-6be6-4480-973b-f4ed41f84243" class="">Next, you can review the format of an IP version 4 (IPv4) packet and review a detailed graphic of the packet header. An IPv4 packet is made up of two sections, the header and the data:</p><ul id="99b2b97b-1a60-4aee-8c60-b73fd3dbd01e" class="bulleted-list"><li style="list-style-type:disc">An IPv4 header format is determined by the IPv4 protocol and includes the IP routing information that devices use to direct the packet. The size of the IPv4 header ranges from 20 to 60 bytes. The first 20 bytes are a fixed set of information containing data such as the source and destination IP address, header length, and total length of the packet. The last set of bytes can range from 0 to 40 and consists of the options field.</li></ul><ul id="2b6cca0d-2a84-47b3-ba28-7a83b607dda3" class="bulleted-list"><li style="list-style-type:disc">The length of the data section of an IPv4 packet can vary greatly in size. However, the maximum possible size of an IPv4 packet is 65,535 bytes. It contains the message being transferred over the internet, like website information or email text.</li></ul><figure id="21dbcc1b-cf3d-4e70-92f0-f4bf218de37a" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ZlTJLULmT_-iQusFt5gHLA_34841ae20ac344f4a0248aebe8f0d6f1_CS_R-044_Edited_Pv4-packet-header-14-field.png?expiry=1718841600000&amp;hmac=w2RTl6PSVXgKcUQqafE6ZVa_DYR3TwsMWXZ0RYuibx8"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/ZlTJLULmT_-iQusFt5gHLA_34841ae20ac344f4a0248aebe8f0d6f1_CS_R-044_Edited_Pv4-packet-header-14-field.png?expiry=1718841600000&amp;hmac=w2RTl6PSVXgKcUQqafE6ZVa_DYR3TwsMWXZ0RYuibx8"/></a></figure><p id="30198df0-0800-4d00-afa9-9acc3c775875" class="">There are 13 fields within the header of an IPv4 packet:</p><ul id="dd8fe24c-c075-467c-87e1-f7bc81146c75" class="bulleted-list"><li style="list-style-type:disc"><strong>Version (VER): </strong>This 4 bit component tells receiving devices what protocol the packet is using. The packet used in the illustration above is an IPv4 packet.</li></ul><ul id="fe0d066c-bbe8-46d3-949e-f39242e3ddb3" class="bulleted-list"><li style="list-style-type:disc"><strong>IP Header Length (HLEN or IHL):</strong> HLEN is the packet’s header length. This value indicates where the packet header ends and the data segment begins.</li></ul><ul id="b4fd351e-ddc2-4304-95ef-9614a30d0516" class="bulleted-list"><li style="list-style-type:disc"><strong>Type of Service (ToS):</strong> Routers prioritize packets for delivery to maintain quality of service on the network. The ToS field provides the router with this information.</li></ul><ul id="aef6ae12-cf15-44eb-b768-7f3e3e26eb4a" class="bulleted-list"><li style="list-style-type:disc"><strong>Total Length: </strong>This field communicates the total length of the entire IP packet, including the header and data. The maximum size of an IPv4 packet is 65,535 bytes.</li></ul><ul id="cd937626-5657-406b-b075-1e83fd4ae1dd" class="bulleted-list"><li style="list-style-type:disc"><strong>Identification: </strong>IPv4 packets can be up to 65, 535 bytes, but most networks have a smaller limit. In these cases, the packets are divided, or fragmented, into smaller IP packets. The identification field provides a unique identifier for all the fragments of the original IP packet so that they can be reassembled once they reach their destination.</li></ul><ul id="0db68652-e617-4deb-b405-27a351921f0d" class="bulleted-list"><li style="list-style-type:disc"><strong>Flags: </strong>This field provides the routing device with more information about whether the original packet has been fragmented and if there are more fragments in transit.</li></ul><ul id="92d055b8-4db2-43de-985f-d672b5dc4d39" class="bulleted-list"><li style="list-style-type:disc"><strong>Fragmentation Offset:</strong> The fragment offset field tells routing devices where in the original packet the fragment belongs.</li></ul><ul id="4a765096-9e6c-4dec-9819-09e4f53463dc" class="bulleted-list"><li style="list-style-type:disc"><strong>Time to Live (TTL):</strong> TTL prevents data packets from being forwarded by routers indefinitely. It contains a counter that is set by the source. The counter is decremented by one as it passes through each router along its path. When the TTL counter reaches zero, the router currently holding the packet will discard the packet and return an ICMP Time Exceeded error message to the sender.</li></ul><ul id="7927d03b-09ae-4921-a979-ea7e194219db" class="bulleted-list"><li style="list-style-type:disc"><strong>Protocol: </strong>The protocol field tells the receiving device which protocol will be used for the data portion of the packet.</li></ul><ul id="ff752b3f-629e-4c98-b3ea-dd4038e8fa41" class="bulleted-list"><li style="list-style-type:disc"><strong>Header Checksum: </strong>The header checksum field contains a checksum that can be used to detect corruption of the IP header in transit. Corrupted packets are discarded.</li></ul><ul id="d62c74b5-5958-41e4-819d-ed66825ca913" class="bulleted-list"><li style="list-style-type:disc"><strong>Source IP Address:</strong> The source IP address is the IPv4 address of the sending device.</li></ul><ul id="a0c689de-3af4-44b2-9092-765f6e5b722b" class="bulleted-list"><li style="list-style-type:disc"><strong>Destination IP Address: </strong>The destination IP address is the IPv4 address of the destination device.</li></ul><ul id="6d93bd13-0cee-43fe-bc0b-0cd02958b4be" class="bulleted-list"><li style="list-style-type:disc"><strong>Options:</strong> The options field allows for security options to be applied to the packet if the HLEN value is greater than five. The field communicates these options to the routing devices.</li></ul><h2 id="5d5b746b-1c52-4102-8ae2-d1323ef22822" class="">Difference between IPv4 and IPv6</h2><p id="9309837d-436a-4810-95b4-2c2db6e2af0c" class="">In an earlier part of this course, you learned about the history of IP addressing. As the internet grew, it became clear that all of the IPv4 addresses would eventually be depleted; this is called IPv4 address exhaustion. At the time, no one had anticipated how many computing devices would need an IP address. IPv6 was developed to mitigate IPv4 address exhaustion and other related concerns.</p><p id="318340db-b24f-45d6-b959-697d1fba7119" class="">Some of the key differences between IPv4 and IPv6 include the length and the format of the addresses. IPv4 addresses are made up of four decimal numbers separated by periods, each number ranging from 0 to 255. Together the numbers span 4 bytes, and allow for up to 4.3 billion possible addresses. An example of an IPv4 address would be: 198.51.100.0. IPv6 addresses are made of eight hexadecimal numbers separated by colons, each number consisting of up to four hexadecimal digits. Together, all numbers span 16 bytes, and allow for up to 340 undecillion addresses (340 followed by 36 zeros). An example of an IPv6 address would be: 2002:0db8:0000:0000:0000:ff21:0023:1234.</p><p id="c323b8cc-e9a3-4ee1-b696-e93402fec896" class=""><em><strong>Note:</strong></em><em> to represent one or more consecutive sets of all zeros, you can replace the zeros with a double colon &quot;::&quot;, so the above IPv6 address would be &quot;</em>2002:0db8::ff21:0023:1234.&quot;</p><p id="6ca42fb0-c500-43ec-9848-1f94a8f75ccf" class="">There are also some differences in the layout of an IPv6 packet header. The IPv6 header format is much simpler than IPv4. For example, the IPv4 Header includes the IHL, Identification, and Flags fields, whereas the IPv6 does not. The IPv6 header only introduces the Flow Label field, where the Flow Label identifies a packet as requiring special handling by other IPv6 routers.</p><figure id="d821f40d-569d-450d-aea2-8f8fc23c67a2" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/PNld6YkmQNWyhZjFFHvC-Q_eb474e5ee3b3416fbc06a639503342f1_CS_R-044_IPv4-and-IPv6.png?expiry=1718841600000&amp;hmac=6mM1RUO2yTH7qnyY0P8OpM1-pA06c4EV-ut5PoFwanU"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/PNld6YkmQNWyhZjFFHvC-Q_eb474e5ee3b3416fbc06a639503342f1_CS_R-044_IPv4-and-IPv6.png?expiry=1718841600000&amp;hmac=6mM1RUO2yTH7qnyY0P8OpM1-pA06c4EV-ut5PoFwanU"/></a></figure><p id="11450446-9d61-4842-a36b-c31792b0e636" class="">There are some important security differences between IPv4 and IPv6. IPv6 offers more efficient routing and eliminates private address collisions that can occur on IPv4 when two devices on the same network are attempting to use the same address.</p><h2 id="4fc9c271-1ea7-4d20-b329-ffb563a244ae" class="">Key takeaways</h2><p id="fb407660-84e9-4031-aaf7-84f73043ad76" class="">Analyzing the different fields in an IP data packet can be used to find out important security information about the packet. Some examples of security-related information found in IP address packets are: where the packet is coming from, where it’s going, and which protocol it’s using. Understanding the data in an IP data packet will allow you to make critical decisions about the security implications of packets that you inspect.</p><p id="2b82b358-0175-40fa-8515-4e0cdcb7f7db" class="">
+</p><p id="cc96fbba-d403-4259-8d77-c145baf2bf5f" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/YRauw/wrap-up?trk_ref=coach_copy">Wrap-up</a>  Jun 18, 2024</p><h2 id="8ddffe09-fb9c-46b4-b254-8b4500a7e25c" class="">Network Architecture and Operations: A Recap</h2><p id="2b4cb5c7-4a48-4d6b-898d-720c5dd63afc" class=""><strong>Great job making it this far!</strong> Let&#x27;s review the key points covered in this section:</p><p id="8cbce4df-68ed-4794-9ca4-6a6adff836bc" class=""><strong>Network Architecture:</strong></p><ul id="1d91300a-98f9-44de-ab5e-cf8e2fc0f888" class="bulleted-list"><li style="list-style-type:disc"><strong>WANs and LANs:</strong> We explored the different types of networks, including Wide Area Networks (WANs) and Local Area Networks (LANs).</li></ul><ul id="66eab632-e3a5-40ff-abfd-3aa67293acc0" class="bulleted-list"><li style="list-style-type:disc"><strong>Networking Tools:</strong> We discussed essential networking tools like hubs, switches, routers, and modems, understanding their roles in connecting devices and networks.</li></ul><ul id="08597722-44c7-4375-bc4d-e89a654eeaea" class="bulleted-list"><li style="list-style-type:disc"><strong>Cloud Networks:</strong> We briefly touched upon cloud networks and their advantages, such as scalability and flexibility.</li></ul><p id="23229205-80d1-4fdc-9b17-87ad9e3fa0f9" class=""><strong>Network Operations:</strong></p><ul id="3b7273bc-90a6-48b6-a1f8-823b485df9a6" class="bulleted-list"><li style="list-style-type:disc"><strong>TCP/IP Model:</strong> We learned about the TCP/IP model, a crucial framework for understanding network communication and troubleshooting issues.</li></ul><ul id="44bce93c-0292-446e-bde9-71d6a73c398b" class="bulleted-list"><li style="list-style-type:disc"><strong>Data Transmission:</strong> We gained insights into how data is transmitted over wireless networks.</li></ul><p id="5ff11624-f9a9-4ee1-b192-068e464cf2c8" class=""><strong>Next Steps:</strong></p><ul id="cc460c1c-294a-486d-90ef-e4c6a89988e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Operations:</strong> Dive deeper into network operations and explore how data travels across wireless networks.</li></ul><ul id="bf5aa458-f7e9-499b-954d-b83d092b1bff" class="bulleted-list"><li style="list-style-type:disc"><strong>Security:</strong> Learn about securing networks against intrusions and implementing security hardening measures.</li></ul><p id="2d1bded8-0290-4890-8bac-e6600a9a3f09" class=""><strong>Remember:</strong></p><ul id="c949336e-c76a-4ca2-bd24-970b06853703" class="bulleted-list"><li style="list-style-type:disc">Technicians and security analysts frequently use the TCP/IP model to pinpoint network problems.</li></ul><ul id="98afe912-3be9-4e56-b807-2fd11d5746b5" class="bulleted-list"><li style="list-style-type:disc">This knowledge lays a solid foundation for understanding network security concepts in the upcoming modules.</li></ul><p id="9b0a55cb-94c5-4808-a715-687d6330e0f8" class=""><strong>Keep up the excellent work!</strong></p><p id="b795477f-689b-41c2-9af6-55819dc83d37" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,685 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cloud computing and software-defined networks</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e47645e5-a3ea-4a90-9b6a-e71e60539568" class="page sans"><header><h1 class="page-title">Cloud computing and software-defined networks</h1><p class="page-description"></p></header><div class="page-body"><p id="2d39c74b-e8cf-4a10-8351-ce79dde57f00" class="">In this section of the course, you’ve been learning the basic architecture of networks. You’ve learned about how physical network devices like workstations, servers, routers, and switches connect to each other to create a network. Networks may cover small geographical areas, as is the case in a local area network (LAN). Or they may span a large geographic area, like a city, state, or country, as is the case in a wide area network (WAN). You also learned about cloud networks and how cloud computing has grown in recent years.</p><p id="649b0d7a-c511-4475-aa30-097b80cd60e8" class="">In this reading, you will further examine the concepts of cloud computing and cloud networking. You’ll also learn about hybrid networks and software-defined networks, as well as the benefits they offer. This reading will also cover the benefits of hosting networks in the cloud and why cloud-hosting is beneficial for large organizations.</p><h1 id="d35bc1ce-9f99-4bb1-8935-c1c1bae369ae" class="">Computing processes in the cloud</h1><p id="bcf0d4f0-16f5-41a1-80dc-06582b3c7225" class="">Traditional networks are called on-premise networks, which means that all of the devices used for network operations are kept at a physical location owned by the company, like in an office building, for example. <strong>Cloud computing</strong>, however, refers to the practice of using remote servers, applications, and network services that are hosted on the internet instead of at a physical location owned by the company.</p><p id="862b74b3-f420-4936-9429-a974bf5653a7" class="">A cloud service provider (CSP) is a company that offers cloud computing services. These companies own large data centers in locations around the globe that house millions of servers. Data centers provide technology services, such as storage, and compute at such a large scale that they can sell their services to other companies for a fee. Companies can pay for the storage and services they need and consume them through the CSP’s application programming interface (API) or web console.</p><p id="80788f82-08f7-4714-9533-5b407509e7c0" class="">CSPs provide three main categories of services:</p><ul id="d00e06e1-c91f-4528-85ad-10a94692664c" class="bulleted-list"><li style="list-style-type:disc"><strong>Software as a service (SaaS)</strong> refers to software suites operated by the CSP that a company can use remotely without hosting the software.</li></ul><ul id="4198aae2-e63a-480d-aa1e-898aac3c1b3d" class="bulleted-list"><li style="list-style-type:disc"><strong>Infrastructure as a service</strong> <strong>(IaaS)</strong> refers to the use of virtual computer components offered by the CSP. These include virtual containers and storage that are configured remotely through the CSP’s API or web console. Cloud-compute and storage services can be used to operate existing applications and other technology workloads without significant modifications. Existing applications can be modified to take advantage of the availability, performance, and security features that are unique to cloud provider services.</li></ul><ul id="b7553206-2a8a-40fa-8c27-fc307fb9cb28" class="bulleted-list"><li style="list-style-type:disc"><strong>Platform as a service (PaaS) </strong>refers to tools that application developers can use to design custom applications for their company. Custom applications are designed and accessed in the cloud and used for a company’s specific business needs.</li></ul><figure id="5642dcb4-be87-4086-985e-6787c2e59966" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/oFV1OH67RJOjAed1pXzAuw_6b34b3019d4d448b9c662ebb39970df1_CS_R-042_iass-paas-and-saas.png?expiry=1718841600000&amp;hmac=6gGSLRwhQvBuZ6zxMRNlwqrwiiZdiDZOub99JqD7fMo"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/oFV1OH67RJOjAed1pXzAuw_6b34b3019d4d448b9c662ebb39970df1_CS_R-042_iass-paas-and-saas.png?expiry=1718841600000&amp;hmac=6gGSLRwhQvBuZ6zxMRNlwqrwiiZdiDZOub99JqD7fMo"/></a></figure><h2 id="be93a88c-d48c-46c6-853b-353f9adff8a5" class="">Hybrid cloud environments</h2><p id="4dc9b095-1525-4724-b98f-8219864a25c7" class="">When organizations use a CSP’s services in addition to their on-premise computers, networks, and storage, it is referred to as a hybrid cloud environment. When organizations use more than one CSP, it is called a multi-cloud environment. The vast majority of organizations use hybrid cloud environments to reduce costs and maintain control over network resources.</p><h2 id="3075fb3b-e942-4eb0-af39-8a683aa6b5ce" class="">Software-defined networks</h2><p id="f8097570-cc0d-437e-8882-b532ebe0470e" class="">CSPs offer networking tools similar to the physical devices that you have learned about in this section of the course. Next, you’ll review  software-defined networking in the cloud. Software-defined networks (SDNs) are made up of virtual network devices and services. Just like CSPs provide virtual computers, many SDNs also provide virtual switches, routers, firewalls, and more. Most modern network hardware devices also support network virtualization and software-defined networking. This means that physical switches and routers use software to perform packet routing. In the case of cloud networking, the SDN tools are hosted on servers located at the CSP’s data center.</p><h2 id="6b97eec2-4d4d-4dd8-99f1-dd5d5c6b5f51" class="">Benefits of cloud computing and software-defined networks</h2><p id="27a463db-8832-494c-a9d4-fe8e4d1d5194" class="">Three of the main reasons that cloud computing is so attractive to businesses are reliability, decreased cost, and increased scalability.</p><h3 id="a179d4b4-2a1a-46c2-aede-6480822dbf32" class="">Reliability</h3><p id="98caacd8-7f08-478c-a06d-0e164bd8f5f6" class="">Reliability in cloud computing is based on how available cloud services and resources are, how secure connections are, and how often the services are effectively running. Cloud computing allows employees and customers to access the resources they need consistently and with minimal interruption.</p><h3 id="9ebb4deb-3e46-49e8-b73d-8124e46a5945" class="">Cost</h3><p id="638fbc15-c0d2-4a2d-a2de-40ea496fd2f7" class="">Traditionally, companies have had to provide their own network infrastructure, at least for internet connections. This meant there could be potentially significant upfront costs for companies. However, because CSPs have such large data centers, they are able to offer virtual devices and services at a fraction of the cost required for companies to install, patch, upgrade, and manage the components and software themselves.</p><h3 id="cdcf127f-362d-43af-84f5-9236c69a9028" class="">Scalability</h3><p id="4eca35b7-21f0-4442-adec-7f16ef379e3e" class="">Another challenge that companies face with traditional computing is scalability. When organizations experience an increase in their business needs, they might be forced to buy more equipment and software to keep up. But what if business decreases shortly after? They might no longer have the business to justify the cost incurred by the upgraded components. CSPs reduce this risk by making it easy to consume services in an elastic utility model as needed. This means that companies only pay for what they need when they need it.</p><p id="101a7870-c81a-4262-b40a-088bdb1bad97" class="">Changes can be made quickly through the CSPs, APIs, or web console—much more quickly than if network technicians had to purchase their own hardware and set it up. For example, if a company needs to protect against a threat to their network, web application firewalls (WAFs), intrusion detection/protection systems (IDS/IPS), or L3/L4 firewalls can be configured quickly whenever necessary, leading to better network performance and security.</p><h2 id="c0525b6d-9f1c-4436-8fe8-9c5b14b53956" class="">Key takeaways</h2><p id="8c597226-5b94-4b37-9543-3270deb94d56" class="">In this reading, you learned more about cloud computing and cloud networking. You learned that CSPs are companies that own large data centers that house millions of servers in locations all over the globe and then provide modern technology services, including compute, storage, and networking, through the internet. SDNs are an approach to network management. SDNs enable dynamic, programmatically efficient network configurations to improve network performance and monitoring. This makes it more like cloud computing than traditional network management. Organizations can improve reliability, save costs, and scale quickly by using CSPs to provide networking services instead of building and maintaining their own network infrastructure.</p><h2 id="6e2bb69e-a6e5-47f0-9260-a41fe569165e" class="">Resources for more information</h2><p id="60188a2e-5652-494e-b372-8577ff0805b3" class="">For more information about cloud computing and the services offered, you can review <a href="https://cloud.google.com/">Google Cloud (GC)</a></p><p id="b5d7e083-6f76-4afe-879d-a3d63afd4876" class="">
+</p><h1 id="5a912510-c32e-45bf-bd2b-86efe621f7a0" class="">Network Communication</h1><p id="787efa86-6d32-4295-be98-9edd55dd60d6" class="">
+</p><h2 id="598ccf42-2314-41b5-83de-8d539a78894c" class="">Lecture 1</h2><p id="44123581-f8c4-46b9-81b1-ccbfaddc598c" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/EjN2P/introduction-to-network-communication?trk_ref=coach_copy">Introduction to network communication</a>  Jun 18, 2024</p><h2 id="c5ad2670-d1ed-47c2-bbe4-173d2d3f3911" class="">Network Communication and Security: Detailed Notes</h2><h3 id="3c31691e-eb88-4c4a-b89e-a98b0d18ca0a" class="">Introduction</h3><ul id="a22c6105-2e90-4e21-84fd-a9f395d14fd8" class="bulleted-list"><li style="list-style-type:disc">Networks are essential for communication and data sharing within organizations.</li></ul><ul id="13034cd8-260c-4937-944b-a14aa2ba58bb" class="bulleted-list"><li style="list-style-type:disc">Communication over a network involves transferring data from one point to another in the form of data packets.</li></ul><ul id="7675b698-8ea1-40e5-a887-26a46e82e133" class="bulleted-list"><li style="list-style-type:disc">Data packets contain information about the destination, origin, and content of the message.</li></ul><ul id="1312202a-a6a7-44ea-9f2a-edb589446701" class="bulleted-list"><li style="list-style-type:disc">Network performance can be measured by bandwidth and speed.</li></ul><ul id="e83f7ebf-6a07-42f7-839e-3e3b88ebe037" class="bulleted-list"><li style="list-style-type:disc">Security personnel monitor network bandwidth and speed for potential attacks.</li></ul><h3 id="f1d2136b-9746-493c-a053-4e7cd29e4fb8" class="">Network Communication</h3><ul id="855eda1d-ce60-4209-8855-7ca260b60252" class="bulleted-list"><li style="list-style-type:disc">Communication on the network allows organizations to share resources and data effectively.</li></ul><ul id="0f61fb41-7715-4578-afb3-622fa66f2469" class="bulleted-list"><li style="list-style-type:disc">Protocols support network communication by defining rules and standards for data exchange.</li></ul><ul id="92f019c6-47c8-435a-9113-b6ab8bf69d92" class="bulleted-list"><li style="list-style-type:disc">Different protocols serve different purposes, such as routing, addressing, and error checking.</li></ul><h3 id="beece42e-a24f-4009-927b-8af54afe71c5" class="">Network Security</h3><ul id="508f2109-f478-45e2-8837-04703e21aa52" class="bulleted-list"><li style="list-style-type:disc">Network security aims to protect networks and data from unauthorized access, use, disclosure, disruption, modification, or destruction.</li></ul><ul id="b16b9b86-d139-4ccd-9296-a925cbcee7f8" class="bulleted-list"><li style="list-style-type:disc">Security threats can come from various sources, including malware, phishing attacks, and denial-of-service attacks.<ul id="3761973f-7b79-459b-bfcf-3ebcee70b1db" class="bulleted-list"><li style="list-style-type:circle">Security measures include firewalls, intrusion detection systems, and encryption.</li></ul></li></ul><h3 id="fd85219b-f799-454e-b775-abbb5bf2a947" class="">Key Concepts</h3><ul id="39298917-f689-4332-9b13-a76f34cf01d9" class="bulleted-list"><li style="list-style-type:disc"><strong>Data packet:</strong> A basic unit of information transmitted over a network.</li></ul><ul id="07422891-80df-448f-b367-71a458c74e20" class="bulleted-list"><li style="list-style-type:disc"><strong>Bandwidth:</strong> The amount of data a device receives per second.</li></ul><ul id="31efec06-83e6-4b90-9a92-3021153dc05a" class="bulleted-list"><li style="list-style-type:disc"><strong>Speed:</strong> The rate at which data packets are received or downloaded.</li></ul><ul id="01ac4c4d-3981-4f3e-b8c1-b0520cc3b0c4" class="bulleted-list"><li style="list-style-type:disc"><strong>Protocol:</strong> A set of rules and standards for data exchange.</li></ul><ul id="f9f501f0-b54b-4c1d-a59c-22608edda0a7" class="bulleted-list"><li style="list-style-type:disc"><strong>Network security:</strong> Protecting networks and data from unauthorized access and threats.</li></ul><h3 id="11543218-ab56-49e8-ba31-308a347d5114" class="">Additional Resources</h3><ul id="7564eaca-0946-4361-a6ab-32779e211dab" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.coursera.org/specializations/network-security-fundamentals">Network Security Fundamentals</a></li></ul><ul id="81c9d022-2c97-4305-85f9-c260cca376cb" class="bulleted-list"><li style="list-style-type:disc"><a href="https://www.coursera.org/specializations/cybersecurity-fundamentals">Cybersecurity Fundamentals</a></li></ul><h3 id="2546070c-6f92-49e2-b9c4-905f82b91642" class="">Summary</h3><ul id="ac767397-399e-4afe-bea1-3b3657fcad1d" class="bulleted-list"><li style="list-style-type:disc">Networks are essential for communication and data sharing within organizations.</li></ul><ul id="3c91efa8-b603-4934-ac06-5b991f7afbb1" class="bulleted-list"><li style="list-style-type:disc">Network communication involves transferring data in packets containing information about the destination, origin, and content of the message.</li></ul><ul id="f0c00f67-5939-4e22-9d24-d7964d9b04d6" class="bulleted-list"><li style="list-style-type:disc">Network performance can be measured by bandwidth and speed.</li></ul><ul id="9aad835f-4486-4d1d-8205-bc235628f496" class="bulleted-list"><li style="list-style-type:disc">Network security aims to protect networks and data from unauthorized access and threats.</li></ul><h2 id="5dbb811c-aa53-425a-8509-188d42d0741d" class="">Next Steps</h2><ul id="ca475b90-74f3-46de-b870-93c1820f0f0d" class="bulleted-list"><li style="list-style-type:disc">Learn more about network protocols and their role in communication.</li></ul><ul id="d253a0ed-4d12-44c9-8e91-69e3232bd74f" class="bulleted-list"><li style="list-style-type:disc">Explore different network security threats and measures.</li></ul><ul id="6f083162-a6b2-4f13-88ed-f19fdeb6a0ba" class="bulleted-list"><li style="list-style-type:disc">Consider taking additional courses on network security fundamentals or cybersecurity fundamentals.</li></ul><p id="8872c793-8c61-4166-bfe1-47bb6d0fdccc" class="">I hope these detailed notes are helpful! Please let me know if you have any questions.</p><p id="2b63d532-927a-4afe-b59e-79678f6647ce" class="">
+</p><p id="34d7e941-82b4-40a1-a990-72d96de5ff89" class="">
+</p><h1 id="aaf86af7-4d27-4c11-917c-93059e9527e8" class="">Lecture 2</h1><p id="b0ac5711-7e2c-4c2f-94c3-7aaada95c459" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/7tr4o/the-tcp-ip-model?trk_ref=coach_copy">The TCP/IP model</a>  Jun 18, 2024</p><h2 id="e27fdf67-8977-4fe9-85c6-d7823feda75d" class="">TCP/IP Model: Communication Protocols and Devices</h2><p id="52726385-c361-4fc6-903e-ec2aa85da35b" class=""><strong>Key Points:</strong></p><ul id="ffe1552d-a7e2-418a-a5a7-3c960454116c" class="bulleted-list"><li style="list-style-type:disc"><strong>TCP/IP Model:</strong> The standard model for network communication.</li></ul><ul id="ed854fa3-4e17-46af-a264-27f54dc2ad17" class="bulleted-list"><li style="list-style-type:disc"><strong>TCP (Transmission Control Protocol):</strong> Establishes connections and streams data between devices.</li></ul><ul id="a62234e4-968b-431c-aed7-aee83c77e312" class="bulleted-list"><li style="list-style-type:disc"><strong>IP (Internet Protocol):</strong> Routes and addresses data packets across networks.</li></ul><ul id="eaa05381-53d3-4911-a5fb-86f38b0379bf" class="bulleted-list"><li style="list-style-type:disc"><strong>IP Address:</strong> Unique identifier for each device on a network.</li></ul><ul id="b5956233-f6e4-428a-9ffc-a679f74e321c" class="bulleted-list"><li style="list-style-type:disc"><strong>Ports:</strong> Organize data transmission and prioritize operations.</li></ul><ul id="cb117e67-8713-4f73-a913-0e506ae1d453" class="bulleted-list"><li style="list-style-type:disc"><strong>Port Numbers:</strong> Identify specific services and applications.</li></ul><p id="ad1b4480-c453-4c54-81dd-c56f2f6aac0c" class=""><strong>Detailed Notes:</strong></p><ul id="8d8d86cc-86b7-4e02-a77b-ddbd5137b8ec" class="bulleted-list"><li style="list-style-type:disc"><strong>TCP/IP Model:</strong><ul id="a643875e-7d09-478f-9c6d-eaf64dcace6f" class="bulleted-list"><li style="list-style-type:circle">Consists of four layers: Application, Transport, Internet, and Network Access.</li></ul><ul id="d7ec75cb-31ca-4050-88c0-ad9dd4baeed7" class="bulleted-list"><li style="list-style-type:circle">Each layer performs specific functions related to data transmission.</li></ul><ul id="35b3eac2-da7f-4e1a-9583-49ec2da33b1a" class="bulleted-list"><li style="list-style-type:circle">Ensures reliable and efficient communication across networks.</li></ul></li></ul><ul id="14a6f749-7355-4c00-960f-e015e7cdde25" class="bulleted-list"><li style="list-style-type:disc"><strong>TCP:</strong><ul id="10688c3c-86cb-48ac-a825-65ccb6eb05ed" class="bulleted-list"><li style="list-style-type:circle">Provides reliable data transfer by breaking data into packets and ensuring their delivery.</li></ul><ul id="fb315a07-f399-4726-a3a5-0c5ae0b6df10" class="bulleted-list"><li style="list-style-type:circle">Manages connection establishment and termination.</li></ul><ul id="de411788-86c0-4db9-a277-d77d9de03129" class="bulleted-list"><li style="list-style-type:circle">Guarantees data integrity and order.</li></ul></li></ul><ul id="0637e6ba-eef7-4045-b2bc-8dc123515c7c" class="bulleted-list"><li style="list-style-type:disc"><strong>IP:</strong><ul id="0ada1056-d0c9-407f-a35d-f72f6da09815" class="bulleted-list"><li style="list-style-type:circle">Defines addressing and routing mechanisms for data packets.</li></ul><ul id="5947036a-fb5b-4bb6-9034-02094d9d4622" class="bulleted-list"><li style="list-style-type:circle">Assigns unique IP addresses to devices on a network.</li></ul><ul id="7d96a2f3-d169-4814-bfa5-53740a28b5cb" class="bulleted-list"><li style="list-style-type:circle">Enables data packets to travel across different networks.</li></ul></li></ul><ul id="9705c907-7445-4f75-982d-2a5cfc6d28ec" class="bulleted-list"><li style="list-style-type:disc"><strong>IP Address:</strong><ul id="878b4a2b-cb1f-428a-b955-1ef4540ef6a0" class="bulleted-list"><li style="list-style-type:circle">Consists of four numbers separated by dots (e.g., 192.168.1.1).</li></ul><ul id="f8d8303e-2d1b-4189-b767-74731a4b070f" class="bulleted-list"><li style="list-style-type:circle">Identifies a specific device on a network.</li></ul><ul id="39526077-39f3-498f-ae63-7d700c476059" class="bulleted-list"><li style="list-style-type:circle">Can be static or dynamic.</li></ul></li></ul><ul id="2b6c5635-bb07-4ea8-a11f-de323bce5644" class="bulleted-list"><li style="list-style-type:disc"><strong>Ports:</strong><ul id="6c212c08-32ec-4d8d-974f-a8e9a7a5af90" class="bulleted-list"><li style="list-style-type:circle">Act as virtual channels for data transmission.</li></ul><ul id="2776b213-f3ce-4058-9bbb-fe8428a23cf4" class="bulleted-list"><li style="list-style-type:circle">Allow multiple applications to run simultaneously on a device.</li></ul><ul id="90e80f4d-eaa1-4574-ab8b-3a9446e01ccb" class="bulleted-list"><li style="list-style-type:circle">Identified by port numbers (e.g., port 80 for HTTP).</li></ul></li></ul><ul id="80c63ba6-9365-4763-bd5b-dfa1e0648da0" class="bulleted-list"><li style="list-style-type:disc"><strong>Port Numbers:</strong><ul id="2674cb84-81bb-463b-ab56-3a6179800288" class="bulleted-list"><li style="list-style-type:circle">Well-known port numbers are associated with specific services (e.g., port 25 for email).</li></ul><ul id="5312f13e-9580-4d66-ae26-998115ccf40d" class="bulleted-list"><li style="list-style-type:circle">Dynamically assigned port numbers are used for temporary connections.</li></ul><ul id="f901bead-76cc-4c4f-b853-71a07f6eff17" class="bulleted-list"><li style="list-style-type:circle">Port numbers ensure efficient and organized data transmission.</li></ul></li></ul><p id="971e88ba-e19b-43b2-8682-56efe62ffcd3" class=""><strong>Additional Notes:</strong></p><ul id="4599b538-240d-40c4-a813-7b50cc0ad00f" class="bulleted-list"><li style="list-style-type:disc">Data packets contain information and instructions for the receiving device.</li></ul><ul id="d625429e-b61c-41a7-ada1-4e7724c90a90" class="bulleted-list"><li style="list-style-type:disc">Port numbers help prioritize and process data segments based on their function.</li></ul><ul id="6d4f87fa-8614-4284-b94a-eea57635b95a" class="bulleted-list"><li style="list-style-type:disc">The TCP/IP model is fundamental for understanding network communication.</li></ul><p id="c27e7d0b-88ec-4538-8075-17a1a2b6151b" class=""><strong>Further Exploration:</strong></p><ul id="a73d7021-3db3-45d1-a86a-a7b32b2bb879" class="bulleted-list"><li style="list-style-type:disc">Explore the different layers of the TCP/IP model in more detail.</li></ul><ul id="c660207e-5ca6-4199-acd9-dd9565c1cca6" class="bulleted-list"><li style="list-style-type:disc">Learn about specific protocols associated with each layer.</li></ul><ul id="1eac3dc6-fb76-4948-ac91-afcbd1693e30" class="bulleted-list"><li style="list-style-type:disc">Investigate the role of ports in network security.</li></ul><p id="3d75bfc1-88f0-4f65-8d88-883f90dd03c3" class=""><strong>Remember:</strong></p><ul id="efc97fe1-63f4-40e8-b7b6-47d94998a8b4" class="bulleted-list"><li style="list-style-type:disc">This is just a summary of the lecture content.</li></ul><ul id="dad9c702-c858-42bc-ba23-a7398abd7c53" class="bulleted-list"><li style="list-style-type:disc">Refer to the lecture materials for a more comprehensive understanding.</li></ul><ul id="0c4ec4ac-6424-4ba4-bbb6-61014cef4298" class="bulleted-list"><li style="list-style-type:disc">Don&#x27;t hesitate to ask questions if you need further clarification.</li></ul><p id="a0e37a2c-6b34-4b17-bfc7-f977515a802a" class="">I hope these detailed notes are helpful! Let me know if you have any other questions.</p><p id="8ba0efae-23b9-4a8a-ae7b-b699f56691c5" class="">
+</p><p id="4e44f6c8-05c9-4608-89a1-837cd59e35a8" class="">
+</p><h1 id="c2ace9c1-d89b-448a-a6ff-43bebc40373e" class="">Learn more about the TCP/IP model</h1><p id="f35c1df4-90b8-44b6-916a-9625341032da" class="">In this reading, you will build on what you have learned about the Transmission Control Protocol/Internet Protocol (TCP/IP) model, consider the differences between the Open Systems Interconnection (OSI) model and TCP/IP model, and learn how they’re related. Then, you’ll review each layer of the TCP/IP model and go over common protocols used in each layer.</p><p id="d723673e-6cd5-4f76-8125-5fb0f58186a7" class="">As a security professional, it&#x27;s important that you understand the TCP/IP model because it describes the functions of various network protocols. The TCP/IP model is based on the TCP/IP protocols suite that includes all network protocols that support the main TCP/IP protocol. To reiterate from previous lessons, a network protocol, also known as an internet protocol, is a set of standards used for routing and addressing data packets as they travel between devices on a network. In this reading, you will learn which network protocols operate on which communication layers of the TCP/IP model. The two most common models available are the TCP/IP and the OSI model. These models are a representative guideline of how hosts communicate across a network. The examples provided in this course will follow the TCP/IP model.</p><h2 id="72336431-2c14-4434-933c-79cc281b7d65" class="">The TCP/IP model</h2><p id="6d5f76b0-ed6c-4ab2-88cc-4bf7c16b26e4" class="">The <strong>TCP/IP model </strong>is a framework used to visualize how data is organized and transmitted across a network. This model helps network engineers and network security analysts conceptualize processes on the network and communicate where disruptions or security threats occur.</p><p id="d997adb6-4253-4799-868c-b9ea9ec7aee0" class="">The TCP/IP model has four layers: the network access layer, internet layer, transport layer, and application layer. When troubleshooting issues on the network, security professionals can analyze which layers were impacted by an attack based on what processes were involved in an incident.</p><figure id="c9279715-d050-46ed-bb50-e7b07ea64735" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/H9jj1YSsSDKlU8c8qzOgsQ_89f77799b50040b08911a8de1012e2f1_CS_R-210_S33G011-edited.png?expiry=1718841600000&amp;hmac=sMjjznAZi6VjKQkAKNllsTA1AZ2Wtsijxp2vIKMqX4A"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/H9jj1YSsSDKlU8c8qzOgsQ_89f77799b50040b08911a8de1012e2f1_CS_R-210_S33G011-edited.png?expiry=1718841600000&amp;hmac=sMjjznAZi6VjKQkAKNllsTA1AZ2Wtsijxp2vIKMqX4A"/></a></figure><h2 id="65d54930-f3b0-4855-abd0-e1d20415e0bc" class="">Network access layer</h2><p id="ff0a1da6-258c-4a15-b99c-0f9025be9d8d" class="">The network access layer, sometimes called the data link layer, deals with the creation of data packets and their transmission across a network. This layer corresponds to the physical hardware involved in network transmission. Hubs, modems, cables, and wiring are all considered part of this layer. The address resolution protocol (ARP) is part of the network access layer. Since MAC addresses are used to identify hosts on the same physical network, ARP is needed to map IP addresses to MAC addresses for local network communication.</p><h2 id="720ec408-0294-4c95-8b06-4f80885c366c" class="">Internet layer</h2><p id="5605a94d-5216-4488-8d5b-0d778c92db76" class="">The internet layer, sometimes referred to as the network layer, is responsible for ensuring the delivery to the destination host, which potentially resides on a different network. It ensures IP addresses are attached to data packets to indicate the location of the sender and receiver. The internet layer also determines which protocol is responsible for delivering the data packets and ensures the delivery to the destination host. Here are some of the common protocols that operate at the internet layer:</p><ul id="05f82f35-1e4e-48bd-a5dc-760669eae413" class="bulleted-list"><li style="list-style-type:disc"><strong>Internet Protocol (IP)</strong>. IP sends the data packets to the correct destination and relies on the Transmission Control Protocol/User Datagram Protocol (TCP/UDP) to deliver them to the corresponding service. IP packets allow communication between two networks. They are routed from the sending network to the receiving network. TCP in particular retransmits any data that is lost or corrupt.</li></ul><ul id="61de884f-68e4-4c44-8865-0e1f7dc469d8" class="bulleted-list"><li style="list-style-type:disc"><strong>Internet Control Message Protocol (ICMP)</strong>. The ICMP shares error information and status updates of data packets. This is useful for detecting and troubleshooting network errors. The ICMP reports information about packets that were dropped or that disappeared in transit, issues with network connectivity, and packets redirected to other routers.</li></ul><h2 id="ba8f36f8-387b-4974-a709-0c0cbe78c9d7" class="">Transport layer</h2><p id="97f436f2-908e-4266-bbb9-e887875893de" class="">The transport layer is responsible for delivering data between two systems or networks and includes protocols to control the flow of traffic across a network. TCP and UDP are the two transport protocols that occur at this layer.</p><h3 id="aae284d8-69a8-4a2a-ac58-a49dcc1c8dde" class="">Transmission Control Protocol</h3><p id="1c21b495-5c9b-4956-a11a-7a81831a9748" class="">The<strong> Transmission Control Protocol (TCP)</strong> is an internet communication protocol that allows two devices to form a connection and stream data. It ensures that data is reliably transmitted to the destination service. TCP contains the port number of the intended destination service, which resides in the TCP header of a TCP/IP packet.</p><h3 id="2441b449-ece2-43b2-9893-75d3075a390b" class="">User Datagram Protocol</h3><p id="1abaf7ea-1842-4dd8-a974-9b64f59baffd" class="">The<strong> User Datagram Protocol (UDP)</strong> is a connectionless protocol that does not establish a connection between devices before transmissions. It is used by applications that are not concerned with the reliability of the transmission. Data sent over UDP is not tracked as extensively as data sent using TCP. Because UDP does not establish network connections, it is used mostly for performance sensitive applications that operate in real time, such as video streaming.</p><h2 id="8e8dc869-4d45-4e73-a916-b9a9e2a1039e" class="">Application layer</h2><p id="4251753f-fc4b-4940-b149-0f2e46145e83" class="">The application layer in the TCP/IP model is similar to the application, presentation, and session layers of the OSI model. The application layer is responsible for making network requests or responding to requests. This layer defines which internet services and applications any user can access. Protocols in the application layer determine how the data packets will interact with receiving devices. Some common protocols used on this layer are:</p><ul id="cdbc3f94-6718-4a6d-9b8a-abd04b268427" class="bulleted-list"><li style="list-style-type:disc">Hypertext transfer protocol (HTTP)</li></ul><ul id="561c0e71-5985-4d39-a40a-b199b000c3c0" class="bulleted-list"><li style="list-style-type:disc">Simple mail transfer protocol (SMTP)</li></ul><ul id="6e9e5d71-4aee-4210-bf2d-03033404f531" class="bulleted-list"><li style="list-style-type:disc">Secure shell (SSH)</li></ul><ul id="13e876fb-8814-4d1c-bb13-1c979a34e67a" class="bulleted-list"><li style="list-style-type:disc">File transfer protocol (FTP)</li></ul><ul id="f4be541b-bbaa-4def-acd8-a52c3dac73bf" class="bulleted-list"><li style="list-style-type:disc">Domain name system (DNS)</li></ul><p id="88925a9f-7e26-4adb-a0fb-109be0eb553e" class="">Application layer protocols rely on underlying layers to transfer the data across the network.</p><h2 id="be0ec375-ef38-4598-8071-b986972a5549" class="">TCP/IP model versus OSI model</h2><figure id="6a6b0cc6-02b2-4b0c-b62c-ddfa24271f13" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/RbNt47PDRTGJZ6q_QtaNMg_9b9098ac04e84c2d8ad04b220c5456f1_CS_R-210_TCP-vs-OSI.png?expiry=1718841600000&amp;hmac=UYIHjPfFLhVuKo08djEM2Rqw3h3q4toVUaTNunmNyU4"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/RbNt47PDRTGJZ6q_QtaNMg_9b9098ac04e84c2d8ad04b220c5456f1_CS_R-210_TCP-vs-OSI.png?expiry=1718841600000&amp;hmac=UYIHjPfFLhVuKo08djEM2Rqw3h3q4toVUaTNunmNyU4"/></a></figure><p id="867c28ce-1f31-4174-9353-e542b325de2a" class="">The <strong>OSI </strong>visually organizes network protocols into different layers. Network professionals often use this model to communicate with each other about potential sources of problems or security threats when they occur.</p><p id="06b78ae5-0f19-4431-9530-acecdc602f37" class="">The TCP/IP model combines multiple layers of the OSI model. There are many similarities between the two models. Both models define standards for networking and divide the network communication process into different layers. The TCP/IP model is a simplified version of the OSI model.</p><h2 id="088470d5-3890-4ef2-adfb-632934dcb483" class="">Key takeaways</h2><p id="b88a61fb-6a42-4daa-ba79-b678882905bf" class="">Both the TCP/IP and OSI models are conceptual models that help network professionals visualize network processes and protocols in regards to data transmission between two or more systems. The TCP/IP model contains four layers, and the OSI model contains seven layers.</p><p id="5348c7a4-6f71-40bb-a7e6-bf671546d090" class="">
+</p><p id="b9f2bcc6-12a1-42ea-8f04-1ad5207b9d64" class="">
+</p><h1 id="3f79223d-5a77-40b0-8d9b-062da392747d" class="">The OSI model</h1><p id="b36979c5-e618-43bc-8145-fd7fe4943686" class="">So far in this section of the course, you learned about the components of a network, network devices, and how communication occurs across a network. You also studied the TCP/IP model to understand how network communication is organized across different layers of the internet.</p><p id="5af99cf8-ce23-4a5e-9b7d-864b1b52ff83" class="">All communication on a network is organized using network protocols. Previously, you learned about the Transmission Control Protocol (TCP), which establishes connections between two devices, and the Internet Protocol (IP), which is used for routing and addressing data packets as they travel between devices on a network. These protocols are used on specific internet layers in the TCP/IP model. The 4-layer TCP/IP model is a condensed form of the OSI (open Systems Interconnection) model, which is made up of 7 layers. The OSI model will provide a more in depth understanding of the processes that occur at each layer. We will work backwards from layer seven to layer one, going from the processes that involve direct user interaction with the network to those that involve the physical connection to the internet via network components like cables and switches. This reading will also review the main differences between the TCP/IP and OSI models.</p><h2 id="4138a5f6-9873-4f5f-ae29-10e975239f4e" class="">The TCP/IP model vs. the OSI model</h2><p id="8c80b1cb-dbff-4081-87f0-917b5efd93bd" class="">The <strong>TCP/IP model </strong>is a framework used to visualize how data is organized and transmitted across a network. This model helps network engineers and security analysts conceptualize processes on the network and communicate where disruptions or security threats occur.</p><p id="77eb88c8-c257-4660-898f-26084514b143" class="">The TCP/IP model has four layers: the network access layer, internet layer, transport layer, and application layer. When analyzing network events, security professionals can determine what layer or layers an attack occurred in based on what processes were involved in the incident.</p><p id="35fbae1b-0f5d-46c3-97b5-53a38d6815f4" class="">The <strong>OSI model</strong> is a standardized concept that describes the seven layers computers use to communicate and send data over the network. Network and security professionals often use this model to communicate with each other about potential sources of problems or security threats when they occur.</p><figure id="2cbeeb30-25b3-4588-9203-0b1abe7b60dd" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/b5ghKGCVSp6e-fAUC8oo4w_4efb617fe17648559c4a8a0bc0b1abf1_CS_R-043_OSI-Model.png?expiry=1718841600000&amp;hmac=QboOQGzibklPh9ZOT4I3O2_br6350oHvC0e-Dl5WzRc"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/b5ghKGCVSp6e-fAUC8oo4w_4efb617fe17648559c4a8a0bc0b1abf1_CS_R-043_OSI-Model.png?expiry=1718841600000&amp;hmac=QboOQGzibklPh9ZOT4I3O2_br6350oHvC0e-Dl5WzRc"/></a></figure><p id="4c28d96a-a9ba-4928-aff9-0d645143c41e" class="">Some organizations rely heavily on the TCP/IP model, while others prefer to use the OSI model. As a security analyst, it’s important to be familiar with both models. Both the TCP/IP and OSI models are useful for understanding how networks work.</p><h2 id="1a9f8f5b-3700-4798-8292-0f7b69911d65" class="">Layer 7: Application layer</h2><p id="59874142-3522-4256-bdec-53c8e855ddde" class="">The application layer includes processes that directly involve the everyday user. This layer includes all of the networking protocols that software applications use to connect a user to the internet. This characteristic is the identifying feature of the application layer—user connection to the internet via applications and requests.</p><p id="49025ac5-7d57-4142-92f1-86ef3fba1c02" class="">An example of a type of communication that happens at the application layer is using a web browser. The internet browser uses HTTP or HTTPS to send and receive information from the website server. The email application uses simple mail transfer protocol (SMTP) to send and receive email information. Also, web browsers use the domain name system (DNS) protocol to translate website domain names into IP addresses which identify the web server that hosts the information for the website.</p><h2 id="b775d4cd-5bb8-4a34-8f6d-7098d25646e4" class="">Layer 6: Presentation layer</h2><p id="ced8642a-c378-495b-bf2a-1791e8acd7b7" class="">Functions at the presentation layer involve data translation and encryption for the network. This layer adds to and replaces data with formats that can be understood by applications (layer 7) on both sending and receiving systems. Formats at the user end may be different from those of the receiving system. Processes at the presentation layer require the use of a standardized format.</p><p id="aea92746-2c5e-45f8-864f-7765d56bb553" class="">Some formatting functions that occur at layer 6 include encryption, compression, and confirmation that the character code set can be interpreted on the receiving system. One example of encryption that takes place at this layer is SSL, which encrypts data between web servers and browsers as part of websites with HTTPS.</p><h2 id="aa0fd0db-596a-4419-a6a2-af744eea3b70" class="">Layer 5: Session layer</h2><p id="6d10b893-440f-4f57-b0ca-1f77caf19090" class="">A session describes when a connection is established between two devices. An open session allows the devices to communicate with each other. Session layer protocols keep the session open while data is being transferred and terminate the session once the transmission is complete.</p><p id="cb34735b-71e1-4206-a8e9-a400c8098f04" class="">The session layer is also responsible for activities such as authentication, reconnection, and setting checkpoints during a data transfer. If a session is interrupted, checkpoints ensure that the transmission picks up at the last session checkpoint when the connection resumes. Sessions include a request and response between applications. Functions in the session layer respond to requests for service from processes in the presentation layer (layer 6) and send requests for services to the transport layer (layer 4).</p><h2 id="d58b376d-5ca6-44bc-8a7e-46436432d830" class="">Layer 4: Transport layer</h2><p id="43679c54-2bdb-4222-9ad4-deb64edb3019" class="">The transport layer is responsible for delivering data between devices. This layer also handles the speed of data transfer, flow of the transfer, and breaking data down into smaller segments to make them easier to transport. Segmentation is the process of dividing up a large data transmission into smaller pieces that can be processed by the receiving system. These segments need to be reassembled at their destination so they can be processed at the session layer (layer 5). The speed and rate of the transmission also has to match the connection speed of the destination system. TCP and UDP are transport layer protocols.</p><h2 id="7d81a424-9ea2-4ccf-9351-f20f4210ae32" class="">Layer 3: Network layer</h2><p id="ce19e5a4-9135-4541-a70e-813ba8e90577" class="">The network layer oversees receiving the frames from the data link layer (layer 2) and delivers them to the intended destination. The intended destination can be found based on the address that resides in the frame of the data packets. Data packets allow communication between two networks. These packets include IP addresses that tell routers where to send them. They are routed from the sending network to the receiving network.</p><h2 id="5c0c9d65-2d1a-4687-8b73-0579d8beed89" class="">Layer 2: Data link layer</h2><p id="efb12c93-7cc2-4f00-b7d3-284187de0919" class="">The data link layer organizes sending and receiving data packets within a single network. The data link layer is home to switches on the local network and network interface cards on local devices.</p><p id="50548b22-028d-4fe9-b8c0-234f0141f8f2" class="">Protocols like network control protocol (NCP), high-level data link control (HDLC), and synchronous data link control protocol (SDLC) are used at the data link layer.</p><h2 id="b974aab2-670b-4062-b3c0-63ddede76ead" class="">Layer 1: Physical layer</h2><p id="a8d1b0ec-df82-4520-9129-8356fa7d64ef" class="">As the name suggests, the physical layer corresponds to the physical hardware involved in network transmission. Hubs, modems, and the cables and wiring that connect them are all considered part of the physical layer. To travel across an ethernet or coaxial cable, a data packet needs to be translated into a stream of 0s and 1s. The stream of 0s and 1s are sent across the physical wiring and cables, received, and then passed on to higher levels of the OSI model.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

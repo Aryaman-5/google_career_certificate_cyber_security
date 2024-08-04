@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 3</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="33c80ae2-6aa8-45e9-be79-d6abd0a182b1" class="page sans"><header><h1 class="page-title">Module 3</h1><p class="page-description"></p></header><div class="page-body"><p id="60ab50f3-8387-423e-940c-39fdcf7bcc5c" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/ZnVPC/the-case-for-securing-networks?trk_ref=coach_copy">The case for securing networks</a>  Jun 22, 2024</p><h2 id="40e54034-7359-4599-a67d-e3e43545adb7" class="">Detailed Notes for &quot;Connect and Protect: Networks and Network Security&quot; Lecture</h2><p id="7cd209d1-6e62-4139-b15d-a7ba4e5938df" class=""><strong>I. Importance of Network Security</strong></p><ul id="4de5b20a-bca9-4c9b-b422-3d883a91d7f2" class="bulleted-list"><li style="list-style-type:disc">Networks are constantly under threat from malicious actors.</li></ul><ul id="786210b1-f802-48af-9f17-83bbfd3caf7e" class="bulleted-list"><li style="list-style-type:disc">Attacks can occur through malware, spoofing, packet sniffing, and packet flooding.</li></ul><ul id="b53b7577-0695-4c99-a8e4-2b4d9ff6ac25" class="bulleted-list"><li style="list-style-type:disc">Consequences of attacks include data leaks, reputational damage, and financial losses.</li></ul><ul id="2d062d47-e685-4685-bdbd-5f3e7ad8a18e" class="bulleted-list"><li style="list-style-type:disc">Example: 2014 Home Depot attack compromised 56 million customer accounts.</li></ul><p id="9d655901-e430-41ef-ad19-3239a6a10a2c" class=""><strong>II. Types of Network Attacks</strong></p><ul id="1b1062bb-6367-438f-8576-a01dd0b054f5" class="bulleted-list"><li style="list-style-type:disc"><strong>Malware:</strong> Malicious software designed to harm or steal data.</li></ul><ul id="49b21c53-5460-4ba2-a276-7fd012a1d582" class="bulleted-list"><li style="list-style-type:disc"><strong>Spoofing:</strong> Impersonating a legitimate user or device to gain access.</li></ul><ul id="c75106db-d039-41b9-a532-270501687cd1" class="bulleted-list"><li style="list-style-type:disc"><strong>Packet Sniffing:</strong> Intercepting data packets transmitted over a network.</li></ul><ul id="46367aab-1967-4d27-b447-a78ae168b666" class="bulleted-list"><li style="list-style-type:disc"><strong>Packet Flooding:</strong> Overwhelming a network with data packets to disrupt service.</li></ul><p id="fa8f37ed-5dbc-46a0-916b-221995ee7b2f" class=""><strong>III. Protecting Networks</strong></p><ul id="0ece1d32-48b1-4f27-b849-5e754b511980" class="bulleted-list"><li style="list-style-type:disc">Understanding different attack types is crucial for developing effective security strategies.</li></ul><ul id="b90f3880-566a-4ffe-b5a2-0721bd72cdd2" class="bulleted-list"><li style="list-style-type:disc">Upcoming sections will delve deeper into specific network intrusion attacks and mitigation techniques.</li></ul><p id="bdccbdf1-4852-493f-8a1b-6d35f61e2f28" class=""><strong>Additional Notes:</strong></p><ul id="439c6d12-0edd-4be4-818f-5f2f427a6ecc" class="bulleted-list"><li style="list-style-type:disc">The lecture emphasizes the importance of network security in today&#x27;s digital world.</li></ul><ul id="f9c12680-72d3-45f6-b746-17de6fc87d55" class="bulleted-list"><li style="list-style-type:disc">Real-world examples illustrate the potential consequences of network breaches.</li></ul><ul id="2b8ec85d-8e6c-47e9-9c07-8c7782004037" class="bulleted-list"><li style="list-style-type:disc">Understanding different attack methods is essential for protecting networks and data.</li></ul><p id="7bdb11b4-1794-4898-920a-c7d5bbad54a7" class=""><strong>Key Points:</strong></p><ul id="f8b295ec-e816-475f-b13a-7ecd664adf99" class="bulleted-list"><li style="list-style-type:disc">Network security is critical for protecting sensitive information and organizational reputation.</li></ul><ul id="5dd14e22-4929-49cf-9fe0-30034c0f304d" class="bulleted-list"><li style="list-style-type:disc">Hackers employ various methods to infiltrate networks, causing significant damage.</li></ul><ul id="8215845b-fc9d-411b-8b83-d7f43583377f" class="bulleted-list"><li style="list-style-type:disc">Understanding different types of network attacks is essential for developing effective security measures.</li></ul><p id="97f4f9ba-97db-4b98-b518-da351bb514c7" class=""><strong>Next Steps:</strong></p><ul id="517f7d48-b7ea-4e08-89a4-538029a99f31" class="bulleted-list"><li style="list-style-type:disc">The lecture will explore specific network intrusion attacks in detail.</li></ul><ul id="64ff38e5-9512-41ec-8884-278ead4b92c6" class="bulleted-list"><li style="list-style-type:disc">You will learn about mitigation strategies to protect networks from these attacks.</li></ul><p id="fb44b367-22d6-43fa-a80d-4156f08296b4" class=""><strong>Additional Resources:</strong></p><ul id="1b2d7654-ef21-4140-a476-4b2ff246ff1a" class="bulleted-list"><li style="list-style-type:disc">Coursera&#x27;s &quot;Connect and Protect: Networks and Network Security&quot; course materials</li></ul><ul id="60559527-99bc-448e-be69-7b6f71d3020b" class="bulleted-list"><li style="list-style-type:disc">Online resources on network security best practices</li></ul><p id="704c7845-eb7a-46d0-a2eb-8208dc597bf0" class=""><strong>Remember:</strong></p><ul id="2c388102-9775-416a-8c9a-3509871bcff9" class="bulleted-list"><li style="list-style-type:disc">These notes are a summary of the lecture content.</li></ul><ul id="807a0140-0b79-4f14-99ab-950c5a7f8fdb" class="bulleted-list"><li style="list-style-type:disc">It is important to review the full lecture and course materials for a comprehensive understanding.</li></ul><ul id="5345dcb6-0210-471b-a2b8-0f52e9d59d13" class="bulleted-list"><li style="list-style-type:disc">Feel free to ask questions or seek clarification if needed.</li></ul><p id="38f2507b-a7ed-41d9-9b46-c4c8a3223570" class="">I hope these detailed notes are helpful! Please let me know if you have any questions or need further assistance.</p><h1 id="d78c6687-cb6f-4c68-a2d6-ccec485d4370" class="">How intrusions compromise your system</h1><p id="170ff77b-063b-49ec-b326-37dc8e36348b" class="">In this section of the course, you learned that every network has inherent vulnerabilities and could become the target of a network attack.</p><p id="2443bec7-ac59-44a5-891e-af4d25bf0f77" class="">Attackers could have varying motivations for attacking your organization’s network. They may have financial, personal, or political motivations, or they may be a disgruntled employee or an activist who disagrees with the company&#x27;s values and wants to harm an organization’s operations. Malicious actors can target any network. Security analysts must be constantly alert to potential vulnerabilities in their organization’s network and take quick action to mitigate them.</p><p id="7fc04a59-2e7b-480d-8ece-868cbbfc730c" class="">In this reading, you’ll learn about network interception attacks and backdoor attacks, and the possible impacts these attacks could have on an organization.</p><h2 id="fd6febbf-c004-4f7e-b64b-e736eac77b18" class="">Network interception attacks</h2><p id="0cf06fe6-dcaa-4334-9c09-835be8d9e792" class="">Network interception attacks work by intercepting network traffic and stealing valuable information or interfering with the transmission in some way.</p><p id="7a83baf9-37a5-41ad-a839-4875fe801771" class="">Malicious actors can use hardware or software tools to capture and inspect data in transit. This is referred to as <strong>packet sniffing</strong>. In addition to seeing information that they are not entitled to, malicious actors can also intercept network traffic and alter it. These attacks can cause damage to an organization’s network by inserting malicious code modifications or altering the message and interrupting network operations. For example, an attacker can intercept a bank transfer and change the account receiving the funds to one that the attacker controls.</p><p id="a26fa91b-0b87-4472-bd50-113d394ee5fa" class="">Later in this course you will learn more about malicious packet sniffing, and other types of network interception attacks: on-path attacks and replay attacks.</p><h2 id="a99edfc8-7cba-40a0-ad01-823bd6bec7af" class="">Backdoor attacks</h2><p id="82a595d4-1d88-4a2b-9cc9-be7198e0447a" class="">A<strong> backdoor attack</strong> is another type of attack you will need to be aware of as a security analyst. An organization may have a lot of security measures in place, including cameras, biometric scans and access codes to keep employees from entering and exiting without being seen. However, an employee might work around the security measures by finding a backdoor to the building that is not as heavily monitored, allowing them to sneak out for the afternoon without being seen.</p><p id="ad29250d-c448-4adb-8d8f-aff86dcd1311" class="">In cybersecurity, backdoors are weaknesses intentionally left by programmers or system and network administrators that bypass normal access control mechanisms. Backdoors are intended to help programmers conduct troubleshooting or administrative tasks. However, backdoors can also be installed by attackers after they’ve compromised an organization to ensure they have persistent access.</p><p id="19b0682f-ef0e-4772-92e2-d6f2eec69f4d" class="">Once the hacker has entered an insecure network through a backdoor, they can cause extensive damage: installing malware, performing a denial of service (DoS) attack, stealing private information or changing other security settings that leaves the system vulnerable to other attacks. A <strong>DoS attack</strong> is an attack that targets a network or server and floods it with network traffic.</p><h2 id="98559ca2-13af-4655-8f4f-057505e27dee" class="">Possible impacts on an organization</h2><p id="d8260542-a837-4f2f-8eb4-b4e3e92d12a6" class="">As you’ve learned already, network attacks can have a significant negative impact on an organization. Let’s examine some potential consequences.</p><ul id="aaff3dc7-02a0-45c6-8d42-f05e763fe3c0" class="bulleted-list"><li style="list-style-type:disc"><strong>Financial</strong>: When a system is taken offline with a DoS attack or some other tactic, they prevent a company from performing tasks that generate revenue. Depending on the size of an organization, interrupted operations can cost millions of dollars. Reparation costs to rebuild software infrastructure and to pay large sums associated with potential ransomware can be financially difficult. In addition, if a malicious actor gets access to the personal information of the company’s clients or customers, the company may face heavy litigation and settlement costs if customers seek legal recourse.</li></ul><ul id="6a1eceb4-cbbf-4cd9-a8e3-19d71ebaffd5" class="bulleted-list"><li style="list-style-type:disc"><strong>Reputation</strong>: Attacks can also have a negative impact on the reputation of an organization. If it becomes public knowledge that a company has experienced a cyber attack, the public may become concerned about the security practices of the organization. They may stop trusting the company with their personal information and choose a competitor to fulfill their needs.</li></ul><ul id="612880e6-3208-4f0b-8a1e-83fcd31ed285" class="bulleted-list"><li style="list-style-type:disc"><strong>Public safety</strong>: If an attack occurs on a government network, this can potentially impact the safety and welfare of the citizens of a country. In recent years, defense agencies across the globe are investing heavily in combating cyber warfare tactics. If a malicious actor gained access to a power grid, a public water system, or even a military defense communication system, the public could face physical harm due to a network intrusion attack.</li></ul><h2 id="9d82c95b-7703-4fa1-9692-4b231f461601" class="">Key takeaways</h2><p id="c1aceafb-fa70-4e8f-b47d-b75dfb2ec488" class="">Malicious actors are constantly looking for ways to exploit systems. They learn about new vulnerabilities as they arise and attempt to exploit every vulnerability in a system. Attackers leverage backdoor attack methods and network interception attacks to gain access to sensitive information they can use to exploit an organization or cause serious damage. These types of attacks can impact an organization financially, damage its reputation, and potentially put the public in danger.  It is important that security analysts stay educated in order to maintain network safety and reduce the likelihood and impact of these types of attacks. Securing networks has never been more important.</p><p id="fe90acab-a457-448e-aeaf-422224f629ec" class="">
+</p><p id="9fe8805b-4c38-4765-9f40-0041df21c739" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/38QD3/denial-of-service-dos-attacks?trk_ref=coach_copy">Denial of Service (DoS) attacks</a>  Jun 22, 2024</p><h2 id="da72e818-1c60-4c68-8392-b025d54b7260" class="">Denial of Service Attacks: A Deep Dive</h2><h3 id="5c96a7b0-2920-485b-9253-bc4f97d98065" class="">Introduction</h3><p id="e8c3e97a-450f-484d-af6d-dcfb7fba3e3f" class="">This lecture focuses on denial-of-service (DoS) attacks, a common threat to network security. We&#x27;ll explore how these attacks work, their different types, and how to protect against them.</p><h3 id="7027cf78-dbd2-43bf-9911-ebbb27b3520e" class="">What is a DoS Attack?</h3><p id="74be6aa7-3739-4639-a63d-814c62f48929" class="">A DoS attack aims to disrupt a network or server by flooding it with traffic, making it unavailable to legitimate users. This can cause significant financial losses and damage an organization&#x27;s reputation.</p><h3 id="59c34176-84a4-419a-90da-58c6ae13a8d8" class="">Types of DoS Attacks</h3><ul id="b93751a0-facd-4752-b7f6-bdf00452309e" class="bulleted-list"><li style="list-style-type:disc"><strong>Network Level DoS Attacks:</strong> These target network bandwidth, aiming to slow down traffic.<ul id="9c322e46-8b9c-4bd9-b3d4-26196becf0dd" class="bulleted-list"><li style="list-style-type:circle"><strong>SYN Flood Attack:</strong> Exploits the TCP handshake process by sending excessive SYN packets, overwhelming the server.</li></ul><ul id="3603c8ec-aa59-4733-ae11-4408f2b6768a" class="bulleted-list"><li style="list-style-type:circle"><strong>ICMP Flood Attack:</strong> Floods the server with ICMP packets, consuming bandwidth and causing crashes.</li></ul></li></ul><ul id="cd0b147c-88ab-469e-b870-3b041099b6b4" class="bulleted-list"><li style="list-style-type:disc"><strong>Protocol-Based DoS Attacks:</strong> These exploit vulnerabilities in specific protocols.<ul id="465aacd6-c908-46bb-a7a6-b019d9f5b436" class="bulleted-list"><li style="list-style-type:circle"><strong>Ping of Death:</strong> Sends oversized ICMP packets, crashing vulnerable servers.</li></ul></li></ul><ul id="0c09df61-a17a-4f78-8389-325abfd75ecc" class="bulleted-list"><li style="list-style-type:disc"><strong>Application-Level DoS Attacks:</strong> These target specific applications or services.</li></ul><h3 id="5bc6dbbe-f7fb-40f6-86ba-b90dc0ac25b6" class="">Distributed Denial of Service (DDoS) Attacks</h3><p id="20bd70c0-6d9b-4561-a593-a3de3d6bd879" class="">A DDoS attack is a more potent form of DoS attack that utilizes multiple compromised devices to overwhelm the target. This makes it harder to defend against due to the distributed nature of the attack.</p><h3 id="85bcbc84-496a-486c-8f4b-931c808385e9" class="">Protecting Against DoS Attacks</h3><ul id="2a6a8661-c789-425f-863c-7fb5a066ebaf" class="bulleted-list"><li style="list-style-type:disc"><strong>Implement strong network security measures:</strong> Firewalls, intrusion detection/prevention systems, and traffic filtering can help mitigate DoS attacks.</li></ul><ul id="d3892869-f6b0-4cc8-9db4-f9d7bbb3a226" class="bulleted-list"><li style="list-style-type:disc"><strong>Monitor network traffic:</strong> Regularly monitor network activity to identify and respond to suspicious traffic patterns.</li></ul><ul id="1908d322-719c-41b7-8907-97d1cb2857b3" class="bulleted-list"><li style="list-style-type:disc"><strong>Use DDoS mitigation services:</strong> These services can help absorb and filter malicious traffic during an attack.</li></ul><ul id="8c61d343-d15b-4ce9-8634-96d547a22ebd" class="bulleted-list"><li style="list-style-type:disc"><strong>Implement redundancy:</strong> Having redundant servers and network connections can help maintain service availability even under attack.</li></ul><h3 id="2154b2e9-21c1-4e51-890c-206576806086" class="">Conclusion</h3><p id="3896859b-97b8-4bb8-b9eb-729d42a16a01" class="">DoS attacks pose a significant threat to network security. Understanding their different types and implementing appropriate mitigation strategies is crucial for protecting your organization&#x27;s critical infrastructure.</p><h2 id="ed840ad3-30cd-419b-a5e6-8ccba6ce0f10" class="">Additional Notes</h2><ul id="85933eb1-b7be-4333-8305-fcf230e93842" class="bulleted-list"><li style="list-style-type:disc">This lecture is part of the &quot;Connect and Protect: Networks and Network Security&quot; course offered by Google on Coursera.</li></ul><ul id="b17cb51f-ca0d-4880-bc4d-8636ab0af0a7" class="bulleted-list"><li style="list-style-type:disc">The course covers various network security topics, including network architecture, operations, security hardening, and intrusion detection.</li></ul><ul id="9a543e63-c106-4125-ae5f-ce180bd4fdd8" class="bulleted-list"><li style="list-style-type:disc">If you have any further questions or require additional information, please refer to the course materials or reach out to the course instructors.</li></ul><p id="099ab6e0-8454-4426-a40c-1610222122bb" class="">I hope these detailed notes are helpful! Remember, staying informed and proactive is key to protecting your networks from DoS attacks.</p><p id="a222b3cf-d379-470a-bd36-68800bc485ec" class="">
+</p><h1 id="08f1f16a-e696-428f-ac43-3adc045ada5c" class="">Read tcpdump logs</h1><p id="60bc6386-ec5b-4924-b107-92dd0ffb8410" class="">A <strong>network protocol analyzer</strong>, sometimes called a packet sniffer or a packet analyzer, is a tool designed to capture and analyze data traffic within a network. They are commonly used as investigative tools to monitor networks and identify suspicious activity. There are a wide variety of network protocol analyzers available, but some of the most common analyzers  include:</p><ul id="a8abe2c2-d4d6-46d7-ab38-4b488973314c" class="bulleted-list"><li style="list-style-type:disc">SolarWinds NetFlow Traffic Analyzer</li></ul><ul id="6e80cef3-b0cd-497d-823d-559b59c9c1e5" class="bulleted-list"><li style="list-style-type:disc">ManageEngine OpManager</li></ul><ul id="1a4ceebf-7fd8-4e68-8e8f-648c83cfe851" class="bulleted-list"><li style="list-style-type:disc">Azure Network Watcher</li></ul><ul id="c10b8608-aba3-4248-aaa7-3cca4ecd09f8" class="bulleted-list"><li style="list-style-type:disc">Wireshark</li></ul><ul id="377cbf93-eb74-4704-a1ac-16a80a5a181b" class="bulleted-list"><li style="list-style-type:disc">tcpdump</li></ul><p id="d5a36c2d-9004-4146-a6f0-105c4d8a68cc" class="">This reading will focus exclusively on tcpdump, though you can apply what you learn here to many of the other network protocol analyzers you&#x27;ll use as a cybersecurity analyst to defend against any network intrusions. In an upcoming activity, you’ll review a tcpdump data traffic log and identify a DoS attack to practice these skills.</p><h2 id="d85ed3b7-1aee-4b20-a771-476a8a437609" class="">tcpdump<strong></strong></h2><p id="c425f1db-dca0-4343-9231-2c03c1f29f98" class=""><strong>tcpdump</strong> is a command-line network protocol analyzer. It is popular, lightweight–meaning it uses little memory and has a low CPU usage–and uses the open-source libpcap library. tcpdump is text based, meaning all commands in tcpdump are executed in the terminal. It can also be installed on other Unix-based operating systems, such as macOS®. It is preinstalled on many Linux distributions.</p><p id="532d3192-5623-4997-b7b2-5f46dcff299b" class="">tcpdump provides a brief packet analysis and converts key information about network traffic into formats easily read by humans. It prints information about each packet directly into your terminal. tcpdump also displays the source IP address, destination IP addresses, and the port numbers being used in the communications.</p><h2 id="5108351c-f268-4b1c-a7da-2f0b711e095a" class="">Interpreting output</h2><p id="1f580343-0a4f-4408-906b-018fe66fbf5d" class="">tcpdump prints the output of the command as the sniffed packets in the command line, and optionally to a log file, after a command is executed. The output of a packet capture contains many pieces of important information about the network traffic.</p><figure id="2f01465c-db27-408f-8075-b451cb2feb52" class="image"><a href="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/B-PaECh0ToSFgBWpFczYZg_4896abe8c06443f08eec4dc003dcf8f1_image.png?expiry=1719187200000&amp;hmac=l7H6Ukj9_eNHM5smvgQox8051oM_z2cep5nSJ3EQP1E"><img src="https://d3c33hcgiwev3.cloudfront.net/imageAssetProxy.v1/B-PaECh0ToSFgBWpFczYZg_4896abe8c06443f08eec4dc003dcf8f1_image.png?expiry=1719187200000&amp;hmac=l7H6Ukj9_eNHM5smvgQox8051oM_z2cep5nSJ3EQP1E"/></a></figure><p id="57e0737f-2858-4831-836d-90d83622eece" class="">Some information you receive from a packet capture includes:</p><ul id="576f26c8-546a-4c9f-baa0-a7e30cfbbe6b" class="bulleted-list"><li style="list-style-type:disc"><strong>Timestamp</strong>: The output begins with the timestamp, formatted as hours, minutes, seconds, and fractions of a second.</li></ul><ul id="f7b9e962-9d0f-43c8-8f4e-d4fc0eeb2590" class="bulleted-list"><li style="list-style-type:disc"><strong>Source IP</strong>: The packet’s origin is provided by its source IP address.</li></ul><ul id="c959848a-a0b3-4385-ac26-1b26fb89a627" class="bulleted-list"><li style="list-style-type:disc"><strong>Source port</strong>: This port number is where the packet originated.</li></ul><ul id="b03791db-92c4-4150-b35c-f2d2a8121f1d" class="bulleted-list"><li style="list-style-type:disc"><strong>Destination IP</strong>: The destination IP address is where the packet is being transmitted to.</li></ul><ul id="08014253-c11a-4c1b-a499-4e25bf205262" class="bulleted-list"><li style="list-style-type:disc"><strong>Destination port</strong>: This port number is where the packet is being transmitted to.</li></ul><p id="6379b56e-710a-41e5-9318-58ba47efae85" class=""><strong>Note: </strong>By default, tcpdump will attempt to resolve host addresses to hostnames. It&#x27;ll also replace port numbers with commonly associated services that use these ports.</p><h2 id="dabb741d-1247-40a4-a356-9664df1c3bed" class="">Common uses</h2><p id="63a3b599-29ad-474e-a5af-583116883d61" class="">tcpdump and other network protocol analyzers are commonly used to capture and view network communications and to collect statistics about the network, such as troubleshooting network performance issues. They can also be used to:</p><ul id="6846a1ae-ac7d-4691-8bb5-24785ca3a514" class="bulleted-list"><li style="list-style-type:disc">Establish a baseline for network traffic patterns and network utilization metrics.</li></ul><ul id="25be272e-1f0a-4505-9618-843404b36aaa" class="bulleted-list"><li style="list-style-type:disc">Detect and identify malicious traffic</li></ul><ul id="702db705-2a6d-40c3-ba25-68e354c65e9e" class="bulleted-list"><li style="list-style-type:disc">Create customized alerts to send the right notifications when network issues or security threats arise.</li></ul><ul id="ea245f72-4561-470a-8a9b-78f7874c56b7" class="bulleted-list"><li style="list-style-type:disc">Locate unauthorized instant messaging (IM), traffic, or wireless access points.</li></ul><p id="3f57556e-48b7-41a4-9e3d-5806e0487f8f" class="">However, attackers can also use network protocol analyzers maliciously to gain information about a specific network. For example, attackers can capture data packets that contain sensitive information, such as account usernames and passwords. As a cybersecurity analyst, It’s important to understand the purpose and uses of network protocol analyzers.</p><h2 id="f2d4bd38-5adb-4f06-9b6c-533425e6b37f" class="">Key takeaways</h2><p id="c5e09379-6077-4ec2-aa6c-b6f66a6d7267" class="">Network protocol analyzers, like tcpdump, are common tools that can be used to monitor network traffic patterns and investigate suspicious activity. tcpdump is a command-line network protocol analyzer that is compatible with Linux/Unix and macOS®. When you run a tcpdump command, the tool will output packet routing information, like the timestamp, source IP address and port number, and the destination IP address and port number. Unfortunately, attackers can also use network protocol analyzers to capture data packets that contain sensitive information, such as account usernames and passwords.</p><h1 id="85573013-0df2-462f-b037-4b0bbc88b37b" class="">Real-life DDoS attack</h1><p id="41688893-9fc9-4d8b-b737-4517c282b30e" class="">Previously, you were introduced to Denial of Service (DoS) attacks. You also learned that volumetric distributed DoS (DDoS) attacks overwhelm a network by sending unwanted data packets in such large quantities that the servers become unable to service normal users. This can be detrimental to an organization. When systems fail, organizations cannot meet their customers&#x27; needs. They often lose money, and in some cases, incur other losses. An organization’s reputation may also suffer if news of a successful DDoS attack reaches consumers, who then question the security of the organization.</p><p id="38dc9969-2843-4638-8f42-d8f03bf2979f" class="">In this reading you’ll learn about a 2016 DDoS attack against DNS servers that caused major outages at multiple organizations that have millions of daily users.</p><h2 id="8df6f29c-c35b-4b3a-928a-055baa8f4922" class="">A DDoS targeting a widely used DNS server<strong></strong></h2><p id="cc102aea-f029-4651-ae1e-42a65df104d2" class="">In previous videos, you learned about the function of a DNS server. As a review, DNS servers translate website domain names into the IP address of the system that contains the information for the website. For instance, if a user were to type in a website URL, a DNS server would translate that into a numeric IP address that directs network traffic to the location of the website’s server.</p><p id="a433e4ab-9e8f-4801-b8cd-c9e1558be579" class="">On the day of the DDoS attack we are studying, many large companies were using a DNS service provider. The service provider was hosting the DNS system for these companies. This meant that when internet users typed in the URL of the website they wanted to access, their devices would be directed to the right place. On October 21, 2016, the service provider was the victim of a DDoS attack.</p><h2 id="2cf4c49b-7f9c-4160-8e3c-732732e78786" class="">Leading up to the attack</h2><p id="5a27d28d-86b1-4342-9356-1455c9df46de" class="">Before the attack on the service provider, a group of university students created a botnet with the intention to attack various gaming servers and networks. A <strong>botnet</strong> is a collection of computers infected by malware that are under the control of a single threat actor, known as the “bot-herder.&quot; Each computer in the botnet can be remotely controlled to send a data packet to a target system. In a botnet attack, cyber criminals instruct all the bots on the botnet to send data packets to the target system at the same time, resulting in a DDoS attack.</p><p id="40c25ada-109a-47f2-89cb-e22b5b0a3933" class="">The group of university students posted the code for the botnet online so that it would be accessible to thousands of internet users and authorities wouldn’t be able to trace the botnet back to the students. In doing so, they made it possible for other malicious actors to learn the code to the botnet and control it remotely. This included the cyber criminals who attacked the DNS service provider.</p><h2 id="d6e33821-bbb4-4228-994f-1cec6533dd6b" class="">The day of attack</h2><p id="c3bf33fc-64c4-45a3-a3bf-634f5ca3b8cb" class="">At 7:00 a.m. on the day of the attack, the botnet sent tens of millions of DNS requests to the service provider. This overwhelmed the system and the DNS service shut down. This meant that all of the websites that used the service provider could not be reached. When users tried to access various websites that used the service provider, they were not directed to the website they typed in their browser. Outages for each web service occurred all over North America and Europe.</p><p id="8556f510-c235-4996-b632-0af7f8a4f1ae" class="">The service provider’s systems were restored after only two hours of downtime. Although the cyber criminals sent subsequent waves of botnet attacks, the DNS company was prepared and able to mitigate the impact.</p><h2 id="a73c4747-ff8f-4f0a-b92b-a798b65d751a" class="">Key takeaways</h2><p id="3ea277ce-3e13-4bc7-859d-9a51fe030436" class="">As demonstrated in the above example, DDoS attacks can be very damaging to an organization. As a security analyst, it’s important to acknowledge the seriousness of such an attack so that you’re aware of opportunities to protect the network from them. If your network has important operations distributed across hosts that can be dynamically scaled, then operations can continue if the baseline host infrastructure goes offline. DDoS attacks are damaging, but there are concrete actions that security analysts can take to help protect their organizations. Keep going through this course and you will learn about common mitigation strategies to protect against DDoS attacks.</p><p id="a548205f-e0ca-488c-a630-e042dce90421" class="">
+</p><p id="735e36c6-5b0b-4c3d-b78e-742e60c52a80" class="">
+</p><p id="2ebf84ca-83f2-46dd-9dc7-0229bcf6b422" class="">
+</p><p id="0b5f8e1c-4034-4a3b-9c65-bd5c57cc4e1d" class="">
+</p><p id="22213894-46fd-40a1-919d-c86c71a155a2" class="">
+</p><p id="79f4466f-f7e1-4d92-b455-dcbf3052eeae" class="">
+</p><p id="aeefb6cb-676c-4035-a9d2-eac7b3ecf1fb" class="">
+</p><p id="bf20b88d-9232-473b-aef2-d2bc84cf378e" class="">
+</p><p id="12cec915-5c86-4eb9-8ad8-3448aaa08aee" class="">
+</p><p id="e82875c3-4479-4d1c-87c8-5f40d2bc36bc" class="">
+</p><p id="de33c0f4-bcd4-4635-8192-b12cf845db2e" class="">
+</p><p id="10286803-37af-4a62-8d22-c1e0f599a655" class="">
+</p><p id="5758e2aa-6660-47d5-9229-c8a621fb19dd" class="">
+</p><p id="53debcc3-4cbd-4641-b002-468a45e76dc3" class="">
+</p><p id="47f2512c-44c8-4e15-bc29-114fe64626ef" class="">
+</p><p id="4c87d51a-ede6-40f8-a5ff-e22b174febef" class="">
+</p><p id="1e36f1a5-c689-4622-af38-3ef2beee6554" class="">
+</p><p id="d140dbfe-7c88-4432-9455-a9fad5aab9ee" class="">
+</p><p id="a49e1590-f6c2-4999-8223-b297aee2c6b0" class="">
+</p><p id="4f7cd5bf-3b13-4a37-80f8-35e67e724e3b" class=""><a href="https://www.coursera.org/learn/networks-and-network-security/lecture/I1ohB/wrap-up?trk_ref=coach_copy">Wrap-up</a>  Jun 24, 2024</p><h2 id="fc6fc128-ea74-41ea-9886-012780124f8b" class="">Network Security Review</h2><p id="2b1e99d9-04b9-4229-b60d-496593098a6f" class=""><strong>Great job completing this section!</strong> Let&#x27;s review what you&#x27;ve learned so far:</p><p id="531f95ae-e63e-4de3-a8a9-3c6cfa0ac3f1" class=""><strong>Network Security:</strong></p><ul id="e9b9cee4-3d71-4db5-820b-d2aa62b1b266" class="bulleted-list"><li style="list-style-type:disc">We discussed various methods for securing networks, including firewalls, intrusion detection and prevention systems (IDS/IPS), and access control lists (ACLs).</li></ul><ul id="7f7c2f3f-72a2-4188-9161-d2654fed6476" class="bulleted-list"><li style="list-style-type:disc">We learned about the importance of strong passwords and encryption in protecting sensitive data.</li></ul><ul id="3eab2ac4-bc84-4f08-b115-2b4ead9d3459" class="bulleted-list"><li style="list-style-type:disc">We also explored different types of network attacks, such as denial-of-service (DoS) and distributed denial-of-service (DDoS) attacks, and how to mitigate them.</li></ul><p id="84a57aab-ef17-4c33-8cdc-3904050b86b3" class=""><strong>Network Intrusion Tactics:</strong></p><ul id="cb6f91b1-2de7-43d2-86c0-c1b867d9211d" class="bulleted-list"><li style="list-style-type:disc">We covered common network intrusion tactics like malicious packet sniffing and IP spoofing.</li></ul><ul id="e0d2cec0-cee0-47c7-9ff9-b3daf1f827a5" class="bulleted-list"><li style="list-style-type:disc">We learned how attackers can exploit vulnerabilities in network protocols and applications to gain unauthorized access to systems.</li></ul><ul id="4b7d4bd9-3510-4999-a963-9d67d91a5806" class="bulleted-list"><li style="list-style-type:disc">We also discussed the importance of network monitoring and incident response in detecting and responding to security threats.</li></ul><p id="a3490335-bf40-4d2b-8deb-4e76bc499675" class=""><strong>Security Analyst&#x27;s Role:</strong></p><ul id="61a7cb7b-bac6-427a-be5b-2ad7cf1db2d4" class="bulleted-list"><li style="list-style-type:disc">We explored the role of a security analyst in protecting networks from various threats.</li></ul><ul id="65ca1836-8a6e-4e61-aaaa-bac7f61e0033" class="bulleted-list"><li style="list-style-type:disc">We learned about different security tools and techniques that security analysts use to identify and mitigate security risks.</li></ul><ul id="fb348e2b-2cc0-4456-8bb2-64454de58158" class="bulleted-list"><li style="list-style-type:disc">We also discussed the importance of staying up-to-date on the latest security threats and vulnerabilities.</li></ul><p id="d8cf38f0-9ac7-4dd7-884d-af6e2e70b67d" class=""><strong>DoS and DDoS Attacks:</strong></p><ul id="9613fd41-3e6b-4ad4-b107-fc8e39ad5a11" class="bulleted-list"><li style="list-style-type:disc">We covered different types of DoS and DDoS attacks, including ICMP flooding, SYN attacks, and the ping of death.</li></ul><ul id="9321ab4a-fb74-4a2d-a2c8-65c29bd929b7" class="bulleted-list"><li style="list-style-type:disc">We learned how these attacks work and how they can be used to disrupt network services.</li></ul><ul id="175ad75d-ddde-4b11-ab2c-6923a4874aab" class="bulleted-list"><li style="list-style-type:disc">We also discussed various methods for mitigating DoS and DDoS attacks.</li></ul><p id="2d752562-5634-4b2e-be93-00d1a88c46aa" class=""><strong>Key Takeaways:</strong></p><ul id="bbd12105-0e5f-4cc1-92f8-71dbc8a6e5fd" class="bulleted-list"><li style="list-style-type:disc">Network security is essential for protecting sensitive data and ensuring the availability of network resources.</li></ul><ul id="b04c862c-50be-448a-90fb-1a1456e37c4d" class="bulleted-list"><li style="list-style-type:disc">Security analysts play a critical role in identifying and mitigating security threats.</li></ul><ul id="81d0765e-35f6-4598-a269-e53c8ab9f194" class="bulleted-list"><li style="list-style-type:disc">Staying informed about the latest security threats and vulnerabilities is crucial for effective network security.</li></ul><p id="58ffe289-8667-4368-b90b-4d083c76da6b" class=""><strong>Looking Ahead:</strong></p><p id="6186463e-0fcf-4383-822e-667d7d7efda6" class="">In the next section, we&#x27;ll delve into security hardening techniques that security analysts can use to further protect networks.</p><p id="1fa7729b-0e3f-4b0b-849b-98d239b88cdf" class=""><strong>Remember, the knowledge you&#x27;ve gained in this section will be crucial in your work as a security analyst. Keep up the great work!</strong></p><p id="8f5b00cc-77c2-424c-9cd7-d96cdadab7dc" class="">
+</p><h2 id="ebcbb766-746a-409b-b9c3-7c9fc17bc6f9" class="">Terms and definitions from Course 3, Module 3</h2><p id="a21d9e35-309a-4567-8060-fcd45f1607e3" class=""><strong>Active packet sniffing: </strong>A type of attack where data packets are manipulated in transit</p><p id="c0057374-00ad-41a2-925a-8b2b55bd4627" class=""><strong>Botnet: </strong>A collection of computers infected by malware that are under the control of a single threat actor, known as the “bot-herder&quot;</p><p id="d1dfc455-38ea-4a44-9b87-2df9f8ba18d8" class=""><strong>Denial of service (DoS) attack: </strong>An attack that targets a network or server and floods it with network traffic</p><p id="c1807b75-1781-4b56-b212-198977278fc7" class=""><strong>Distributed denial of service (DDoS) attack: </strong>A type of denial of service attack that uses multiple devices or servers located in different locations to flood the target network with unwanted traffic</p><p id="8f18d175-8237-48a4-af05-2adef6c3000c" class=""><strong>Internet Control Message Protocol (ICMP): </strong>An internet protocol used by devices to tell each other about data transmission errors across the network</p><p id="bb477843-9e6a-4805-8f32-3df65e2113a8" class=""><strong>Internet Control Message Protocol (ICMP) flood: </strong>A type of DoS attack performed by an attacker repeatedly sending ICMP request packets to a network server</p><p id="ff838fb0-3d0d-4b28-b802-6c7f46a25aca" class=""><strong>IP spoofing: </strong>A network attack performed when an attacker changes the source IP of a data packet to impersonate an authorized system and gain access to a network</p><p id="41fd80f8-eaf0-47a3-b390-f67be03286fc" class=""><strong>On-path attack: </strong>An attack where a malicious actor places themselves in the middle of an authorized connection and intercepts or alters the data in transit</p><p id="add84772-aa09-4a2b-bd26-03d6f22f3951" class=""><strong>Packet sniffing: </strong>The practice of capturing and inspecting data packets across a network</p><p id="72e92827-ff1b-4b70-bfff-c67d5d106a13" class=""><strong>Passive packet sniffing: </strong>A type of attack where a malicious actor connects to a network hub and looks at all traffic on the network</p><p id="7466d6a4-d0fa-48ab-9ce2-a5da8e9f6056" class=""><strong>Ping of death: </strong>A type of DoS attack caused when a hacker pings a system by sending it an oversized ICMP packet that is bigger than 64KB</p><p id="7064c140-5aac-4628-94b4-04e3de8ea161" class=""><strong>Replay attack: </strong>A network attack performed when a malicious actor intercepts a data packet in transit and delays it or repeats it at another time</p><p id="d3699163-f772-444c-a922-29450de6f927" class=""><strong>Smurf attack: </strong>A network attack performed when an attacker sniffs an authorized user’s IP address and floods it with ICMP packets</p><p id="5ebf139b-5015-4aa9-bcf9-ec0c1a4d6cc3" class=""><strong>Synchronize (SYN) flood attack: </strong>A type of DoS attack that simulates a TCP/IP connection and floods a server with SYN packets</p><figure id="cd7f4714-9117-4906-8f61-0c2456aa7204" class="image"><a href="Module%203%2033c80ae26aa845e9be79d6abd0a182b1/Untitled.png"><img style="width:708px" src="Module%203%2033c80ae26aa845e9be79d6abd0a182b1/Untitled.png"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

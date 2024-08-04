@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="726efe8c-4619-4d89-8bd5-436a4c94e8ed" class="page sans"><header><h1 class="page-title">Module 2</h1><p class="page-description"></p></header><div class="page-body"><p id="1af4a7b0-b98d-4220-b26e-c6c9f0e9da5e" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/jrh09/introduction-to-linux?trk_ref=coach_copy">Introduction to Linux</a>  Jul 10, 2024</p><h2 id="82e16faa-bc3f-4097-b9a0-a521d4502ac2" class="">Summary of the lecture:</h2><ul id="5852ba8e-51b5-4ce2-9f16-7a1b4f28ef8f" class="bulleted-list"><li style="list-style-type:disc"><strong>What is Linux?</strong><ul id="700d06b9-dbce-44ec-b03f-beaae1ed7b52" class="bulleted-list"><li style="list-style-type:circle">Open-source operating system</li></ul><ul id="7e4d0d8b-53e6-4ed4-ac0f-5fa75375f057" class="bulleted-list"><li style="list-style-type:circle">Created by Linus Torvalds and Richard Stallman</li></ul><ul id="4a215d92-5520-42df-8a49-4566ab33e9e8" class="bulleted-list"><li style="list-style-type:circle">Based on UNIX</li></ul><ul id="46b82d86-c7ef-4474-949f-05585fbaeb1b" class="bulleted-list"><li style="list-style-type:circle">Consists of the Linux kernel and GNU software</li></ul></li></ul><ul id="346df414-1cca-41ae-9173-15361b58979a" class="bulleted-list"><li style="list-style-type:disc"><strong>Why is Linux important in security?</strong><ul id="1df8caa6-4c25-4a27-b04d-7bdfc34e8a52" class="bulleted-list"><li style="list-style-type:circle">Most-used operating system in security</li></ul><ul id="d6624341-1e08-4633-9f47-fc99d6056428" class="bulleted-list"><li style="list-style-type:circle">Used in many security programs</li></ul><ul id="a8b31f93-b582-4a08-a258-f93fb0b868e0" class="bulleted-list"><li style="list-style-type:circle">Open-source nature allows for collaboration and innovation</li></ul></li></ul><ul id="53eba348-2e9f-451b-a2a6-08340ff718fa" class="bulleted-list"><li style="list-style-type:disc"><strong>Unique features of Linux:</strong><ul id="d529468a-0175-4b9b-bcd9-92e67fcb6e6f" class="bulleted-list"><li style="list-style-type:circle">Open source</li></ul><ul id="8d9c752f-84e7-438a-8f0e-3bb8abee81f2" class="bulleted-list"><li style="list-style-type:circle">Large community of developers</li></ul><ul id="de77cfa6-224a-438a-bb7e-719cb4dc02f8" class="bulleted-list"><li style="list-style-type:circle">Many different distributions</li></ul></li></ul><ul id="75c1b910-f7cf-4692-9028-a3773938b8ae" class="bulleted-list"><li style="list-style-type:disc"><strong>How is Linux used in security?</strong><ul id="f52e525b-e3f2-4daa-ac92-47dfcbd852f9" class="bulleted-list"><li style="list-style-type:circle">Examining logs</li></ul><ul id="28030569-98da-421e-bd57-e3afaa31e788" class="bulleted-list"><li style="list-style-type:circle">Verifying access and authorization</li></ul><ul id="3d610a9f-1031-4540-bd13-7eebbe79a287" class="bulleted-list"><li style="list-style-type:circle">Using specialized distributions for tasks like digital forensics and pen testing</li></ul></li></ul><p id="5895cf8c-1a7d-4f9a-9ed7-aac75a73236f" class="">I hope this summary is helpful! Please let me know if you have any questions.</p><p id="b1394e8a-fc89-4674-8d89-31a17cc1df87" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/6KP70/linux-architecture?trk_ref=coach_copy">Linux architecture</a>  Jul 10, 2024</p><h2 id="8c5065a5-5d9f-4ad8-ba01-85ad9a52a039" class="">Detailed Notes for &quot;Introduction to Operating Systems&quot;</h2><p id="95143872-a996-4c55-a362-6ef31f364406" class=""><strong>Key Concepts:</strong></p><ul id="ca8c89a9-6343-4b91-ae93-9a41268276a2" class="bulleted-list"><li style="list-style-type:disc"><strong>Operating System (OS):</strong> A software program that manages the computer&#x27;s hardware and resources, providing a platform for applications to run.</li></ul><ul id="5d5235ab-d07b-47d6-b4ba-d3a8998d33b1" class="bulleted-list"><li style="list-style-type:disc"><strong>User:</strong> The person interacting with the computer.</li></ul><ul id="2b64e010-6fb5-4209-8884-19fcd9b5301f" class="bulleted-list"><li style="list-style-type:disc"><strong>Applications:</strong> Programs that perform specific tasks, such as word processors or calculators.</li></ul><ul id="830d4ca3-aa59-4915-9a87-7970518263d8" class="bulleted-list"><li style="list-style-type:disc"><strong>Shell:</strong> A command-line interpreter that processes commands and outputs results.</li></ul><ul id="3078c17f-1b6e-4b14-8e9f-9b779afa9db6" class="bulleted-list"><li style="list-style-type:disc"><strong>Filesystem Hierarchy Standard (FHS):</strong> A standard that organizes data in a Linux system.</li></ul><ul id="9fb058c6-c378-4d7a-8c20-9e2915319cc2" class="bulleted-list"><li style="list-style-type:disc"><strong>Kernel:</strong> The core of the OS that manages processes and memory, communicating with hardware to execute commands.</li></ul><ul id="7adafdf8-532c-4ec8-9920-e4dd5ad19ce9" class="bulleted-list"><li style="list-style-type:disc"><strong>Hardware:</strong> The physical components of a computer, such as the CPU, mouse, and keyboard.</li></ul><p id="36f81a58-cdc4-4cba-96b5-80858ba42f4c" class=""><strong>Components of a Linux System:</strong></p><ul id="989e3df5-26ac-4abe-b9e7-7850add84f00" class="bulleted-list"><li style="list-style-type:disc"><strong>User:</strong> Initiates tasks and commands for the OS to execute.</li></ul><ul id="0556492a-5d3b-4d6d-89ce-baf0fbd576f0" class="bulleted-list"><li style="list-style-type:disc"><strong>Applications:</strong> Perform specific tasks, distributed through package managers.</li></ul><ul id="daeb830a-88d5-4240-a2e6-e690258dea11" class="bulleted-list"><li style="list-style-type:disc"><strong>Shell:</strong> Processes commands and outputs results, similar to a CLI.</li></ul><ul id="97e6efaa-eff0-4b6d-85e5-9a507d510aa0" class="bulleted-list"><li style="list-style-type:disc"><strong>FHS:</strong> Organizes data in a system, like a filing cabinet.</li></ul><ul id="1fa28a86-56f8-4677-9ed1-e52e35b6266f" class="bulleted-list"><li style="list-style-type:disc"><strong>Kernel:</strong> Manages processes and memory, communicating with hardware through drivers.</li></ul><ul id="b9c90156-b2de-410d-a86e-21c2f223a939" class="bulleted-list"><li style="list-style-type:disc"><strong>Hardware:</strong> Physical components of the computer.</li></ul><p id="1fb8883a-abf4-4cec-be64-766ba3c993f5" class=""><strong>Benefits of Understanding Linux Architecture:</strong></p><ul id="4edd82fe-1f0a-4475-b575-675cb32dc30b" class="bulleted-list"><li style="list-style-type:disc">Increased familiarity with Linux.</li></ul><ul id="f9ba1e68-8282-489f-b561-4fb983e6f0cd" class="bulleted-list"><li style="list-style-type:disc">Improved ability to navigate and use the system effectively.</li></ul><ul id="c1913998-913c-4508-a018-a80eeb880f7a" class="bulleted-list"><li style="list-style-type:disc">Enhanced understanding of how applications interact with the OS.</li></ul><p id="a27a9335-d046-4241-ba66-c0e5df620eee" class=""><strong>Additional Notes:</strong></p><ul id="63744566-485a-43ff-a8ca-e55c301b55af" class="bulleted-list"><li style="list-style-type:disc">This lecture provides a high-level overview of the Linux architecture.</li></ul><ul id="af52b6d0-4399-447a-9672-1c9ce97ff0df" class="bulleted-list"><li style="list-style-type:disc">Subsequent modules will delve deeper into each component and its functionalities.</li></ul><ul id="ae673163-8da1-4249-8f31-e9cb049185de" class="bulleted-list"><li style="list-style-type:disc">Feel free to ask questions or seek clarification if needed.</li></ul><p id="68f480f8-3c83-487b-b93a-649530fa3c0d" class=""><strong>Further Resources:</strong></p><ul id="9096121f-26f9-443e-8b71-3b8a6d24b9ff" class="bulleted-list"><li style="list-style-type:disc">The Linux Foundation: https://www.linuxfoundation.org/</li></ul><ul id="2ee63991-5df0-4919-bd92-714d75b46d2b" class="bulleted-list"><li style="list-style-type:disc">The Linux Documentation Project: https://www.tldp.org/</li></ul><ul id="9f8f5a2e-b9a9-4b78-ba02-23af8cb72fdf" class="bulleted-list"><li style="list-style-type:disc">Coursera&#x27;s &quot;The Linux operating system&quot; module: https://www.coursera.org/learn/the-linux-operating-system</li></ul><p id="f75c9e89-f53b-4526-bd7a-066660294bc7" class=""><strong>Remember:</strong></p><ul id="f7de5fb8-cc8a-46e9-95a9-d27bf9da95fd" class="bulleted-list"><li style="list-style-type:disc">Practice using the Linux commands and tools discussed in the lecture.</li></ul><ul id="7a3cce8f-2f1c-42d6-aaf6-cf94a80220ab" class="bulleted-list"><li style="list-style-type:disc">Explore the resources provided for further learning and understanding.</li></ul><ul id="fbeeb2e7-f9a4-4c93-b40c-2387aca51205" class="bulleted-list"><li style="list-style-type:disc">Don&#x27;t hesitate to ask questions or seek help if you encounter any difficulties.</li></ul><p id="6f61a1bf-c3bf-4cff-be2e-9ce591499474" class="">I hope these detailed notes are helpful! Please let me know if you have any questions.</p><h1 id="b01418b7-73f9-41e6-b375-f86b56f793f7" class="">Linux architecture explained</h1><p id="caf317fd-4fab-4327-8127-f601e7758d94" class="">Understanding the Linux architecture is important for a security analyst. When you understand how a system is organized, it makes it easier to understand how it functions. In this reading, you’ll learn more about the individual components in the Linux architecture. A request to complete a task starts with the user and then flows through applications, the shell, the Filesystem Hierarchy Standard, the kernel, and the hardware.</p><h2 id="1f8caf88-b397-4548-97b4-c6b6183ab108" class="">User</h2><p id="ddf6a394-260e-4c05-ba6d-7b88b09ed97f" class="">The <strong>user</strong> is the person interacting with a computer. They initiate and manage computer tasks. Linux is a multi-user system, which means that multiple users can use the same resources at the same time.</p><h2 id="4fa3d4f2-1329-4030-824f-346e6c8e9a08" class="">Applications</h2><p id="b6827410-0c51-470b-ab2b-2a3f3710c8c8" class="">An <strong>application</strong> is a program that performs a specific task. There are many different applications on your computer. Some applications typically come pre-installed on your computer, such as calculators or calendars. Other applications might have to be installed, such as some web browsers or email clients. In Linux, you&#x27;ll often use a package manager to install applications. A <strong>package manager</strong> is a tool that helps users install, manage, and remove packages or applications. A <strong>package</strong> is a piece of software that can be combined with other packages to form an application.</p><h2 id="107d0bdf-ed56-4238-97f5-7eb4065d08a7" class="">Shell</h2><p id="179ec692-e3a1-4f7c-91a9-173148894991" class="">The <strong>shell</strong> is the command-line interpreter. Everything entered into the shell is text based. The shell allows users to give commands to the kernel and receive responses from it. You can think of the shell as a translator between you and your computer. The shell translates the commands you enter so that the computer can perform the tasks you want.</p><h2 id="cec0a128-a18e-4390-932d-15b05e8b1c81" class="">Filesystem Hierarchy Standard (FHS)</h2><p id="72e39830-33c7-4da5-bce5-da3066e2d4d8" class="">The <strong>Filesystem Hierarchy Standard (FHS)</strong> is the component of the Linux OS that organizes data. It specifies the location where data is stored in the operating system.</p><p id="8d097dea-d11a-48d8-9e76-30c084badebb" class="">A <strong>directory</strong> is a file that organizes where other files are stored. Directories are sometimes called “folders,” and they can contain files or other directories. The FHS defines how directories, directory contents, and other storage is organized so the operating system knows where to find specific data.</p><h2 id="7ba51527-759b-430d-a4c7-9e006ce9b5e8" class="">Kernel</h2><p id="5dfb7390-b67a-4ac0-99c5-b8b32ca9f738" class="">The <strong>kernel</strong> is the component of the Linux OS that manages processes and memory. It communicates with the applications to route commands. The Linux kernel is unique to the Linux OS and is critical for allocating resources in the system. The kernel controls all major functions of the hardware, which can help get tasks expedited more efficiently.</p><h2 id="95ce9125-8ad7-4372-b40a-1f4b253cd498" class="">Hardware</h2><p id="5a2d9b02-e8c4-4036-bead-ba01db2cefa9" class="">The <strong>hardware</strong> is the physical components of a computer. You might be familiar with some hardware components, such as hard drives or CPUs. Hardware is categorized as either peripheral or internal.</p><h3 id="eb76d7da-2537-4ac9-8b86-5b39c702dbcf" class=""><strong>Peripheral devices</strong></h3><p id="9941d2db-9d6b-44d9-8d19-01b99a758888" class=""><strong>Peripheral devices</strong> are hardware components that are attached and controlled by the computer system. They are not core components needed to run the computer system. Peripheral devices can be added or removed freely. Examples of peripheral devices include monitors, printers, the keyboard, and the mouse.</p><h3 id="419ea376-1128-42db-9b0f-5561dc62f438" class=""><strong>Internal hardware</strong></h3><p id="232297c7-1557-4d58-ac03-12747050fde8" class=""><strong>Internal hardware</strong> are the components required to run the computer. Internal hardware includes a main circuit board and all components attached to it. This main circuit board is also called the motherboard. Internal hardware includes the following:</p><ul id="1f3e63bf-3fa5-4de0-a8b5-a8ec9ecd120f" class="bulleted-list"><li style="list-style-type:disc">The<strong> Central Processing Unit (CPU)</strong> is a computer’s main processor, which is used to perform general computing tasks on a computer. The CPU executes the instructions provided by programs, which enables these programs to run.</li></ul><ul id="05e657a3-7736-4db6-9442-4154bd99d71a" class="bulleted-list"><li style="list-style-type:disc"><strong>Random Access Memory (RAM)</strong> is a hardware component used for short-term memory. It’s where data is stored temporarily as you perform tasks on your computer. For example, if you’re writing a report on your computer, the data needed for this is stored in RAM. After you’ve finished writing the report and closed down that program, this data is deleted from RAM. Information in RAM cannot be accessed once the computer has been turned off. The CPU takes the data from RAM to run programs.</li></ul><ul id="0e21290a-0775-4ed3-a5f9-2e99962982b5" class="bulleted-list"><li style="list-style-type:disc">The <strong>hard drive</strong> is a hardware component used for long-term memory. It’s where programs and files are stored for the computer to access later. Information on the hard drive can be accessed even after a computer has been turned off and on again. A computer can have multiple hard drives.</li></ul><h2 id="e9a402da-235b-4cbd-baaa-15cbb91eeeec" class="">Key takeaways</h2><p id="690fc077-e195-482b-b346-4f994250e528" class="">It’s important for security analysts to understand the Linux architecture and how these components are organized. The components of the Linux architecture are the user, applications, shell, Filesystem Hierarchy Standard, kernel, and hardware. Each of these components is important in how Linux functions.</p><p id="3c22708e-4b4d-47a8-a3d3-08e899f7df11" class="">
+</p><p id="885e6252-6a07-4ad6-a13d-1869431b7199" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/mw2O6/kali-linux-tm?trk_ref=coach_copy">KALI LINUX ™</a>  Jul 15, 2024</p><h2 id="1e52c000-0917-4251-95eb-3a77252d8e02" class="">Detailed Notes for &quot;KALI LINUX™: A Distribution for Security Professionals&quot;</h2><p id="3201c20a-1afd-44d4-9468-5ddf139b3b78" class=""><strong>Key Points:</strong></p><ul id="d5153c61-6e8a-44b5-99a6-94d360c27b84" class="bulleted-list"><li style="list-style-type:disc"><strong>KALI LINUX™:</strong><ul id="86e08135-9f01-45e1-b9ee-bf5efd4a8e5b" class="bulleted-list"><li style="list-style-type:circle">A Debian-derived open-source distribution specifically designed for penetration testing and digital forensics.</li></ul><ul id="756572ff-5ab6-4782-8408-f6158da6a2e9" class="bulleted-list"><li style="list-style-type:circle">Widely used by security professionals.</li></ul><ul id="5c35a1ad-134c-4f3c-a5e9-764690b8897a" class="bulleted-list"><li style="list-style-type:circle">Should be used on a virtual machine for safety and reversibility.</li></ul></li></ul><ul id="f965be93-3c86-469a-aab7-192d62890cac" class="bulleted-list"><li style="list-style-type:disc"><strong>Penetration Testing:</strong><ul id="469a2732-575b-4c37-ab9a-edee81a38f06" class="bulleted-list"><li style="list-style-type:circle">Simulated attacks to identify vulnerabilities in systems, networks, websites, applications, and processes.</li></ul><ul id="38ddb499-ae5a-4e6d-812b-81afa6f48682" class="bulleted-list"><li style="list-style-type:circle">KALI LINUX™ provides tools like Metasploit, Burp Suite, and John the Ripper for this purpose.</li></ul></li></ul><ul id="c1dda373-e473-4a37-9379-0fae6ada4c41" class="bulleted-list"><li style="list-style-type:disc"><strong>Digital Forensics:</strong><ul id="68e2b462-2791-48c1-98c0-65e35e2c419d" class="bulleted-list"><li style="list-style-type:circle">Collecting and analyzing data to determine what happened after an attack.</li></ul><ul id="578c0e31-d223-4a47-b4bc-bb4bca3c648e" class="bulleted-list"><li style="list-style-type:circle">KALI LINUX™ offers tools like tcpdump, Wireshark, and Autopsy for digital forensic work.</li></ul></li></ul><ul id="e00af95f-9b72-4b91-a2bf-7d712859b251" class="bulleted-list"><li style="list-style-type:disc"><strong>Other Security Distributions:</strong><ul id="be259025-4466-412c-b911-b2071422adea" class="bulleted-list"><li style="list-style-type:circle">While KALI LINUX™ is popular, other distributions are also used by security professionals.</li></ul></li></ul><p id="60f2d6d5-f7d8-4925-8483-89d5cc38cdb7" class=""><strong>Additional Notes:</strong></p><ul id="2a0fbe8c-b9cd-49c9-ac11-64b768cabe88" class="bulleted-list"><li style="list-style-type:disc">KALI LINUX™ is a powerful tool, but it&#x27;s important to use it responsibly and ethically.</li></ul><ul id="ec711ec8-b5cd-4373-bab7-b5c16baba30c" class="bulleted-list"><li style="list-style-type:disc">Security professionals often specialize in either penetration testing or digital forensics.</li></ul><ul id="87363adb-57ad-43df-8d90-3a3c23ef433b" class="bulleted-list"><li style="list-style-type:disc">KALI LINUX™ can be a valuable asset for security professionals at all stages of their careers.</li></ul><p id="bec92b9a-1c26-4b69-b6f6-10538f02d7f5" class=""><strong>Further Exploration:</strong></p><ul id="22759291-bcf9-45cd-998c-d63315186350" class="bulleted-list"><li style="list-style-type:disc">Explore the official KALI LINUX™ website for more information and resources: https://www.kali.org/</li></ul><ul id="e6fa4f2d-191e-4adc-b9ca-f2b42ccaf9c4" class="bulleted-list"><li style="list-style-type:disc">Research other security-focused Linux distributions to compare features and functionalities.</li></ul><ul id="0a9d2b48-9eda-407f-8996-a8781558d70e" class="bulleted-list"><li style="list-style-type:disc">Consider taking additional courses on penetration testing or digital forensics to deepen your knowledge and skills.</li></ul><p id="d999c06d-f795-4e8b-b37b-80c7eb777e63" class=""><strong>Remember:</strong></p><ul id="7d6c5d6e-408b-47fe-a57a-08dac0a20c7d" class="bulleted-list"><li style="list-style-type:disc">Always use KALI LINUX™ in a safe and responsible manner.</li></ul><ul id="c02a74a5-ed76-4e2c-b1cb-b16e5dd6761b" class="bulleted-list"><li style="list-style-type:disc">Be aware of the ethical implications of using security tools.</li></ul><ul id="363def94-6a91-44ba-9115-379c2c801da5" class="bulleted-list"><li style="list-style-type:disc">Continuously learn and improve your skills to stay ahead of the curve in the ever-evolving field of cybersecurity.</li></ul><p id="0b25b530-18f0-429b-8308-2a58416aadc3" class="">I hope these detailed notes are helpful! Please let me know if you have any further questions.</p><h1 id="7742a37b-b3d7-4c12-a3dd-a7a9062ea64e" class="">More Linux distributions</h1><p id="b845808b-5252-479e-98b2-06dd8d9b768f" class="">Previously, you were introduced to the different distributions of Linux. This included KALI LINUX ™. (KALI LINUX ™ is a trademark of OffSec.) In addition to KALI LINUX ™, there are multiple other Linux distributions that security analysts should be familiar with. In this reading, you’ll learn about additional Linux distributions.</p><h2 id="b98a4f9f-94bf-4841-b0a3-c96a815e363c" class="">KALI LINUX ™</h2><p id="6360302f-5f6f-4369-9ad0-8078eb2a353c" class=""><strong>KALI LINUX ™</strong> is an open-source distribution of Linux that is widely used in the security industry. This is because KALI LINUX ™, which is Debian-based, is pre-installed with many useful tools for penetration testing and digital forensics. A <strong>penetration test</strong> is a simulated attack that helps identify vulnerabilities in systems, networks, websites, applications, and processes. <strong>Digital forensics</strong> is the practice of collecting and analyzing data to determine what has happened after an attack. These are key activities in the security industry.</p><p id="30ea4867-3c81-4b4f-92ce-200b17884e6d" class="">However, KALI LINUX ™ is not the only Linux distribution that is used in cybersecurity.</p><h2 id="2148cea9-dd5d-4b06-ae1a-3a06f2d09847" class="">Ubuntu</h2><p id="f1b0fb61-41ed-4374-bdb3-397e82c1ca27" class=""><strong>Ubuntu</strong> is an open-source, user-friendly distribution that is widely used in security and other industries. It has both a command-line interface (CLI) and a graphical user interface (GUI). Ubuntu is also Debian-derived and includes common applications by default. Users can also download many more applications from a package manager, including security-focused tools. Because of its wide use, Ubuntu has an especially large number of community resources to support users.</p><p id="4d878108-8d9b-465f-959e-12104b1521e1" class="">Ubuntu is also widely used for cloud computing. As organizations migrate to cloud servers, cybersecurity work may more regularly involve Ubuntu derivatives.</p><h2 id="d5465a7b-c229-4121-97aa-3107fb043f72" class="">Parrot</h2><p id="acc36be3-ce2e-4ddd-a671-7410e752ed34" class=""><strong>Parrot</strong> is an open-source distribution that is commonly used for security. Similar to KALI LINUX ™, Parrot comes with pre-installed tools related to penetration testing and digital forensics. Like both KALI LINUX ™ and Ubuntu, it is based on Debian.</p><p id="fb464943-c49c-4666-afae-66ab457ed000" class="">Parrot is also considered to be a user-friendly Linux distribution. This is because it has a GUI that many find easy to navigate. This is in addition to Parrot’s CLI.</p><h2 id="f6bf4bc4-aa11-4b5d-9bd3-4db39e91a6c2" class="">Red Hat® Enterprise Linux®</h2><p id="086edc92-f498-4004-8cf1-ff40a11d875c" class=""><strong>Red Hat Enterprise Linux</strong> is a subscription-based distribution of Linux built for enterprise use. Red Hat is not free, which is a major difference from the previously mentioned distributions. Because it’s built and supported for enterprise use, Red Hat also offers a dedicated support team for customers to call about issues.</p><h2 id="a380f4b2-35bd-41d7-875c-27baf4e7738e" class="">CentOS</h2><p id="e204baba-3850-4ed1-83b0-e75c6286ed4d" class=""><strong>CentOS</strong> is an open-source distribution that is closely related to Red Hat. It uses source code published by Red Hat to provide a similar platform. However, CentOS does not offer the same enterprise support that Red Hat provides and is supported through the community.</p><h2 id="4bce75fa-f004-48c8-8f6c-286ad021973d" class="">Key takeaways</h2><p id="f162b266-d637-45f0-8cad-e83df2de2679" class="">KALI LINUX ™, Ubuntu, Parrot, Red Hat, and CentOS are all widely used Linux distributions. It’s important for security analysts to be aware of these distributions that they might encounter in their career.</p><h1 id="46f98278-843d-4259-95bd-e14b445375d3" class="">Package managers for installing applications</h1><p id="b8ae4e89-9a77-416f-b133-a31ef030c0d4" class="">Previously, you learned about Linux distributions and that different distributions derive from different sources, such as Debian or Red Hat Enterprise Linux distribution. You were also introduced to package managers, and learned that Linux applications are commonly distributed through package managers. In this reading, you’ll apply this knowledge to learn more about package managers.</p><h2 id="e2039704-91b2-48d5-839a-7fbd33f1a0f1" class="">Introduction to package managers</h2><p id="3148fbf9-c49e-4263-9fa9-02b7fcd64862" class="">A <strong>package</strong> is a piece of software that can be combined with other packages to form an application. Some packages may be large enough to form applications on their own.</p><p id="2a4ac06f-dbe0-4d96-af2d-3b9ca682baf8" class="">Packages contain the files necessary for an application to be installed. These files include dependencies, which are supplemental files used to run an application.</p><p id="746a849c-c002-471b-93cc-2170afe2437c" class="">Package managers can help resolve any issues with dependencies and perform other management tasks. A <strong>package manager</strong> is a tool that helps users install, manage, and remove packages or applications. Linux uses multiple package managers.</p><p id="64769079-c843-45e1-86e2-ecf737dd3d90" class=""><strong>Note:</strong> It’s important to use the most recent version of a package when possible. The most recent version has the most up-to-date bug fixes and security patches. These help keep your system more secure.</p><h2 id="6366c995-d764-4956-92fa-a5f5f50ba42c" class="">Types of package managers</h2><p id="92a11780-f741-48d7-8a0d-c0047b49c953" class="">Many commonly used Linux distributions are derived from the same parent distribution. For example, KALI LINUX ™, Ubuntu, and Parrot all come from Debian. CentOS comes from Red Hat.</p><p id="c2816ddd-df6f-4b91-9cd0-e176951e8fc5" class="">This knowledge is useful when installing applications because certain package managers work with certain distributions. For example, the Red Hat Package Manager (RPM) can be used for Linux distributions derived from Red Hat, and package managers such as dpkg can be used for Linux distributions derived from Debian.</p><p id="242a2f08-5122-4459-982d-4b880d2d20f5" class="">Different package managers typically use different file extensions. For example, Red Hat Package Manager (RPM) has files which use the .rpm file extension, such as Package-Version-Release_Architecture.rpm. Package managers for Debian-derived Linux distributions, such as dpkg, have files which use the .deb file extension, such as Package_Version-Release_Architecture.deb.</p><h2 id="113527a3-4d1b-435b-90f6-ce0782e83543" class="">Package management tools</h2><p id="dd66d160-ed3d-4fd3-8fa2-5cc36e3bed8b" class="">In addition to package managers like RPM and dpkg, there are also package management tools that allow you to easily work with packages through the shell. Package management tools are sometimes utilized instead of package managers because they allow users to more easily perform basic tasks, such as installing a new package. Two notable tools are the Advanced Package Tool (APT) and Yellowdog Updater Modified (YUM).</p><h3 id="e5666391-c858-4daa-8d06-37587de0dce4" class=""><strong>Advanced Package Tool (APT)</strong></h3><p id="ce7bbe20-fd82-436d-918f-ecd58a43fa39" class="">APT is a tool used with Debian-derived distributions. It is run from the command-line interface to manage, search, and install packages.</p><h3 id="e2be7bef-fd63-4f79-b4c4-580c716e5d02" class=""><strong>Yellowdog Updater Modified (YUM)</strong></h3><p id="e82830d9-2c7a-4193-89cc-15eb760e2408" class="">YUM is a tool used with Red Hat-derived distributions. It is run from the command-line interface to manage, search, and install packages. YUM works with .rpm files.</p><h2 id="04377db3-e981-4762-9028-0ac2ce4b16be" class="">Key takeaways</h2><p id="f005cae8-2888-4278-b216-3f31bd5f9c01" class="">A package is a piece of software that can be combined with other packages to form an application. Packages can be managed using a package manager. There are multiple package managers and package management tools for different Linux distributions. Package management tools allow users to easily work with packages through the shell. Debian-derived Linux distributions use package managers like dpkg as well as package management tools like Advanced Package Tool (APT). Red Hat-derived distributions use the Red Hat Package Manager (RPM) or tools like Yellowdog Updater Modified (YUM).</p><h1 id="7142d114-fb00-429a-805e-62665b3e79ff" class="">Different types of shells</h1><p id="c00a9240-73f2-4eee-ada2-70f3e36860db" class="">Knowing how to work with Linux shells is an important skill for cybersecurity professionals. Shells can be used for many common tasks. Previously, you were introduced to shells and their functions. This reading will review shells and introduce you to different types, including the one that you&#x27;ll use in this course.</p><h2 id="43b25009-1110-42ab-90ca-c16681755bd3" class="">Communicate through a shell</h2><p id="031d7cf4-625d-43fa-8d77-af9be7a38670" class="">As you explored previously, the <strong>shell</strong> is the command-line interpreter. You can think of a shell as a translator between you and the computer system. Shells allow you to give commands to the computer and receive responses from it. When you enter a command into a shell, the shell executes many internal processes to interpret your command, send it to the kernel, and return your results.</p><h2 id="f1c44581-44ed-4866-876e-d3cf9cd4aeb5" class="">Types of shells</h2><p id="a0c82745-5cab-4202-a3be-37bfbfcd0f2b" class="">The many different types of Linux shells include the following:</p><ul id="eaed86e6-b42c-4b18-926c-e706c6fbb2a1" class="bulleted-list"><li style="list-style-type:disc">Bourne-Again Shell (bash)</li></ul><ul id="0dddae2d-ca14-4bc5-9ad1-a94399ad0de0" class="bulleted-list"><li style="list-style-type:disc">C Shell (csh)</li></ul><ul id="1d18cd1c-3080-4f59-aada-bb600de7edf8" class="bulleted-list"><li style="list-style-type:disc">Korn Shell (ksh)</li></ul><ul id="c295e898-72db-4cbf-afb5-c0a08f2d17ae" class="bulleted-list"><li style="list-style-type:disc">Enhanced C shell (tcsh)</li></ul><ul id="527b4300-63d6-49c3-af73-e99bda1a39ed" class="bulleted-list"><li style="list-style-type:disc">Z Shell (zsh)</li></ul><p id="59af655a-5acc-4d38-898d-3d6f4643766f" class="">All Linux shells use common Linux commands, but they can differ in other features. For example, ksh and bash use the dollar sign ($) to indicate where users type in their commands. Other shells, such as zsh, use the percent sign (%) for this purpose.</p><h2 id="7d526bad-3e92-4f8e-b848-3d354fae5bf2" class="">Bash</h2><p id="47998359-e42e-42d2-93f8-3236b05f2846" class=""><strong>Bash</strong> is the default shell in most Linux distributions. It’s considered a user-friendly shell. You can use bash for basic Linux commands as well as larger projects.</p><p id="c4c8a213-8499-4381-b872-c35ef643ff71" class="">Bash is also the most popular shell in the cybersecurity profession. You’ll use bash throughout this course as you learn and practice Linux commands.</p><h2 id="9d2b40ac-d6a8-400c-891d-3ed79a7e53ee" class="">Key takeaways</h2><p id="20e9bc42-aef4-4b60-8a56-7bbdc79f249d" class="">Shells are a fundamental part of the Linux operating system. Shells allow you to give commands to the computer and receive responses from it. They can be thought of as a translator between you and your computer system. There are many different types of shells, but the bash shell is the most commonly used shell in the cybersecurity profession. You’ll learn how to enter Linux commands through the bash shell later in this course.</p><p id="1cda6743-e2d3-4f64-971f-29111a562db1" class=""><a href="https://www.coursera.org/learn/linux-and-sql/lecture/kHGWj/input-and-output-in-the-shell?trk_ref=coach_copy">Input and output in the shell</a>  Jul 20, 2024</p><p id="c18e444e-108e-40a1-b0a6-2402cfcd3182" class="">Here are some detailed notes on communicating with the shell from the lecture:</p><p id="c7ce1f04-2d23-4772-bc47-9bf1b583d9f4" class=""><strong>Shell Communication</strong></p><ul id="c71606b5-1e1d-49f2-9411-c98bbdae0009" class="bulleted-list"><li style="list-style-type:disc"><strong>Analogy:</strong> Talking to the shell is like having a conversation with a friend. You ask a question (input), and your friend gives an answer (output).</li></ul><ul id="1de2af37-9e38-4202-a1dc-00b34e9b28a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Input:</strong> Commands you type into the shell. The shell interprets your request and asks the operating system (kernel) to perform the task.</li></ul><ul id="fcbbd049-1add-4274-a24c-e0a18e146029" class="bulleted-list"><li style="list-style-type:disc"><strong>Output:</strong> Information returned by the operating system through the shell in response to your command.</li></ul><p id="cc8ca678-aabb-4e86-bf15-43c06c30cbf6" class=""><strong>Three Ways of Shell Communication</strong></p><ol type="1" id="3cfa368c-0209-4de1-bcaa-415207bd9484" class="numbered-list" start="1"><li><strong>Standard Input:</strong> Information the operating system receives from the command line (what you type).</li></ol><ol type="1" id="84ff9f95-4959-4ead-9ba2-205b4067438e" class="numbered-list" start="2"><li><strong>Standard Output:</strong> Information the operating system returns through the shell (the result of the command).</li></ol><ol type="1" id="15bfc42c-6097-4e6b-a87f-a2182aa2281a" class="numbered-list" start="3"><li><strong>Standard Error:</strong> Error messages returned by the operating system if it cannot understand or execute your command.</li></ol><p id="48906a87-0e4f-4ea5-afd0-95aab6d1aab0" class=""><strong>Example: </strong><code><strong>echo</strong></code><strong> command</strong></p><ul id="882c12b4-498b-4ee5-8166-37b2d7870abf" class="bulleted-list"><li style="list-style-type:disc"><code>echo hello</code>: This command tells the shell to output the string &quot;hello&quot;.<ul id="4e9e5daa-1593-4727-adbc-96bb2292553e" class="bulleted-list"><li style="list-style-type:circle"><code>echo</code>: The command itself.</li></ul><ul id="1c7a86c8-0feb-4edb-bd41-016081099c9e" class="bulleted-list"><li style="list-style-type:circle"><code>hello</code>: The input string.</li></ul><ul id="d3c4b29c-e172-4d99-b2b5-6ce34d1e203f" class="bulleted-list"><li style="list-style-type:circle">Output: <code>hello</code> (displayed on the next line).</li></ul></li></ul><p id="17bc7cda-7bb0-4f32-b22e-b16072eb083e" class=""><strong>Error Handling</strong></p><ul id="7a12eb65-fb99-4a46-9bd1-2e6e72338222" class="bulleted-list"><li style="list-style-type:disc"><strong>Misspelled Commands:</strong> Typing <code>eco hello</code> instead of <code>echo hello</code> will result in an error message because the shell doesn&#x27;t recognize the command <code>eco</code>.</li></ul><ul id="9f796621-9f07-4cc7-91a6-9927ce046955" class="bulleted-list"><li style="list-style-type:disc"><strong>Permissions:</strong> You may get error messages if you try to execute commands that you don&#x27;t have the necessary permissions for.</li></ul><p id="15af6147-32f5-4bcf-b745-d587d14a1ad1" class=""><strong>Key Takeaway</strong></p><p id="d6094c1d-b08b-48cd-890f-e89ba6ac072c" class="">Understanding how to communicate with the shell through input, output, and error messages is crucial for effectively using the command line. As you progress through the course, you&#x27;ll learn more commands and how to interpret different types of output and error messages.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
